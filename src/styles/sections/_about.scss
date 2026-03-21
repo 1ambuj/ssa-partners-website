@@ -1,0 +1,258 @@
+/*------------------------------------------------
+    about style
+------------------------------------------------*/
+.about-thumb-area {
+	padding-bottom: 190px;
+	position: relative;
+	padding-right: 190px;
+	.about-img-1 {
+		position: relative;
+		z-index: 2;
+	}
+	.about-img-2 {
+		position: absolute;
+		right: 0;
+		top: 185px;
+		z-index: 1;
+	}
+	.about-img-3 {
+		position: absolute;
+		right: -50px;
+		bottom: -50px;
+		z-index: 0;
+	}
+	.about-img-4 {
+		position: absolute;
+		left: -50px;
+		bottom: 50px;
+		z-index: 0;
+		width: 170px;
+	}
+	.about-img-5 {
+		position: absolute;
+		right: -50px;
+		top: -50px;
+		z-index: 0;
+	}
+	.about-img-6 {
+		position: absolute;
+		left: 40%;
+		bottom: 40px;
+		z-index: 0;
+	}
+	.about-img-video {
+		position: absolute;
+		height: 200px;
+		width: 200px;
+		left: 50%;
+		top: 50%;
+		margin-left: -100px;
+		margin-top: -100px;
+		z-index: 3;
+	}
+	.exp-wrap {
+		background: var(--main-color);
+		height: 160px;
+		width: 170px;
+		text-align: center;
+		display: flex;
+    	align-items: center;
+    	border: 8px solid #fff;
+    	box-shadow: 0 0 15px rgba(0,0,0,0.08);
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+    	padding: 12px;
+		h2 {
+			color: #fff;
+			font-size: 50px;
+		}
+		p {
+			color: #fff;
+			font-size: 15px;
+		}
+	}
+	.avg-ratting-wrap {
+		background: var(--heading-color);
+		height: 160px;
+		width: 170px;
+		text-align: center;
+		display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	margin-top: 15px;
+    	margin-left: -80px;
+    	h2 {
+			color: #fff;
+			font-size: 55px;
+			margin-bottom: 0;
+		}
+		p {
+			color: #fff;
+			font-size: 20px;
+		}
+	}
+	.left-content {
+		position: absolute;
+		left: -140px;
+    	bottom: 225px;
+		transform: rotate(-90deg);
+		color: var(--heading-color);
+		font-size: 24px;
+		font-weight: 600;
+		padding-left: 20px;
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            height: 8px;
+            width: 8px;
+            background: var(--heading-color);
+        }	
+    }
+}
+
+.counter-area-inner	{
+	position: relative;
+	.overlay-title {
+		color: #e7e5e1;
+		font-size: 200px;
+		position: absolute;
+		z-index: 0;
+		top: -70px;
+	}
+}
+.single-counter-inner {
+	position: relative;
+	z-index: 2;
+	margin-bottom: 55px;
+	h2 {
+		font-size: 72px;
+		color: var(--main-color);
+		margin-bottom: 15px;
+	}
+	h6 {
+		margin-bottom: 0;
+		font-weight: 600;
+	}
+}
+
+.single-list-media {
+	background: #fff;
+	box-shadow: 0px 2px 18px 0px rgb(0 0 0 / 5%);
+	padding: 20px 20px 20px 0;
+	margin-bottom: 18px;
+	.media-left {
+		height: 85px;
+		width: 85px;
+		margin-right: 20px;
+		background: var(--heading-color);
+		line-height: 85px;
+		text-align: center;
+		transition: 0.4s;
+	}
+	.media-body {
+		h4 {
+			margin-bottom: 5px;
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+	&:hover {
+		.media-left {
+			background: var(--main-color);
+		}
+	}
+	&.style-2 {
+		background: transparent;
+		box-shadow: none;
+		padding: 0;
+		.media-left {
+			background: #1c1a1a;
+			font-size: 24px;
+			color: #fff;
+			font-family: var(--heading-font);
+		}
+		.media-body {
+			h4 {
+				color: #fff;
+			}
+			p {
+				color: #fff;
+			}
+		}
+		&:hover {
+			.media-left {
+				background: var(--main-color);
+			}
+		}
+	}
+	&.style-3 {
+		background: transparent;
+		box-shadow: none;
+		padding: 0;
+		.media-left {
+			background: #1c1a1a;
+			font-size: 24px;
+			color: #fff;
+			font-family: var(--heading-font);
+			border-radius: 50%;
+			height: 80px;
+			width: 80px;
+			line-height: 80px;
+			img {
+				transition: 0.4s;
+			}
+		}
+		.media-body {
+			h4 {
+				margin-bottom: 0;
+			}
+			p {
+				color: #65645f;
+				font-weight: 600;
+				margin-bottom: 5px;
+			}
+		}
+		&:hover {
+			.media-left {
+				background: var(--main-color);
+				img {
+					transform: rotate(360deg);
+				}
+			}
+		}
+	}
+}
+
+.mission-vision-tab {
+	.btn {
+		background: var(--heading-color);
+		margin-right: 10px;
+		margin-top: 0;
+		margin-bottom: 10px;
+		&.active {
+			background: var(--main-color);
+		}
+	}
+}
+.mission-vision-content {
+	background: #fff;
+	padding: 30px 30px 18px;
+}
+
+
+.about-section-title {
+	margin-left: -200px;
+	background: #f5f3ef;
+	position: relative;
+	z-index: 2;
+	padding: 50px;
+	margin-top: 65px;
+}
+.quote-area {
+    margin-top: -140px;
+    position: relative;
+}
