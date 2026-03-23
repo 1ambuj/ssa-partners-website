@@ -1,6 +1,8 @@
 import one from "public/images/service/1.png";
 import two from "public/images/service/2.png";
 import three from "public/images/service/3.png";
+import six from "public/images/service/6.png";
+import seven from "public/images/service/7.png";
 import four from "public/images/service/4.png";
 import five from "public/images/service/5.png";
 
@@ -18,8 +20,10 @@ const servicesList = [
     href: "/services/audit",
     icon: icon1,
     img1: one,
-    img2: two,
+    img2: six,
     mainImg: one,
+    animImg1: two,
+    animImg2: three,
     description:
       "Independent, compliant, and insight-driven audit services ensuring transparency and regulatory confidence.",
 
@@ -94,9 +98,11 @@ const servicesList = [
     title: "Advisory Services",
     href: "/services/advisory",
     icon: icon2,
-    img1: two,
-    img2: three,
-    mainImg: two,
+    img1: six,
+    img2: seven,
+    mainImg: six,
+    animImg1: two,
+    animImg2: three,
     description:
       "Strategic advisory services to support business growth and decisions.",
 
@@ -164,9 +170,11 @@ const servicesList = [
     title: "Taxation Services",
     href: "/services/taxation",
     icon: icon3,
-    img1: three,
-    img2: four,
-    mainImg: three,
+    img1: seven,
+    img2: six,
+    mainImg: seven,
+    animImg1: two,
+    animImg2: three,
     description:
       "Comprehensive taxation services ensuring compliance and optimization.",
 
@@ -331,7 +339,7 @@ const servicesList = [
     href: "/services/bpo",
     icon: icon5,
     img1: one,
-    img2: two,
+    img2: six,
     mainImg: one,
     description:
       "Outsourcing solutions for accounting, payroll, and compliance.",

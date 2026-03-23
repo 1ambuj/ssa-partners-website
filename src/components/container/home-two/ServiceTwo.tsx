@@ -26,20 +26,22 @@ const ServiceTwo = () => {
                   >
                     <div className="single-service-inner-2">
 
-                      <Image
-                        className="top_image_bounce animate-img-1"
-                        src={service.img1}
-                        alt="img"
-                      />
-                      <Image
-                        className="top_image_bounce animate-img-2"
-                        src={service.img2}
-                        alt="img"
-                      />
-
                       <div className="thumb">
-                        <Image src={service.mainImg} alt="img" />
+                        <Image src={service.mainImg} alt="Main service" />
                       </div>
+                       {service.animImg2 && (
+                        <div className="animate-img-2">
+                          <Image src={service.animImg2} alt="Animated 2" />
+                        </div>
+                      )}
+                      
+                      {service.animImg1 && (
+                        <div className="animate-img-1">
+                          <Image src={service.animImg1} alt="Animated 1" />
+                        </div>
+                      )}
+
+                     
 
                       <div className="details">
                         <div className="details-inner">
