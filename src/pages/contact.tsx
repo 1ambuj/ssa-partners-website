@@ -2,12 +2,12 @@ import React from "react";
 import Layout from "@/components/layout/Layout";
 import ContactBanner from "@/components/container/contact/ContactBanner";
 import ContactForm from "@/components/container/contact/ContactForm";
-import ContactClient from "@/components/container/contact/ContactClient";
+import { siteConfig } from "@/data/siteConfig";
 
 const Contact = () => {
   return (
     <Layout
-      meta="SSA - Chartered Accountants"
+      meta={`Contact Us - ${siteConfig.shortName} Chartered Accountants`}
       header={false}
       sidebar={true}
       footer={true}
@@ -15,7 +15,6 @@ const Contact = () => {
     >
       <ContactBanner />
       <ContactForm />
-      <ContactClient />
     </Layout>
   );
 };

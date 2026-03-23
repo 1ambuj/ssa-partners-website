@@ -44,7 +44,7 @@ const ProcessTwo = () => {
         <div className="col-lg-6">
           <div className="work-process-thumb work-process-thumb-image">
             <Image src={One} alt="img " />
-            <div className="quote-wrap">
+            <div className="quote-wrap pd-10 pd-lg-20">
               <h4>Our 6S Methodology</h4>
               <p className="mb-0">Scan, Study, Strategize, Structure, Support & Sustain</p>
             </div>
@@ -62,7 +62,7 @@ const ProcessTwo = () => {
                 <div className="media-left">{step.num}</div>
                 <div className="media-body align-self-center">
                   <h4>{step.title}</h4>
-                  <p className="designation small mb-1">{step.subtitle}</p>
+                 
                   <p className="mb-0">{step.desc}</p>
                 </div>
               </div>

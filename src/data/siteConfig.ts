@@ -56,4 +56,28 @@ export const siteConfig = {
     { to: "/services/bpo", label: "Business Process Outsourcing" },
     { to: "/contact", label: "Contact" },
   ],
+  contact: {
+    subjects: [
+      "General Enquiry",
+      "Audit & Assurance",
+      "Advisory",
+      "Taxation",
+      "GST",
+      "Services for non-residents",
+    ],
+    mapEmbedUrl:
+      "https://www.google.com/maps?q=E-127%20GF%20Sushant%20Shopping%20Arcade%20Sushant%20Lok-1%20Gurgaon&output=embed",
+  },
+  footer: {
+    about:
+      "Specialized services in Audit & Assurance, Advisory, Taxation and GST. We combine deep expertise with a modern approach to help businesses grow.",
+    tagline: "For further info & support",
+    subscribePlaceholder: "Enter your email",
+    subscribeButton: "Send",
+    subscribeHint: "We'll contact you shortly",
+    legalLinks: [
+      { href: "/privacy", label: "Privacy Policy" },
+      { href: "/terms", label: "Terms & Conditions" },
+    ],
+  },
 } as const;

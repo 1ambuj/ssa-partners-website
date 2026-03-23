@@ -17,7 +17,7 @@ const BlogPage = () => {
       <BlogBanner />
       <BlogVideoBanner />
       <BlogPageContent />
-      <ContactClient />
+      {/* <ContactClient /> */}
     </Layout>
   );
 };

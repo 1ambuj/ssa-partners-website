@@ -1,6 +1,16 @@
 /*------------------------------------------------
     blog style
 ------------------------------------------------*/
+/* Shared blog section - identical style on home page and service details.
+   Uses bg-sky so section looks the same regardless of page (bodyClass, parent bg). */
+.blog-section-standard {
+	background: #f5f3ef; /* bg-sky - consistent block on both pages */
+	position: relative;
+}
+.blog-section-standard .blog-area {
+	background: transparent;
+}
+
 .blog-sidebar-wrap {
     position: relative;
 }

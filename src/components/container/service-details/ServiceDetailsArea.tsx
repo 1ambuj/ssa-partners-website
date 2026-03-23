@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import One from "public/images/bg/15.png";
-import ServiceRelatedBlogs from "./ServiceRelatedBlogs";
+import Blog from "@/components/container/home/Blog";
 import ServiceClients from "./ServiceClients";
 
 interface Subservice {
@@ -104,14 +104,15 @@ const ServiceDetailsArea = ({ service }: ServiceDetailsAreaProps) => {
         </div>
       )}
 
-      {/* 3. Related Blogs */}
-      <ServiceRelatedBlogs
+      {/* 3. Related Blogs - same Blog component as home, filtered by service */}
+      <Blog
         serviceSlug={service.slug}
         serviceTitle={service.title}
+        showViewAll
       />
 
       {/* 4. Clients */}
-      <ServiceClients />
+      {/* <ServiceClients /> */}
     </>
   );
 };

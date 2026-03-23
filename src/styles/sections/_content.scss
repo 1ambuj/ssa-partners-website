@@ -742,7 +742,7 @@
 	.quote-wrap {
 		background: var(--main-color);
 		width: 260px;
-		padding: 20px 22px;
+		padding: 40px 40px;
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -773,6 +773,9 @@
 	    	h4 {
 	    		color: var(--heading-color);
 	    	}
+			p {
+               color: #111
+			}
 	        &:before {
 	            height: 100%;
 	            width: 100%;

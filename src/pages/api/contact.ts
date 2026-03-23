@@ -3,8 +3,14 @@ import nodemailer from "nodemailer";
 
 type ContactBody = {
   name?: string;
-  phone?: string;
+  designation?: string;
+  organisation?: string;
+  officeAddress?: string;
+  city?: string;
   email?: string;
+  mobile?: string;
+  phone?: string;
+  subject?: string;
   message?: string;
 };
 
@@ -29,7 +35,8 @@ export default async function handler(
     return res.status(405).json({ ok: false, error: "Method not allowed" });
   }
 
-  const { name, phone, email, message } = (req.body ?? {}) as ContactBody;
+  const { name, designation, organisation, officeAddress, city, email, mobile, phone, subject, message } = (req.body ?? {}) as ContactBody;
+  const phoneNum = mobile || phone;
 
   if (!isNonEmpty(name)) {
     return res.status(400).json({ ok: false, error: "Name is required" });
@@ -67,22 +74,28 @@ export default async function handler(
     auth: { user, pass },
   });
 
-  const subject = `New website message from ${sanitizeLine(name)}`;
-  const text = [
+  const emailSubject = isNonEmpty(subject)
+    ? `Website enquiry: ${sanitizeLine(subject)}`
+    : `New website message from ${sanitizeLine(name)}`;
+  const lines = [
     `Name: ${sanitizeLine(name)}`,
     `Email: ${sanitizeLine(email)}`,
-    `Phone: ${isNonEmpty(phone) ? sanitizeLine(phone) : "-"}`,
-    "",
-    "Message:",
-    message.trim(),
-  ].join("\n");
+    `Phone: ${isNonEmpty(phoneNum) ? sanitizeLine(phoneNum) : "-"}`,
+  ];
+  if (isNonEmpty(designation)) lines.push(`Designation: ${sanitizeLine(designation)}`);
+  if (isNonEmpty(organisation)) lines.push(`Organisation: ${sanitizeLine(organisation)}`);
+  if (isNonEmpty(officeAddress)) lines.push(`Office Address: ${sanitizeLine(officeAddress)}`);
+  if (isNonEmpty(city)) lines.push(`City: ${sanitizeLine(city)}`);
+  if (isNonEmpty(subject)) lines.push(`Subject: ${sanitizeLine(subject)}`);
+  lines.push("", "Message:", message.trim());
+  const text = lines.join("\n");
 
   try {
     const info = await transporter.sendMail({
       to: mailTo,
       from: mailFrom,
       replyTo: sanitizeLine(email),
-      subject,
+      subject: emailSubject,
       text,
     });
     // Helpful for debugging delivery delays (Gmail can sometimes be slow/spam-filter).

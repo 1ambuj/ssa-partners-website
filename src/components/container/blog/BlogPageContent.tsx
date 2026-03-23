@@ -138,7 +138,7 @@ const BlogPageContent = () => {
           </p>
         )}
         {filteredPosts.length > 0 && totalPages > 1 && (
-          <div className="text-center mt-2">
+          <div className="text-center mt-2 mb-5">
             <div className="paginations">
               {currentPage > 1 ? (
                 <Link
