@@ -1,5 +1,12 @@
 import React, { useState, Fragment } from "react";
 import Head from "next/head";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 import Header from "./header/Header";
 import HeaderTwo from "./header/HeaderTwo";
@@ -77,13 +84,11 @@ const Layout = ({
       </Head>
 
       <div
-        className={
-          (bodyClass === 0
-            ? " bg-light2"
+        className={`${poppins.className} ${(bodyClass === 0
+            ? "bg-light2"
             : bodyClass === 1
-            ? " bg-light"
-            : null) + " app"
-        }
+            ? "bg-light"
+            : "") + " app"}`.trim()}
       >
         <Search
           handleSearch={handleSearch}

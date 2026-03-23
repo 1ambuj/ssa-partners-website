@@ -34,7 +34,10 @@ const ServiceTwo = () => {
                           <Image src={service.animImg2} alt="Animated 2" />
                         </div>
                       )}
-                      
+                                            <link
+                        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+                        rel="stylesheet"
+                      />
                       {service.animImg1 && (
                         <div className="animate-img-1">
                           <Image src={service.animImg1} alt="Animated 1" />
