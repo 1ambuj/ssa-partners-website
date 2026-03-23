@@ -99,7 +99,7 @@
 		transform: rotate(-90deg);
 		color: var(--heading-color);
 		font-size: 24px;
-		font-weight: 600;
+			font-weight: 500;
 		padding-left: 20px;
         &:after {
             content: '';
@@ -212,7 +212,7 @@
 			}
 			p {
 				color: #65645f;
-				font-weight: 600;
+				font-weight: 500;
 				margin-bottom: 5px;
 			}
 		}
