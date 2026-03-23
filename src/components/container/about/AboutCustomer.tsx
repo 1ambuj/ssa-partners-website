@@ -23,7 +23,7 @@ const AboutCustomer = () => {
   const [currentTwoSlide, setCurrentTwoSlide] = useState(0);
   const [totalTwoSlides, setTotalTwoSlides] = useState(0);
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: { realIndex: number; slides: { length: number } }) => {
     if (swiper) {
       const currentIndex = swiper.realIndex + 1;
       setCurrentTwoSlide(currentIndex);
