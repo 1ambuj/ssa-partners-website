@@ -1,13 +1,5 @@
 import React, { useState, Fragment } from "react";
 import Head from "next/head";
-import { Poppins } from "next/font/google";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
 import Header from "./header/Header";
 import HeaderTwo from "./header/HeaderTwo";
 import HeaderSSA from "./header/HeaderSSA";
@@ -79,16 +71,22 @@ const Layout = ({
           sizes="32x32"
         />
         <title>{Meta.title}</title>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <meta name="keywords" content={Meta.keywords || siteConfig.keywords} />
         <meta name="description" content={Meta.description || siteConfig.description} />
       </Head>
 
       <div
-        className={`${poppins.className} ${(bodyClass === 0
+        className={
+          (bodyClass === 0
             ? "bg-light2"
             : bodyClass === 1
             ? "bg-light"
-            : "") + " app"}`.trim()}
+            : "") + " app"
+        }
       >
         <Search
           handleSearch={handleSearch}
