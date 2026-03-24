@@ -7,7 +7,7 @@ import { teamMembers } from "@/data/teamMembers";
 const TeamTwo = () => {
   const members = teamMembers.slice(0, 4);
   return (
-    <div className="team-area pd-top-115 pd-bottom-100">
+    <div className="team-area pd-top-115 pd-bottom-100 mb-5">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-7">

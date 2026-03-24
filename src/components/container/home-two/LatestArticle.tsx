@@ -81,8 +81,8 @@ const LatestArticle = () => {
           </div>
         </div>
       </div>
-      <div className="btn-wrap text-center mt--50">
-        <Link className="blog-page-btn left_image_bounce" href="/blog">
+      <div className="btn-wrap text-center mt--50 mb-5">
+        <Link className="blog-page-btn left_image_bounce mb-4" href="/blog">
           <Image src={Eight} alt="img" />
         </Link>
       </div>

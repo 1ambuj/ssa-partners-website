@@ -1036,6 +1036,12 @@ html {
     font-size: 43px;
   }
 
+  .ssa-hero-tagline {
+    font-size: 1.15rem;
+    color: var(--paragraph-color);
+    font-weight: 500;
+  }
+
   .ssa-hero-desc {
     text-align: justify;
     color: var(--paragraph-color);
@@ -1409,4 +1415,266 @@ html {
 @keyframes ssa-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
+}
+
+/* Login page - colorful, clean, form lower on page */
+.login-page-wrap {
+  min-height: 100vh;
+  background: linear-gradient(165deg, #fef8f4 0%, #fff5ee 25%, #fff 50%, #f8f9fa 100%);
+}
+
+.login-banner-compact {
+  padding: 2.5rem 0 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--heading-color) 0%, #1a1919 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(250, 100, 0, 0.08) 50%, transparent 100%);
+    pointer-events: none;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--main-color);
+    margin-bottom: 0.35rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+  }
+}
+
+.login-content-area {
+  padding: 5rem 0 6rem;
+}
+
+.login-form-inner {
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(10, 9, 9, 0.08), 0 2px 8px rgba(250, 100, 0, 0.06);
+  border: 1px solid rgba(234, 225, 214, 0.6);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--main-color), #ff8533, var(--main-color));
+  }
+
+  .single-input-inner.style-bg input {
+    border-radius: 10px;
+    border: 1px solid rgba(234, 225, 214, 0.8) !important;
+    background: #fefbf9 !important;
+
+    &:focus {
+      border-color: var(--main-color) !important;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(250, 100, 0, 0.2);
+    }
+  }
+}
+
+.login-role-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  .login-role-tab {
+    flex: 1;
+    min-width: 85px;
+    padding: 0.65rem 1rem;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #f5f3ef 0%, #fef8f4 100%);
+    color: var(--paragraph-color);
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+      border-color: rgba(250, 100, 0, 0.4);
+      color: var(--main-color);
+      background: linear-gradient(135deg, rgba(250, 100, 0, 0.1) 0%, rgba(250, 100, 0, 0.05) 100%);
+    }
+
+    &.active {
+      background: linear-gradient(135deg, var(--main-color) 0%, #e85a00 100%);
+      border-color: var(--main-color);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(250, 100, 0, 0.35);
+    }
+  }
+}
+
+.login-form-inner .alert-danger {
+  border-radius: 10px;
+  background: rgba(220, 53, 69, 0.08);
+  border: 1px solid rgba(220, 53, 69, 0.25);
+  color: #b02a37;
+}
+
+.login-form-inner .btn-base {
+  padding: 0.85rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(250, 100, 0, 0.3);
+  transition: all 0.25s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(250, 100, 0, 0.4);
+  }
+}
+
+.login-password-wrap {
+  position: relative;
+
+  input {
+    padding-right: 48px !important;
+  }
+
+  .login-password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    color: var(--paragraph-color);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--main-color);
+      opacity: 1;
+    }
+  }
+}
+
+.login-hint {
+  font-size: 12px;
+  color: var(--paragraph-color);
+  text-align: center;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* Feedback form - client only */
+.feedback-form-inner {
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(234, 225, 214, 0.5);
+
+  .single-input-inner.style-bg {
+    input,
+    textarea {
+      border-radius: 6px;
+      border: 1px solid rgba(234, 225, 214, 0.7) !important;
+
+      &:focus {
+        border-color: var(--main-color) !important;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(250, 100, 0, 0.15);
+      }
+    }
+  }
+
+  .form-select,
+  select.form-select {
+    background: #f5f3ef;
+    border-radius: 6px;
+    border: 1px solid rgba(234, 225, 214, 0.7);
+
+    &:focus {
+      border-color: var(--main-color);
+      box-shadow: 0 0 0 2px rgba(250, 100, 0, 0.15);
+    }
+  }
+}
+
+/* Careers page */
+.careers-card {
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 4px 12px rgba(250, 100, 0, 0.12);
+
+    .card-title {
+      color: var(--main-color);
+    }
+  }
+}
+
+.careers-badge {
+  background: rgba(10, 9, 9, 0.08);
+  color: var(--heading-color);
+  transition: all 0.3s ease;
+}
+
+.careers-card:hover .careers-badge {
+  background: rgba(250, 100, 0, 0.15);
+  color: var(--heading-color);
+}
+
+/* Admin dashboard tabs */
+.admin-tab-btn {
+  &.active {
+    background: var(--heading-color) !important;
+    border-color: var(--heading-color) !important;
+    color: #fff !important;
+
+    &:hover {
+      background: var(--main-color) !important;
+      border-color: var(--main-color) !important;
+      color: #fff !important;
+    }
+  }
+}
+
+/* Blog list cards - theme hover */
+.blog-list .blog-card {
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--main-color) !important;
+    box-shadow: 0 4px 12px rgba(250, 100, 0, 0.12);
+
+    .card-title {
+      color: var(--main-color);
+    }
+
+    .btn-border-black {
+      background: var(--main-color);
+      border-color: var(--main-color);
+      color: #fff;
+    }
+  }
 }

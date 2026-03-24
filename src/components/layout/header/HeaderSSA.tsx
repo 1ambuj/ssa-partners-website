@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import LoginDropdown from "./LoginDropdown";
+import { useAuth } from "@/lib/AuthContext";
 import { siteConfig } from "@/data/siteConfig";
 
 const SERVICES_LINKS = [
@@ -16,14 +16,15 @@ const SERVICES_LINKS = [
 
 const HeaderSSA = () => {
   const router = useRouter();
+  const { isAdmin, isPartner, isClient, userData, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [servicesPinned, setServicesPinned] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const servicesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const isAdmin = false;
-  const role: string | null = null;
+  const isLoggedIn = isAdmin || isPartner || isClient;
+  const displayRole = isAdmin ? "Admin" : isPartner ? "Partner" : isClient ? "Client" : null;
 
   function openServicesWithCancel() {
     if (servicesCloseTimer.current) {
@@ -170,7 +171,25 @@ const HeaderSSA = () => {
             <Link href="/pricing" className="ssa-nav-link">
               Pricing
             </Link>
-            {!isAdmin && <LoginDropdown />}
+            {isLoggedIn ? (
+              <div className="ssa-nav-link d-flex align-items-center gap-2">
+                <span className="small text-muted">{displayRole}</span>
+                <Link href={isAdmin ? "/admin/blog-dashboard" : isPartner ? "/partner-dashboard" : "/feedback"} className="ssa-nav-link">
+                  Dashboard
+                </Link>
+                <button
+                  type="button"
+                  className="btn btn-link p-0 border-0 text-decoration-none ssa-nav-link"
+                  onClick={() => logout()}
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link href="/login" className="ssa-nav-link">
+                Login
+              </Link>
+            )}
           </nav>
 
           <button
@@ -221,9 +240,24 @@ const HeaderSSA = () => {
               <Link href="/pricing" onClick={closeMobile}>
                 Pricing
               </Link>
-              <Link href="/login" onClick={closeMobile}>
-                Login
-              </Link>
+              {isLoggedIn ? (
+                <>
+                  <Link href={isAdmin ? "/admin/blog-dashboard" : isPartner ? "/partner-dashboard" : "/feedback"} onClick={closeMobile}>
+                    Dashboard
+                  </Link>
+                  <a
+                    href="#"
+                    onClick={(e) => { e.preventDefault(); closeMobile(); logout(); }}
+                    style={{ cursor: "pointer" }}
+                  >
+                    Logout
+                  </a>
+                </>
+              ) : (
+                <Link href="/login" onClick={closeMobile}>
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -102,9 +102,6 @@ const HeaderTwo = ({ handleSearch }: any) => {
                   <Link href="/case-study-details">Case Study Details</Link>
                 </li>
                 <li>
-                  <Link href="/pricing">Pricing</Link>
-                </li>
-                <li>
                   <Link href="/error">404</Link>
                 </li>
               </ul>

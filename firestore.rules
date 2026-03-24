@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Blogs: public read, restricted write
+    match /blogs/{blogId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Jobs: public read (for Careers page), auth required to write
+    match /jobs/{jobId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Job applications: anyone can create (apply), auth required to read/update/delete
+    match /job_applications/{appId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // Feedback: anyone can create, auth required to read/update/delete
+    match /feedback/{feedbackId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // Partner/Client login lookup (email/password in Firestore)
+    match /user/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    match /users/{userId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Deny everything else by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
