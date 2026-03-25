@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 import One from "public/images/bg/shape1.png";
-import { MdOutlineClose } from "react-icons/md";
-import YoutubeEmbed from "../youtube/YoutubeEmbed";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
 
 const AboutBannerVideo = () => {
-  const [videoActive, setVideoActive] = useState(false);
-
   return (
     <div className="bg-light cus-abo-vid">
       <div className="container">
@@ -36,35 +32,23 @@ const AboutBannerVideo = () => {
           >
             <SwiperSlide>
               <div className="slide-item text-center">
-                <button
-                  className="video-play-btn my-cus-btn"
-                  aria-label="open video modal"
-                  onClick={() => setVideoActive(true)}
-                >
+                <span className="video-play-btn my-cus-btn" style={{ cursor: "default" }}>
                   <i className="fa fa-play"></i>
-                </button>
+                </span>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="slide-item text-center">
-                <button
-                  className="video-play-btn my-cus-btn"
-                  aria-label="open video modal"
-                  onClick={() => setVideoActive(true)}
-                >
+                <span className="video-play-btn my-cus-btn" style={{ cursor: "default" }}>
                   <i className="fa fa-play"></i>
-                </button>
+                </span>
               </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="slide-item text-center">
-                <button
-                  className="video-play-btn my-cus-btn"
-                  aria-label="open video modal"
-                  onClick={() => setVideoActive(true)}
-                >
+                <span className="video-play-btn my-cus-btn" style={{ cursor: "default" }}>
                   <i className="fa fa-play"></i>
-                </button>
+                </span>
               </div>
             </SwiperSlide>
           </Swiper>
@@ -77,26 +61,6 @@ const AboutBannerVideo = () => {
             src={One}
             alt="img"
           />
-        </div>
-      </div>
-      <div
-        className={(videoActive ? " video-zoom-in" : " ") + " video-backdrop"}
-        onClick={() => setVideoActive(false)}
-      >
-        <div className="video-inner">
-          <div
-            className="video-container"
-            onClick={(e: any) => e.stopPropagation()}
-          >
-            {videoActive && <YoutubeEmbed embedId="RvreULjnzFo" />}
-            <button
-              aria-label="close video popup"
-              className="close-video-popup"
-              onClick={() => setVideoActive(false)}
-            >
-              <MdOutlineClose />
-            </button>
-          </div>
         </div>
       </div>
     </div>

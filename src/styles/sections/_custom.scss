@@ -705,8 +705,25 @@ html {
   background-size: cover;
   background-position: center;
 
+  .attax-accordion {
+    border-top: none;
+  }
+
   .accordion-item {
-    border-bottom: 1px solid rgba(71, 85, 105, 0.4);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  .accordion-item:first-child {
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+  }
+}
+
+/* Service tabs — soften borders on dark bg */
+.service-tab-inner {
+  border-top-color: rgba(250, 100, 0, 0.2) !important;
+
+  li {
+    border-bottom-color: rgba(250, 100, 0, 0.2) !important;
   }
 }
 
