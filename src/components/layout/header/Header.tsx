@@ -102,7 +102,7 @@ const Header = ({ handleSearch, handleSidebar }: any) => {
                   <Link href="/case-study-details">Case Study Details</Link>
                 </li>
                 <li>
-                  <Link href="/pricing">Pricing</Link>
+                  <Link href="/carrer">Careers</Link>
                 </li>
                 <li>
                   <Link href="/error">404</Link>

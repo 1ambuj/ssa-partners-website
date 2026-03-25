@@ -22,7 +22,7 @@ const AboutTwo = () => {
             data-aos-delay="300"
           >
             <div className="about-thumb-area cussi-about-thumber">
-              <Image className="about-img-1" src={One} alt="img" />
+              <div className="bg"><Image className="about-img-1" src={One} alt="img" /></div>
               <Image className="about-img-2 cus-img-2" src={Two} alt="img" />
               <Image
                 className="about-img-3 top_image_bounce"
@@ -62,12 +62,12 @@ const AboutTwo = () => {
               </p>
               <div className="row">
                 <div className="col-md-6 mt-3">
-                  <h5>
+                  <h5 className="d-flex align-items-center gap-2">
                     <Image className="me-2" src={Five} alt="img" />    Professional Team
                   </h5>
                 </div>
                 <div className="col-md-6 mt-3">
-                  <h5>
+                  <h5 className="d-flex align-items-center gap-2">
                     <Image className="me-2" src={Five} alt="img" /> 
                     Trusted Advisory
                   </h5>

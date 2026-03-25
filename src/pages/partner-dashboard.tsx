@@ -48,7 +48,7 @@ const PartnerDashboard: React.FC = () => {
       <div className="banner-area pd-bottom-80 banner-small-inner bg-light bg-relative bg-cover">
         <div className="container">
           <h4>Partner Portal</h4>
-          <h3>Welcome, {userData?.email?.split("@")[0] || "Partner"}</h3>
+          <h3>Welcome, {userData?.name || userData?.email?.split("@")[0] || "Partner"}</h3>
           <p>Access your resources and tools.</p>
         </div>
       </div>

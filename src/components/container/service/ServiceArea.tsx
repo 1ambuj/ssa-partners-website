@@ -8,7 +8,7 @@ import One from "public/images/about/4.png";
 
 const ServiceArea = () => {
   return (
-    <div id="service-area" className="service-area bg-sky pd-top-110 bg-relative">
+    <div id="service-area" className="service-area bg-section-clean pd-top-110 bg-relative">
       <Image className="left_image_bounce position-top-right" src={One} alt="img" />
       <div className="container">
         <div className="row justify-content-center">

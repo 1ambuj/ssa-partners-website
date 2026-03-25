@@ -9,7 +9,7 @@ const ServiceTwo = () => {
 
   return (
     <>
-      <div className="service-area bg-black pd-top-120 pd-bottom-120">
+      <div className="service-area bg-header-style pd-top-120 pd-bottom-120">
         <div className="container">
           <div className="row">
 

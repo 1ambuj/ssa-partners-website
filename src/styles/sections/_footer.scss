@@ -4,16 +4,9 @@
 .footer-area {
 	position: relative;
 	padding-top: 115px;
-	background-image: url("../../../public/images/bg/12.png");
+	background: linear-gradient(to right, #0f172a 0%, #1e293b 50%, #0f172a 100%);
 	&:after {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-        background: var(--heading-color);
-        z-index: -1;
+        display: none;
     }
  	.widget {
  		position: relative;
@@ -77,7 +70,7 @@
 				}
 				&:hover {
 					&:after {
-						background: var(--heading-color);
+						background: #475569;
 					}
 				}
 			}
@@ -173,11 +166,14 @@
 	}
 }
 .footer-bottom {
-	padding: 20px 30px;
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 30px 40px;
 	position: relative;
 	z-index: 2;
-	background: #131212;
-	border-radius: 40px 40px 0 0;
+	background: #0f172a;
+	border-top: 1px solid rgba(30, 41, 59, 0.5);
 	p {
 		margin-bottom: 0;
 		color: #fff;
@@ -186,7 +182,7 @@
 		height: 38px;
 		width: 38px;
 		line-height: 38px;
-		background: #0a0909;
+		background: #1e293b;
 		color: #fff;
 		&:hover {
 			background: var(--main-color);

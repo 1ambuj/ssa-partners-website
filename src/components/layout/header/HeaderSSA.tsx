@@ -165,11 +165,8 @@ const HeaderSSA = () => {
             <Link href="/contact" className="ssa-nav-link">
               Contact
             </Link>
-            <Link href="/careers" className="ssa-nav-link">
+            <Link href="/carrer" className="ssa-nav-link">
               Careers
-            </Link>
-            <Link href="/pricing" className="ssa-nav-link">
-              Pricing
             </Link>
             {isLoggedIn ? (
               <div className="ssa-nav-link d-flex align-items-center gap-2">
@@ -234,11 +231,8 @@ const HeaderSSA = () => {
               Contact
             </Link>
             <div className="ssa-mobile-divider">
-              <Link href="/careers" onClick={closeMobile}>
+              <Link href="/carrer" onClick={closeMobile}>
                 Careers
-              </Link>
-              <Link href="/pricing" onClick={closeMobile}>
-                Pricing
               </Link>
               {isLoggedIn ? (
                 <>

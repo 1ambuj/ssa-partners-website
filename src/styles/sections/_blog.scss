@@ -157,6 +157,19 @@
 }
 
 /******** blog-details-page-content ***********/
+.blog-details-page-content .blog-dynamic-content {
+    p,
+    ul,
+    ol {
+        margin-bottom: 1em;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+}
+
 .blog-details-page-content {
     .single-blog-inner {
         box-shadow: none !important;

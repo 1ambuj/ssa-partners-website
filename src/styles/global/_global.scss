@@ -11,7 +11,10 @@
     /* SSA theme (uses template vars: --heading-color, --main-color, --paragraph-color) */
     --primary-dark: #0f3b57;
     --primary-orange: #fa6400;
-    
+    --section-bg-clean: rgb(236, 243, 255);
+    --section-dark: #1d4ed8;
+    --section-dark-alt: #2563eb;
+
     /* Ensure consistent color rendering across dev and production */
     color-adjust: exact;
     print-color-adjust: exact;

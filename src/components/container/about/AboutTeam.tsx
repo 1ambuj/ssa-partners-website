@@ -7,7 +7,7 @@ import twelve from "public/images/about/12.png";
 
 const AboutTeam = () => {
   return (
-    <div className="team-area pd-top-115 pd-bottom-100">
+    <div className="team-area pd-top-115 pd-bottom-100 mb-4">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-7">

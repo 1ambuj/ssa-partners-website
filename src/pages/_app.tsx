@@ -13,6 +13,7 @@ import type { AppProps } from "next/app";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AuthProvider } from "@/lib/AuthContext";
+import RouteProgress from "@/components/layout/RouteProgress";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <AuthProvider>
+      <RouteProgress />
       <Suspense>
         <Component {...pageProps} />
       </Suspense>

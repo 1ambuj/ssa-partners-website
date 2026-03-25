@@ -78,7 +78,7 @@ export default async function handler(
           <p><strong>Experience:</strong> ${sanitize(overallExperience) || "-"}</p>
           ${sanitize(message) ? `<p><strong>Message:</strong><br>${sanitize(message).replace(/\n/g, "<br>")}</p>` : ""}
           <hr style="border: none; border-top: 2px solid #fa6400; margin: 20px 0;">
-          <p style="font-size: 12px; color: #999;">Job application from careers page.</p>
+          <p style="font-size: 12px; color: #999;">Job application from careers page (/pricing).</p>
         </div>
       `;
 

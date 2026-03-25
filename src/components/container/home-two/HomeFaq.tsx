@@ -13,7 +13,7 @@ const HomeFaq = () => {
   const [imgTab, setImgTab] = useState(0);
 
   return (
-    <div className="faq-area pd-top-110 bg-cover pd-bottom-120 cus-fa cus-faq">
+    <div className="faq-area pd-top-110 pd-bottom-120 cus-faq ssa-faq-header-style">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 align-self-center">
@@ -56,7 +56,7 @@ const HomeFaq = () => {
           </div>
           <div className="col-lg-6 ps-xl-4">
             <div
-              className="accordion attax-accordion mt-5 mt-lg-0 style-white"
+              className="attax-accordion mt-5 mt-lg-0 style-white faq-accordion-home"
               id="accordionExample"
             >
               <div className="accordion-item">

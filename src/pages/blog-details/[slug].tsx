@@ -1,7 +1,7 @@
 import React from "react";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Layout from "@/components/layout/Layout";
-import BlogDetailsBanner from "@/components/container/blog-details/BlogDetailsBanner";
+import { BlogDetailsBannerFromStatic } from "@/components/container/blog-details/BlogDetailsBanner";
 import BlogDetailsArea from "@/components/container/blog-details/BlogDetailsArea";
 import { blogPosts, getBlogPostBySlug, type BlogPost } from "@/data/blogPost";
 
@@ -18,7 +18,7 @@ const BlogDetailsPage = ({ post }: BlogDetailsPageProps) => {
       footer={true}
       bodyClass={0}
     >
-      <BlogDetailsBanner post={post} />
+      <BlogDetailsBannerFromStatic post={post} />
       <BlogDetailsArea post={post} />
     </Layout>
   );

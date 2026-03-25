@@ -161,12 +161,12 @@ export const JobService = {
         orderBy("createdAt", "desc")
       );
       const snapshot = await getDocs(q);
-      return snapshot.docs.map((d) => mapDocToJob({ id: d.id, data: d.data }));
+      return snapshot.docs.map((d) => mapDocToJob({ id: d.id, data: () => d.data() }));
     } catch (error) {
       console.error("Error fetching jobs (indexed query):", error);
       try {
         const snapshot = await getDocs(collection(db, JOBS_COLLECTION));
-        const jobs = snapshot.docs.map((d) => mapDocToJob({ id: d.id, data: d.data }));
+        const jobs = snapshot.docs.map((d) => mapDocToJob({ id: d.id, data: () => d.data() }));
         jobs.sort((a, b) => {
           const aT = toTimestamp(a.createdAt);
           const bT = toTimestamp(b.createdAt);
@@ -242,13 +242,13 @@ export const JobService = {
       return onSnapshot(
         q,
         (snapshot) => {
-          const jobs = snapshot.docs.map((d) => mapDocToJob({ id: d.id, data: d.data }));
+          const jobs = snapshot.docs.map((d) => mapDocToJob({ id: d.id, data: () => d.data() }));
           callback(jobs);
         },
         (err) => {
           console.error("Jobs subscription error:", err);
           getDocs(collection(db, JOBS_COLLECTION)).then((snap) => {
-            const jobs = snap.docs.map((d) => mapDocToJob({ id: d.id, data: d.data }));
+            const jobs = snap.docs.map((d) => mapDocToJob({ id: d.id, data: () => d.data() }));
             jobs.sort((a, b) => toTimestamp(b.createdAt) - toTimestamp(a.createdAt));
             callback(jobs);
           }).catch(() => callback([]));

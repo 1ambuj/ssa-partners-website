@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from "next";
 
-/** Legacy alias: `/pricing` → `/carrer` */
+/** Legacy alias: `/Career` → `/carrer` */
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
     redirect: {
@@ -10,7 +10,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default function PricingRedirect() {
+export default function CareerUpperRedirect() {
   return null;
 }
-

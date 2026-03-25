@@ -17,14 +17,26 @@ const AdminDashboard: React.FC = () => {
   const [editingJob, setEditingJob] = useState<Partial<JobPost> | null>(null);
   const { isAdmin, currentUser, loading: authLoading, logout } = useAuth();
   const router = useRouter();
+  const [checked, setChecked] = useState(false);
 
-  const canAccess = isAdmin && currentUser;
+  const canAccess = isAdmin && !!currentUser;
 
   useEffect(() => {
-    if (!authLoading && !canAccess && !currentUser) {
+    if (authLoading) return;
+    if (!canAccess) {
+      const timer = setTimeout(() => {
+        setChecked(true);
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+    setChecked(true);
+  }, [authLoading, canAccess]);
+
+  useEffect(() => {
+    if (checked && !canAccess) {
       router.replace("/login?role=admin");
     }
-  }, [authLoading, canAccess, currentUser, router]);
+  }, [checked, canAccess, router]);
 
   useEffect(() => {
     if (activeTab === "jobs") loadJobs();
@@ -90,7 +102,7 @@ const AdminDashboard: React.FC = () => {
     }
   };
 
-  if (authLoading) {
+  if (authLoading || !checked) {
     return (
       <div className="d-flex justify-content-center py-5">
         <div className="spinner-border text-primary" role="status">
@@ -100,9 +112,11 @@ const AdminDashboard: React.FC = () => {
     );
   }
 
-  if (!canAccess && !currentUser) {
+  if (!canAccess) {
     return (
-      <div className="alert alert-danger">Access denied. Please log in as Admin or Partner.</div>
+      <div className="alert alert-danger m-4">
+        Access denied. Only admin users can access this dashboard.
+      </div>
     );
   }
 

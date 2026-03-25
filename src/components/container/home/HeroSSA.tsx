@@ -68,13 +68,13 @@ const HeroSSA = () => {
           <div className="col-12 mb-3">
             <div className="ssa-hero-badge">
               <span className="ssa-hero-badge-dot" aria-hidden />
-              Chartered Accountants
+              Hi, we&apos;re SSA
             </div>
           </div>
 
           <div className="col-lg-8 position-relative">
             <h1 className="ssa-hero-heading text-[var(--heading-color)]">
-              Sandeep Singla &amp; Associates
+            Sandeep Singla &amp; Associates
             </h1>
             <p className="ssa-hero-tagline mt-3 mb-0">
               Trusted partners for audit, taxation, and financial advisory
