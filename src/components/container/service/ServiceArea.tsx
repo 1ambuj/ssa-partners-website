@@ -37,7 +37,7 @@ const ServiceArea = () => {
                   </h4>
                   <p>{service.description}</p>
                   <Link className="case-view-btn" href={service.href}>
-                    <span>View Details</span> +
+                    <span>Discover More</span> →
                   </Link>
                 </div>
               </div>

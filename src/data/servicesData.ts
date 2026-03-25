@@ -231,6 +231,8 @@ const servicesList = [
     img1: four,
     img2: five,
     mainImg: four,
+    animImg1: two,
+    animImg2: three,
     description:
       "Complete GST compliance, advisory, and litigation support.",
 
@@ -286,6 +288,8 @@ const servicesList = [
     img1: five,
     img2: one,
     mainImg: five,
+    animImg1: two,
+    animImg2: three,
     description:
       "Specialized services for NRIs and international businesses.",
 
@@ -341,6 +345,8 @@ const servicesList = [
     img1: one,
     img2: six,
     mainImg: one,
+    animImg1: two,
+    animImg2: three,
     description:
       "Outsourcing solutions for accounting, payroll, and compliance.",
 

@@ -2,20 +2,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { teamMembers } from "@/data/teamMembers";
 
 import one from "public/images/about/4.png";
 import two from "public/images/bg/14.png";
-import four from "public/images/about/12.png";
-import five from "public/images/team/1.png";
-import six from "public/images/about/12.png";
-import seven from "public/images/team/2.png";
-import eight from "public/images/team/3.png";
-
-import nine from "public/images/team/4.png";
-import ten from "public/images/team/5.png";
-import eleven from "public/images/team/6.png";
-import twelve from "public/images/team/7.png";
-import thirteen from "public/images/team/8.png";
+import twelve from "public/images/about/12.png";
 import fourteen from "public/images/about/9.png";
 import fifteen from "public/images/about/15.png";
 import sixteen from "public/images/about/16.png";
@@ -70,239 +61,62 @@ const TeamArea = () => {
           alt="img"
         />
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-7">
+          <div className="row justify-content-center items-center">
+            <div className="col-lg-7 ">
               <div className="section-title text-center">
                 <h6 className="sub-title">// Our Team</h6>
                 <h2 className="title">Meet the Professionals</h2>
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={four} alt="img" />
-                <div className="thumb">
-                  <Image src={five} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">Alextina Ditarson</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
+          <div className="row justify-content-center">
+            {teamMembers.map((member) => (
+              <div key={member.slug} className="col-lg-4 col-md-6">
+                <div className="single-team-inner text-center">
+                  <Image className="hover-img" src={twelve} alt="" />
+                  <div className="thumb">
+                    {member.img ? (
+                      <Image
+                        src={member.img}
+                        alt={member.name}
+                        width={400}
+                        height={400}
+                      />
+                    ) : (
+                      <div
+                        className="d-flex align-items-center justify-content-center bg-light"
+                        style={{ width: 400, height: 400 }}
+                        aria-label={member.name}
+                      >
+                        <span className="display-1 text-muted">
+                          {member.name.charAt(0)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="details">
+                    <h4>
+                      <Link href={`/team-details/${member.slug}`}>
+                        {member.name}
+                      </Link>
+                    </h4>
+                    <p>{member.role}</p>
+                    <div className="social">
+                      {member.linkedin ? (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="LinkedIn"
+                        >
+                          <i className="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={six} alt="img" />
-                <div className="thumb">
-                  <Image src={seven} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">Alan Macdonald</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={six} alt="img" />
-                <div className="thumb">
-                  <Image src={eight} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">William Adams</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={six} alt="img" />
-                <div className="thumb">
-                  <Image src={nine} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">Advisor Ditarson</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={six} alt="img" />
-                <div className="thumb">
-                  <Image src={ten} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">Alextina Ditarson</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={six} alt="img" />
-                <div className="thumb">
-                  <Image src={eleven} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">Wilton Ditarson</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={six} alt="img" />
-                <div className="thumb">
-                  <Image src={twelve} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">Vane Ditarson</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6">
-              <div className="single-team-inner text-center">
-                <Image className="hover-img" src={six} alt="img" />
-                <div className="thumb">
-                  <Image src={thirteen} alt="img" />
-                </div>
-                <div className="details">
-                  <h4>
-                    <Link href="/team-details">Etina Frarson</Link>
-                  </h4>
-                  <p>Senior Tax Advisor</p>
-                  <div className="social">
-                    <Link href="/">
-                      <i className="fab fa-facebook"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-linkedin"></i>
-                    </Link>
-                    <Link href="/">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -21,9 +21,9 @@ const AboutTeam = () => {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           {teamMembers.map((member) => (
-            <div key={member.slug} className="col-lg-3 col-md-6">
+            <div key={member.slug} className="col-lg-4 col-md-6">
               <div className="single-team-inner text-center">
                 <Image className="hover-img" src={twelve} alt="" />
                 <div className="thumb">

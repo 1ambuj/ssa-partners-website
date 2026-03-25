@@ -9,7 +9,7 @@ const ServiceTwo = () => {
 
   return (
     <>
-      <div className="service-area bg-header-style pd-top-120 pd-bottom-120">
+      <div className="service-area bg-header-style pd-top-100 pd-bottom-100">
         <div className="container">
           <div className="row">
 
@@ -60,7 +60,7 @@ const ServiceTwo = () => {
 
             {/* RIGHT */}
             <div className="col-lg-6 offset-lg-2 align-self-center">
-              <div className="section-title style-white mb-0 mt-4 mt-lg-0">
+              <div className="section-title style-white mb-0 mt-2 mt-lg-0">
                 <h6 className="sub-title">// OUR SERVICES</h6>
                 <h2 className="title">Expert Taxation, Audit & Advisory Services</h2>
               </div>

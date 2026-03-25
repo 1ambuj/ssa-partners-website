@@ -5,7 +5,7 @@ import Link from "next/link";
 import twelve from "public/images/about/12.png";
 import { teamMembers } from "@/data/teamMembers";
 const TeamTwo = () => {
-  const members = teamMembers.slice(0, 4);
+  const members = teamMembers.slice(0, 3);
   return (
     <div className="team-area pd-top-115 pd-bottom-100 mb-5">
       <div className="container">
@@ -21,9 +21,9 @@ const TeamTwo = () => {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           {members.map((member) => (
-            <div key={member.slug} className="col-lg-3 col-md-6">
+            <div key={member.slug} className="col-lg-4 col-md-6">
               <div className="single-team-inner text-center">
                 <Image className="hover-img" src={twelve} alt="img" />
                 <div className="thumb">

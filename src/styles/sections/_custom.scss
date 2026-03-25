@@ -720,12 +720,19 @@ html {
 
 /* Service tabs — soften borders on dark bg */
 .service-tab-inner {
-  border-top-color: rgba(250, 100, 0, 0.2) !important;
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
 
   li {
-    border-bottom-color: rgba(250, 100, 0, 0.2) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.15) !important;
   }
 }
+// .service-tab-inner {
+//   border-top-color: rgba(250, 100, 0, 0.2) !important;
+
+//   li {
+//     border-bottom-color: rgba(250, 100, 0, 0.2) !important;
+//   }
+// }
 
 .asd-fc {
   .banner-content-area {
@@ -1848,6 +1855,75 @@ html {
       background: var(--main-color) !important;
       border-color: var(--main-color) !important;
       color: #fff !important;
+    }
+  }
+}
+
+/* Service cards — compact modern refinement */
+.single-service-inner {
+  padding: 28px 30px;
+  border-radius: 6px;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+
+  &:hover {
+    box-shadow: 0 12px 32px rgba(15, 13, 29, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .thumb {
+    margin-bottom: 24px;
+
+    img {
+      max-height: 52px;
+      width: auto;
+    }
+  }
+
+  .details {
+    h4 {
+      font-size: 1.2rem;
+      margin-bottom: 34px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      color: #65645f;
+    }
+
+    .case-view-btn {
+      width: 155px !important;
+      height: 42px;
+      line-height: 42px;
+      padding: 0 18px !important;
+      border-radius: 4px;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      background: var(--heading-color);
+      color: #fff;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease, width 0.3s ease;
+
+      span {
+        font-size: 13px !important;
+        float: none !important;
+        margin: 0 !important;
+      }
+    }
+  }
+
+  &:hover .details .case-view-btn {
+    width: 170px !important;
+    background: var(--main-color);
+    color: #fff;
+
+    span {
+      font-size: 14px !important;
     }
   }
 }
