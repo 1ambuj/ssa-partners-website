@@ -4,7 +4,7 @@
 .footer-area {
 	position: relative;
 	padding-top: 115px;
-	background: linear-gradient(to right, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+	background: linear-gradient(to right, #162338 0%, #2b3f5a 50%, #162338 100%);
 	&:after {
         display: none;
     }
@@ -172,8 +172,8 @@
 	padding: 30px 40px;
 	position: relative;
 	z-index: 2;
-	background: #0f172a;
-	border-top: 1px solid rgba(30, 41, 59, 0.5);
+	background: #162338;
+	border-top: 1px solid rgba(93, 124, 161, 0.28);
 	p {
 		margin-bottom: 0;
 		color: #fff;
@@ -182,7 +182,7 @@
 		height: 38px;
 		width: 38px;
 		line-height: 38px;
-		background: #1e293b;
+		background: #26384f;
 		color: #fff;
 		&:hover {
 			background: var(--main-color);

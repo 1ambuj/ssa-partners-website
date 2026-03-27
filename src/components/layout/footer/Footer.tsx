@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
@@ -176,7 +178,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className=" ">
+      <div>
         <div className="footer-bottom">
           <div className="row">
             <div className="col-lg-4 align-self-center mb-1 mb-lg-0">

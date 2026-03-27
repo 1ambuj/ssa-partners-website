@@ -1,6 +1,8 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/compat/router";
 import Image from "next/image";
 import { useAuth } from "@/lib/AuthContext";
 import { siteConfig } from "@/data/siteConfig";
@@ -16,6 +18,7 @@ const SERVICES_LINKS = [
 
 const HeaderSSA = () => {
   const router = useRouter();
+  const pathname = router?.pathname || "";
   const { isAdmin, isPartner, isClient, userData, logout } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -84,7 +87,7 @@ const HeaderSSA = () => {
     setServicesOpen(false);
     setServicesPinned(false);
     setMobileOpen(false);
-  }, [router.pathname]);
+  }, [pathname]);
 
   const closeMobile = () => setMobileOpen(false);
 
@@ -108,7 +111,7 @@ const HeaderSSA = () => {
           </Link>
 
           <nav className="ssa-nav">
-            <Link href="/index-two" className="ssa-nav-link">
+            <Link href="/" className="ssa-nav-link">
               Home
             </Link>
             <Link href="/about" className="ssa-nav-link">
@@ -128,7 +131,7 @@ const HeaderSSA = () => {
                 aria-expanded={servicesOpen}
                 aria-haspopup="menu"
               >
-                <span>Services</span>
+                <Link href="/service" className="ssa-nav-link"><span>Services</span></Link>
                 <span className="ssa-services-plus">
                   {servicesOpen ? "−" : "+"}
                 </span>
@@ -156,9 +159,9 @@ const HeaderSSA = () => {
               </div>
             </div>
 
-            <Link href="/service" className="ssa-nav-link">
+            {/* <Link href="/service" className="ssa-nav-link">
               Services
-            </Link>
+            </Link> */}
             <Link href="/blog" className="ssa-nav-link">
               Blog
             </Link>
@@ -170,17 +173,17 @@ const HeaderSSA = () => {
             </Link>
             {isLoggedIn ? (
               <div className="ssa-nav-link d-flex align-items-center gap-2">
-                <span className="small text-muted">{displayRole}</span>
+                {/* <span className="small text-muted">{displayRole}</span> */}
                 <Link href={isAdmin ? "/admin/blog-dashboard" : isPartner ? "/partner-dashboard" : "/feedback"} className="ssa-nav-link">
-                  Dashboard
+                  {isAdmin ? "Admin" : isPartner ? "Partner" : "Feedback"}
                 </Link>
-                <button
+                {/* <button
                   type="button"
                   className="btn btn-link p-0 border-0 text-decoration-none ssa-nav-link"
                   onClick={() => logout()}
                 >
                   Logout
-                </button>
+                </button> */}
               </div>
             ) : (
               <Link href="/login" className="ssa-nav-link">

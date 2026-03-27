@@ -1947,3 +1947,80 @@ html {
     }
   }
 }
+
+/* -------------------------------------------------
+   Global clean layout refinement (template-safe)
+-------------------------------------------------- */
+
+/* Consistent section breathing on modernized blocks */
+.ssa-hero + .about-area,
+.ssa-hero + .pd-top-120,
+.about-area,
+.service-area,
+.team-area,
+.case-study-area,
+.faq-area,
+.testimonial-area,
+.blog-section-standard {
+  scroll-margin-top: 96px;
+}
+
+/* Reduce visual heaviness: softer cards and cleaner elevation */
+.single-service-inner,
+.single-blog-inner,
+.single-team-inner,
+.single-testimonial-inner {
+  box-shadow: 0 8px 22px rgba(15, 13, 29, 0.07);
+  border: 1px solid rgba(15, 13, 29, 0.06);
+}
+
+.single-service-inner:hover,
+.single-blog-inner:hover,
+.single-team-inner:hover,
+.single-testimonial-inner:hover {
+  box-shadow: 0 12px 28px rgba(15, 13, 29, 0.1);
+}
+
+/* Better text readability in key section titles */
+.section-title .title {
+  line-height: 1.2;
+}
+
+.section-title .content,
+.single-service-inner .details p,
+.single-blog-inner .details p,
+.single-testimonial-inner p {
+  line-height: 1.72;
+}
+
+/* Uniform CTA button visual rhythm */
+.btn.btn-base.border-radius,
+.btn.btn-black.border-radius,
+.btn.btn-white.border-radius {
+  min-height: 42px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Home hero block: cleaner proportion on large screens */
+@media all and (min-width: 1200px) {
+  .ssa-hero .ssa-hero-top {
+    padding-top: 3.5rem;
+  }
+
+  .ssa-hero .ssa-hero-slider-wrap {
+    height: 560px;
+    min-height: 560px;
+  }
+}
+
+/* Mobile: reduce crowding */
+@media all and (max-width: 767px) {
+  .section-title .title {
+    font-size: 30px;
+  }
+
+  .section-title .content {
+    font-size: 15px;
+  }
+}

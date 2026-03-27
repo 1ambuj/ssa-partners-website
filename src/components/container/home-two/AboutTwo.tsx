@@ -22,7 +22,7 @@ const AboutTwo = () => {
             data-aos-delay="300"
           >
             <div className="about-thumb-area cussi-about-thumber">
-              <div className="bg"><Image className="about-img-1" src={One} alt="img" /></div>
+              <Image className="about-img-1" src={One} alt="img" />
               <Image className="about-img-2 cus-img-2" src={Two} alt="img" />
               <Image
                 className="about-img-3 top_image_bounce"

@@ -20,8 +20,9 @@ const about = () => {
     >
       <AboutBanner />
       <AboutBannerVideo />
-      <AboutTax />
       <AboutIntro />
+      <AboutTax />
+     
       <AboutTab />
       <AboutTeam />
       <AboutCta />

@@ -8,13 +8,13 @@ import Three from "public/images/about/5.png";
 
 const AboutTax = () => {
   return (
-    <div className="about-area pd-top-120 bg-relative pd-bottom-120">
+    <div className="about-area pd-top-80 bg-relative pd-bottom-80">
       
       {/* Background Shape */}
       <Image
         className="top_image_bounce position-bottom-left"
         src={One}
-        alt="shape"
+        alt="img"
       />
 
       <div className="container">

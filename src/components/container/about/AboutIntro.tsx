@@ -6,7 +6,7 @@ import Three from "public/images/icon/3.png";
 
 const AboutIntro = () => {
   return (
-    <div className="intro-area bg-light pd-top-120 pd-bottom-90">
+    <div className="intro-area bg-light pd-top-120 pd-bottom-60">
       <div className="container">
         <div className="row">
 

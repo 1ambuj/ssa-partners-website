@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    scrollRestoration: true,
+  },
   images: {
-    unoptimized: true,  // Fix: Images not showing on Windows (bypasses Sharp)
+    unoptimized: true,
   },
   async redirects() {
     return [

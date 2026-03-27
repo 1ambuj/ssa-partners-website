@@ -65,10 +65,7 @@ const HeaderTwo = ({ handleSearch }: any) => {
               <a onClick={() => handleSubmenu("home")}>Home</a>
               <ul className={`sub-menu ${isSubMenuOpen("home")}`}>
                 <li>
-                  <Link href="/">Home 01</Link>
-                </li>
-                <li>
-                  <Link href="/index-two">Home 02</Link>
+                  <Link href="/">Home</Link>
                 </li>
               </ul>
             </li>
