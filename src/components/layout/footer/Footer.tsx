@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
 
 const Footer = () => {
@@ -59,7 +60,6 @@ const Footer = () => {
   }
 
   const {
-    name,
     shortName,
     addresses,
     email: emails,
@@ -68,6 +68,22 @@ const Footer = () => {
     workingHours,
     footer,
   } = siteConfig;
+
+  const quickLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/team", label: "Our Team" },
+    { href: "/blog", label: "Knowledge Base" },
+    { href: "/carrer", label: "Career" },
+  ];
+
+  const otherLinks = [
+    { href: "/services/audit", label: "Audit & Assurance" },
+    { href: "/services/taxation", label: "Income Tax Department" },
+    { href: "/services/gst", label: "GST Portal" },
+    { href: "/services/advisory", label: "Advisory Services" },
+    { href: "/contact", label: "Contact Us" },
+  ];
 
   return (
     <footer id="contact" className="footer-area bg-cover">
@@ -132,51 +148,134 @@ const Footer = () => {
         </div>
       </div>
       <div className="container">
-        <div className="row">
-          <div className="col-lg-3 col-md-6">
-            <div className="widget widget_about pe-xl-4">
-              <h4 className="widget-title">The Address</h4>
+        <div className="row footer-main-grid">
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_about pe-xl-4 footer-brand-widget">
+              <div className="footer-brand-head">
+                <div className="thumb">
+                  <Image
+                    src={siteConfig.logo}
+                    alt={`${siteConfig.shortName} logo`}
+                    width={44}
+                    height={44}
+                    className="footer-brand-logo-image"
+                  />
+                </div>
+                <h4 className="widget-title mb-0">SSA Partners</h4>
+              </div>
               <div className="details">
-               <div className="mb-5"> <p>{addresses.gurgaon.full}</p></div>
-                <div> <p>{addresses.delhi.full}</p></div>
+                <p>
+                  Specialized services in Audit &amp; Assurance, Advisory, Taxation and GST. We combine deep expertise with a modern approach to help businesses grow.
+                </p>
+                <ul className="social-media mt-4">
+                  <li>
+                    <a
+                      className="facebook"
+                      href={social.facebook}
+                      aria-label="Facebook"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-facebook-f" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="twitter"
+                      href={social.twitter}
+                      aria-label="Twitter"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-twitter" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="linkedin"
+                      href={social.linkedin}
+                      aria-label="LinkedIn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-linkedin" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="whatsapp"
+                      href={social.whatsapp}
+                      aria-label="WhatsApp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-whatsapp" />
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="widget widget_about">
-              <h4 className="widget-title">The Email</h4>
-              <div className="details">
-                <p>
-                  <a href={`mailto:${emails.info}`}>{emails.info}</a>
-                </p>
-                <p>
-                  <a href={`mailto:${emails.sandeep}`}>{emails.sandeep}</a>
-                </p>
-              </div>
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_nav_menu">
+              <h4 className="widget-title">Quick Link</h4>
+              <ul>
+                {quickLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="widget widget_about">
-              <h4 className="widget-title">The Phone</h4>
-              <div className="details">
-                <p>
-                  <a href={`tel:${phone.main.replace(/\s/g, "")}`}>{phone.main}</a>
-                </p>
-                <p>
-                  <a href={`tel:${phone.gurgaon.replace(/\s/g, "")}`}>{phone.gurgaon}</a>
-                </p>
-              </div>
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_nav_menu">
+              <h4 className="widget-title">Other Link</h4>
+              <ul>
+                {otherLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6">
-            <div className="widget widget_about">
-              <h4 className="widget-title">Working Hours</h4>
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_about footer-contact-widget">
+              <h4 className="widget-title">Contact Us</h4>
               <div className="details">
-                <p>{workingHours}</p>
+                <div className="footer-address-item">
+                  <i className="fas fa-map-marker-alt" aria-hidden="true" />
+                  <p>
+                    <strong>{addresses.gurgaon.label}:</strong> {addresses.gurgaon.full}
+                  </p>
+                </div>
+                <div className="footer-address-item">
+                  <i className="fas fa-map-marker-alt" aria-hidden="true" />
+                  <p>
+                    <strong>{addresses.delhi.label}:</strong> {addresses.delhi.full}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="container">
+        {/* <div className="footer-contact-strip">
+          <a href={`mailto:${emails.info}`} className="footer-contact-chip">
+            <i className="fa fa-envelope" aria-hidden="true" />
+            <span>{emails.info}</span>
+          </a>
+          <a href={`tel:${phone.main.replace(/\s/g, "")}`} className="footer-contact-chip">
+            <i className="fa fa-phone" aria-hidden="true" />
+            <span>{phone.main}</span>
+          </a>
+          <div className="footer-contact-chip">
+            <i className="fa fa-clock" aria-hidden="true" />
+            <span>{workingHours}</span>
+          </div>
+        </div> */}
       </div>
       <div>
         <div className="footer-bottom">

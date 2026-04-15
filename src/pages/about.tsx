@@ -22,7 +22,6 @@ const about = () => {
       <AboutBannerVideo />
       <AboutIntro />
       <AboutTax />
-     
       <AboutTab />
       <AboutTeam />
       <AboutCta />
