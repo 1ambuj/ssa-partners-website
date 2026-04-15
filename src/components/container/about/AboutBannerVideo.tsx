@@ -54,7 +54,7 @@ const AboutBannerVideo = () => {
           </Swiper>
           <div className="banner-content-area">
             <p>From</p>
-            <h2>1990</h2>
+            <h2>2010</h2>
           </div>
           <Image
             className="top_image_bounce banner-animate-image"

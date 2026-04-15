@@ -4,35 +4,35 @@ import Link from "next/link";
 const heroSliderSlides = [
   {
     id: 1,
-    bg: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2200&q=80",
+    bg: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80",
     title: "Audit & Assurance",
-    highlight: "for Better Governance",
+    highlight: "with Integrity",
     subtitle:
-      "Independent assurance engagements that improve reporting quality, controls, and stakeholder confidence.",
+      "Comprehensive audit and assurance services tailored to enhance financial transparency.",
   },
   {
     id: 2,
-    bg: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2200&q=80",
-    title: "Business & Financial",
+    bg: "https://images.unsplash.com/photo-1523958203904-cdcb402031fd?auto=format&fit=crop&w=1920&q=80",
+    title: "Expert",
     highlight: "Advisory Services",
     subtitle:
-      "Practical, data-backed advisory support for growth planning, structuring, and strategic decisions.",
+      "Navigate complexities with strategic advisory and data-driven decision making.",
   },
   {
     id: 3,
-    bg: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2200&q=80",
-    title: "Taxation &",
-    highlight: "GST Compliance",
+    bg: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1920&q=80",
+    title: "Simplifying",
+    highlight: "Taxation",
     subtitle:
-      "End-to-end direct and indirect tax compliance with a strong focus on risk control and efficiency.",
+      "Stay compliant and optimize tax strategies with our expert-led taxation services.",
   },
   {
     id: 4,
-    bg: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=80",
-    title: "NRI Services &",
-    highlight: "BPO Support",
+    bg: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80",
+    title: "Business Process",
+    highlight: "Outsourcing",
     subtitle:
-      "Reliable support for non-resident compliance and outsourced finance operations with timely execution.",
+      "Streamline your business with efficient and cost-effective outsourcing solutions.",
   },
 ];
 
@@ -54,7 +54,7 @@ const HeroSSA = () => {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setSliderIndex((prev) => (prev + 1) % heroSliderSlides.length);
-    }, 7000);
+    }, 5000);
     return () => window.clearInterval(timer);
   }, []);
 
@@ -62,37 +62,60 @@ const HeroSSA = () => {
 
   return (
     <section className="ssa-hero">
-      <div className="container ssa-hero-top image-first-hero">
-        <div className="ssa-hero-slider-wrap position-relative">
-          <div className="position-absolute w-100 h-100 overflow-hidden">
-            {heroSliderSlides.map((s, i) => (
-              <div
-                key={s.id}
-                className={`ssa-hero-slide ${i === sliderIndex ? "active" : ""}`}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={s.bg}
-                  alt=""
-                  loading={i === 0 ? "eager" : "lazy"}
-                />
-                <div className="ssa-hero-slide-overlay" aria-hidden />
-              </div>
-            ))}
-          </div>
-          <div className="ssa-hero-progress" aria-hidden>
-            <span key={sliderIndex} />
+      <div className="container ssa-hero-top">
+        <div className="row position-relative">
+          <div className="ssa-hero-accent-bar" aria-hidden />
+          <div className="col-12 mb-3">
+            <div className="ssa-hero-badge">
+              <span className="ssa-hero-badge-dot" aria-hidden />
+              Hi, we&apos;re SSA
+            </div>
           </div>
 
-          <div className="ssa-hero-content">
-            <div key={sliderIndex} className="ssa-hero-copy" style={{ maxWidth: "48rem" }}>
+          <div className="col-lg-8 position-relative">
+            <h1 className="ssa-hero-heading text-[var(--heading-color)]">
+            Sandeep Singla &amp; Associates
+            </h1>
+            <p className="ssa-hero-tagline mt-3 mb-0">
+              Trusted partners for audit, taxation, and financial advisory
+            </p>
+          </div>
+          <div className="col-lg-4 d-flex flex-column justify-content-center pe-lg-4">
+            <p className="ssa-hero-desc">
+              Delivering professional audit, taxation, and financial advisory
+              services to help businesses grow with confidence while ensuring
+              full regulatory compliance and strategic financial guidance.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="ssa-hero-slider-wrap position-relative">
+        <div className="position-absolute w-100 h-100 overflow-hidden">
+          {heroSliderSlides.map((s, i) => (
+            <div
+              key={s.id}
+              className={`ssa-hero-slide ${i === sliderIndex ? "active" : ""}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={s.bg}
+                alt=""
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+              <div className="ssa-hero-slide-overlay" aria-hidden />
+            </div>
+          ))}
+        </div>
+
+        <div className="ssa-hero-content">
+          <div className="container">
+            <div style={{ maxWidth: "48rem" }}>
               <h2>
                 {slide.title} <span className="text-white">{slide.highlight}</span>
               </h2>
               <p>{slide.subtitle}</p>
-              <p className="ssa-hero-service-line">
-                Audit & Assurance • Advisory • Taxation • GST • NRI • BPO
-              </p>
               <div className="ssa-hero-btns">
                 <Link href="/service" className="ssa-btn-primary">
                   Explore Services
@@ -116,40 +139,40 @@ const HeroSSA = () => {
               </div>
             </div>
           </div>
+        </div>
 
-          <a
-            href="#about-area"
-            className="ssa-hero-scroll"
-            aria-label="Scroll to about section"
+        <a
+          href="#about-area"
+          className="ssa-hero-scroll"
+          aria-label="Scroll to about section"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.2}
+            viewBox="0 0 24 24"
+            aria-hidden
           >
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.2}
-              viewBox="0 0 24 24"
-              aria-hidden
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 5v14m0 0l6-6m-6 6l-6-6"
-              />
-            </svg>
-          </a>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 5v14m0 0l6-6m-6 6l-6-6"
+            />
+          </svg>
+        </a>
 
-          <div className="ssa-hero-dots">
-            {heroSliderSlides.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setSliderIndex(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={sliderIndex === i ? "active" : ""}
-              >
-                {sliderIndex === i && <span />}
-              </button>
-            ))}
-          </div>
+        <div className="ssa-hero-dots">
+          {heroSliderSlides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setSliderIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={sliderIndex === i ? "active" : ""}
+            >
+              {sliderIndex === i && <span />}
+            </button>
+          ))}
         </div>
       </div>
     </section>

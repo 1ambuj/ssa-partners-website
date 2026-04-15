@@ -96,39 +96,7 @@ const HeaderSSA = () => {
   return (
     <header className="ssa-header">
       <div className="ssa-header-topbar">
-        <div className="container">
-          <div className="ssa-header-topbar-inner">
-            <form
-              className="ssa-header-search"
-              role="search"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <i className="fas fa-search" aria-hidden="true" />
-              <input
-                type="search"
-                placeholder="Search services..."
-                aria-label="Search services"
-              />
-            </form>
-            <div className="ssa-header-meta-list">
-              <a
-                href={`tel:${siteConfig.phone.main.replace(/\s+/g, "")}`}
-                className="ssa-header-meta-item"
-              >
-                <i className="fas fa-phone-alt" aria-hidden="true" />
-                <span>{siteConfig.phone.main}</span>
-              </a>
-              <a href={`mailto:${siteConfig.email.info}`} className="ssa-header-meta-item">
-                <i className="far fa-envelope" aria-hidden="true" />
-                <span>{siteConfig.email.info}</span>
-              </a>
-              <div className="ssa-header-meta-item">
-                <i className="far fa-clock" aria-hidden="true" />
-                <span>{siteConfig.workingHours}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div className="container">
         <div className="ssa-header-inner">
