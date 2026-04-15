@@ -90,9 +90,46 @@ const HeaderSSA = () => {
   }, [pathname]);
 
   const closeMobile = () => setMobileOpen(false);
+  const isPathActive = (path: string) => pathname === path;
+  const isServicesActive = pathname.startsWith("/service") || pathname.startsWith("/services");
 
   return (
     <header className="ssa-header">
+      <div className="ssa-header-topbar">
+        <div className="container">
+          <div className="ssa-header-topbar-inner">
+            <form
+              className="ssa-header-search"
+              role="search"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <i className="fas fa-search" aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Search services..."
+                aria-label="Search services"
+              />
+            </form>
+            <div className="ssa-header-meta-list">
+              <a
+                href={`tel:${siteConfig.phone.main.replace(/\s+/g, "")}`}
+                className="ssa-header-meta-item"
+              >
+                <i className="fas fa-phone-alt" aria-hidden="true" />
+                <span>{siteConfig.phone.main}</span>
+              </a>
+              <a href={`mailto:${siteConfig.email.info}`} className="ssa-header-meta-item">
+                <i className="far fa-envelope" aria-hidden="true" />
+                <span>{siteConfig.email.info}</span>
+              </a>
+              <div className="ssa-header-meta-item">
+                <i className="far fa-clock" aria-hidden="true" />
+                <span>{siteConfig.workingHours}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container">
         <div className="ssa-header-inner">
           <Link href="/" className="ssa-logo">
@@ -111,10 +148,10 @@ const HeaderSSA = () => {
           </Link>
 
           <nav className="ssa-nav">
-            <Link href="/" className="ssa-nav-link">
+            <Link href="/" className={`ssa-nav-link ${isPathActive("/") ? "active" : ""}`}>
               Home
             </Link>
-            <Link href="/about" className="ssa-nav-link">
+            <Link href="/about" className={`ssa-nav-link ${isPathActive("/about") ? "active" : ""}`}>
               About
             </Link>
 
@@ -127,11 +164,11 @@ const HeaderSSA = () => {
               <button
                 type="button"
                 onClick={onServicesClick}
-                className={`ssa-services-btn ${servicesOpen ? "active" : ""}`}
+                className={`ssa-services-btn ${servicesOpen || isServicesActive ? "active" : ""}`}
                 aria-expanded={servicesOpen}
                 aria-haspopup="menu"
               >
-                <Link href="/service" className="ssa-nav-link"><span>Services</span></Link>
+                <span className="ssa-services-label">Services</span>
                 <span className="ssa-services-plus">
                   {servicesOpen ? "−" : "+"}
                 </span>
@@ -162,13 +199,13 @@ const HeaderSSA = () => {
             {/* <Link href="/service" className="ssa-nav-link">
               Services
             </Link> */}
-            <Link href="/blog" className="ssa-nav-link">
+            <Link href="/blog" className={`ssa-nav-link ${isPathActive("/blog") ? "active" : ""}`}>
               Blog
             </Link>
-            <Link href="/contact" className="ssa-nav-link">
+            <Link href="/contact" className={`ssa-nav-link ${isPathActive("/contact") ? "active" : ""}`}>
               Contact
             </Link>
-            <Link href="/carrer" className="ssa-nav-link">
+            <Link href="/carrer" className={`ssa-nav-link ${isPathActive("/carrer") ? "active" : ""}`}>
               Careers
             </Link>
             {isLoggedIn ? (
