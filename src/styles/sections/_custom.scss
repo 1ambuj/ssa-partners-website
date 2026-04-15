@@ -1171,7 +1171,7 @@ html {
   background: linear-gradient(180deg, #f8f8f8 0%, #ffffff 72%);
 
   .ssa-hero-top {
-    padding-top: 2.25rem;
+    padding-top: 1.25rem;
     padding-bottom: 0;
     &.image-first-hero {
       padding-top: 0;
@@ -1237,11 +1237,11 @@ html {
     color: var(--heading-color);
     line-height: 1.1;
     padding-right: 1rem;
-    font-size: 43px;
+    font-size: 36px;
   }
 
   .ssa-hero-tagline {
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: var(--paragraph-color);
     font-weight: 500;
   }
@@ -1249,15 +1249,16 @@ html {
   .ssa-hero-desc {
     text-align: justify;
     color: var(--paragraph-color);
-    font-size: var(--body-font-size);
-    line-height: var(--line-height30);
-    max-width: 480px;
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 430px;
+    margin-bottom: 0;
   }
 
   .ssa-hero-slider-wrap {
-    margin-top: 1.5rem;
-    height: 420px;
-    min-height: 420px;
+    margin-top: 0.75rem;
+    height: 380px;
+    min-height: 380px;
     position: relative;
     width: 100vw;
     max-width: 100vw;
@@ -1511,7 +1512,7 @@ html {
 @media all and (min-width: 992px) {
   .ssa-hero {
     .ssa-hero-top {
-      padding-top: 2.75rem;
+      padding-top: 1.75rem;
       &.image-first-hero {
         padding-top: 0;
       }
@@ -1523,9 +1524,9 @@ html {
     }
 
     .ssa-hero-slider-wrap {
-      margin-top: 2rem;
-      height: 520px;
-      min-height: 520px;
+      margin-top: 1rem;
+      height: 460px;
+      min-height: 460px;
     }
 
     .ssa-hero-content {
@@ -1539,19 +1540,27 @@ html {
         font-size: 20px;
       }
     }
+
+    .ssa-hero-heading {
+      font-size: 46px;
+    }
+
+    .ssa-hero-tagline {
+      font-size: 1.05rem;
+    }
   }
 }
 
 @media all and (min-width: 1200px) {
   .ssa-hero {
     .ssa-hero-heading {
-      font-size: 58px;
+      font-size: 50px;
       padding-right: 1.5rem;
     }
 
     .ssa-hero-slider-wrap {
-      height: 560px;
-      min-height: 560px;
+      height: 500px;
+      min-height: 500px;
     }
 
     .ssa-hero-content {
@@ -1567,12 +1576,12 @@ html {
 @media all and (min-width: 1500px) {
   .ssa-hero {
     .ssa-hero-heading {
-      font-size: 78px;
+      font-size: 62px;
     }
 
     .ssa-hero-slider-wrap {
-      height: 600px;
-      min-height: 600px;
+      height: 540px;
+      min-height: 540px;
     }
 
     .ssa-hero-content h2 {
@@ -1584,7 +1593,7 @@ html {
 @media all and (max-width: 1199px) {
   .ssa-hero {
     .ssa-hero-heading {
-      font-size: 58px;
+      font-size: 44px;
     }
   }
 }
@@ -1592,7 +1601,7 @@ html {
 @media all and (max-width: 991px) {
   .ssa-hero {
     .ssa-hero-top {
-      padding-top: 2rem;
+      padding-top: 1.25rem;
     }
 
     .ssa-hero-badge {
@@ -1600,13 +1609,13 @@ html {
     }
 
     .ssa-hero-heading {
-      font-size: 43px;
+      font-size: 34px;
     }
 
     .ssa-hero-slider-wrap {
-      margin-top: 2rem;
-      height: 440px;
-      min-height: 440px;
+      margin-top: 0.75rem;
+      height: 360px;
+      min-height: 360px;
     }
 
     .ssa-hero-content {
@@ -1630,12 +1639,12 @@ html {
 @media all and (max-width: 767px) {
   .ssa-hero {
     .ssa-hero-heading {
-      font-size: 35px;
+      font-size: 30px;
     }
 
     .ssa-hero-slider-wrap {
-      height: 365px;
-      min-height: 365px;
+      height: 320px;
+      min-height: 320px;
     }
 
     .ssa-hero-content {
@@ -1665,16 +1674,16 @@ html {
 @media all and (max-width: 575px) {
   .ssa-hero {
     .ssa-hero-top {
-      padding-top: 1.75rem;
+      padding-top: 1rem;
     }
 
     .ssa-hero-heading {
-      font-size: 28px;
+      font-size: 24px;
     }
 
     .ssa-hero-slider-wrap {
-      height: 320px;
-      min-height: 320px;
+      height: 280px;
+      min-height: 280px;
     }
 
     .ssa-hero-content h2 {
@@ -2232,12 +2241,12 @@ html {
 /* Home hero block: cleaner proportion on large screens */
 @media all and (min-width: 1200px) {
   .ssa-hero .ssa-hero-top {
-    padding-top: 3.5rem;
+    padding-top: 2rem;
   }
 
   .ssa-hero .ssa-hero-slider-wrap {
-    height: 560px;
-    min-height: 560px;
+    height: 500px;
+    min-height: 500px;
   }
 }
 
