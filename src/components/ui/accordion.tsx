@@ -26,13 +26,15 @@ export function AccordionItem({
 export function AccordionTrigger({
   className,
   children,
-}: React.HTMLAttributes<HTMLSummaryElement>) {
+  ...props
+}: React.ComponentPropsWithoutRef<"summary">) {
   return (
     <summary
       className={cn(
         "cursor-pointer list-none text-left font-medium marker:content-[''] [&::-webkit-details-marker]:hidden",
         className
       )}
+      {...props}
     >
       {children}
     </summary>
