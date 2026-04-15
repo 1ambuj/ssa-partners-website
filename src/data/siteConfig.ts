@@ -4,18 +4,18 @@
  */
 export const siteConfig = {
   name: "Sandeep Singla & Associates",
-  shortName: "SS Partners",
+  shortName: "SSA Partners",
   logo: "/images/logo.png",
   favicon: "/images/logo.png",
   tagline: "Chartered Accountants | Audit, Taxation & Advisory",
   description:
-    "SS Partners - Leading CA firm in Delhi NCR. Expert services in Audit & Assurance, Tax Advisory, GST, Advisory, and Business Process Outsourcing. Chartered Accountants helping businesses grow.",
+    "SSA Partners - Leading CA firm in Delhi NCR. Expert services in Audit & Assurance, Tax Advisory, GST, Advisory, and Business Process Outsourcing. Chartered Accountants helping businesses grow.",
   keywords:
-    "SS website, SS Partners, Sandeep Singla, Chartered Accountants, CA firm Delhi, CA firm Gurgaon, tax advisory, tax consultant, GST services, audit and assurance, CA advisory, income tax, corporate advisory, NRI taxation, BPO services",
-  url: "https://sspartners.in",
+    "SSA website, SSA Partners, Sandeep Singla, Chartered Accountants, CA firm Delhi, CA firm Gurgaon, tax advisory, tax consultant, GST services, audit and assurance, CA advisory, income tax, corporate advisory, NRI taxation, BPO services",
+  url: "https://ssapartners.in",
   email: {
-    info: "info@sspartners.in",
-    sandeep: "sandeep@sspartners.in",
+    info: "info@ssapartners.in",
+    sandeep: "sandeep@ssapartners.in",
     shalini: "ca.shalini.sgupta@gmail.com",
   },
   phone: {
@@ -28,7 +28,7 @@ export const siteConfig = {
       label: "Gurgaon",
       full: "E-127, Ground Floor, Sushant Shopping Arcade, Sushant Lok-1, Gurgaon, Haryana - 122009",
       phone: "+91 124-4287217",
-      email: "sandeep@sspartners.in",
+      email: "sandeep@ssapartners.in",
     },
     delhi: {
       label: "Delhi",
