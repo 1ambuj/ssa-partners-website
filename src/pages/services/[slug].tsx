@@ -200,7 +200,7 @@ const ServiceDetailPage = ({ service }: Props) => {
           <div className="container">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
               <div className="section-title mb-0">
-                <h6 className="sub-title">// OVERVIEW</h6>
+                <h6 className="sub-title">OVERVIEW</h6>
                 <h2 className={styles.sectionTitle}>Introduction</h2>
               </div>
               <div className={styles.introText}>
@@ -217,7 +217,7 @@ const ServiceDetailPage = ({ service }: Props) => {
             <div className="row g-5">
               <div className="col-lg-8">
                 <div className="section-title mb-0">
-                  <h6 className="sub-title">// PROCESS</h6>
+                  <h6 className="sub-title">PROCESS</h6>
                   <h2 className={styles.sectionTitle}>Our Approach</h2>
                 </div>
                 <div className={styles.processCard}>
@@ -235,7 +235,7 @@ const ServiceDetailPage = ({ service }: Props) => {
               </div>
               <div className="col-lg-4">
                 <div className="section-title mb-0">
-                  <h6 className="sub-title">// SECTORS</h6>
+                  <h6 className="sub-title">SECTORS</h6>
                   <h2 className={styles.sectionTitle}>Industries We Serve</h2>
                 </div>
                 <div
@@ -257,7 +257,7 @@ const ServiceDetailPage = ({ service }: Props) => {
         <section className={`${styles.section} ${styles.altSection}`}>
           <div className="container">
             <div className="section-title mb-0">
-              <h6 className="sub-title">// OFFERINGS</h6>
+              <h6 className="sub-title">OFFERINGS</h6>
               <h2 className={styles.sectionTitle}>Subservices</h2>
             </div>
             <div className={styles.subserviceList}>
@@ -319,7 +319,7 @@ const ServiceDetailPage = ({ service }: Props) => {
         <section className={styles.section}>
           <div className="container">
             <div className="section-title mb-0">
-              <h6 className="sub-title">// SUPPORT</h6>
+              <h6 className="sub-title">SUPPORT</h6>
               <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
             </div>
             <div className={styles.faqWrap}>

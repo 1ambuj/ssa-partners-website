@@ -26,7 +26,7 @@ export function AccordionItem({
 export function AccordionTrigger({
   className,
   children,
-}: React.HTMLAttributes<HTMLSummaryElement>) {
+}: React.HTMLAttributes<HTMLElement>) {
   return (
     <summary
       className={cn(
