@@ -11,7 +11,7 @@ import five from "public/images/instagram/5.png";
 import six from "public/images/instagram/6.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const ContactInstagramTwo = () => {

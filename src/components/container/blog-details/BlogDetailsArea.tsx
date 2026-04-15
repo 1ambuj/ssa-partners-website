@@ -12,6 +12,7 @@ import Seven from "public/images/widget/2.png";
 import Eight from "public/images/widget/3.png";
 import type { BlogPost } from "@/data/blogPost";
 import { blogPosts, formatBlogDate } from "@/data/blogPost";
+import { normalizeExternalUrl } from "@/lib/security";
 
 interface BlogDetailsAreaProps {
   post: BlogPost;
@@ -213,7 +214,9 @@ const BlogDetailsArea = ({ post }: BlogDetailsAreaProps) => {
                       </article>
                     </li>
                   ) : (
-                    comments.map((c, idx) => (
+                    comments.map((c, idx) => {
+                      const safeWebsite = normalizeExternalUrl(c.website);
+                      return (
                       <li key={c.id} className="comment">
                         <article className="comment-body">
                           <footer className="comment-meta">
@@ -223,9 +226,9 @@ const BlogDetailsArea = ({ post }: BlogDetailsAreaProps) => {
                                 alt=""
                                 src={avatarImages[idx % avatarImages.length]}
                               />
-                              {c.website ? (
+                              {safeWebsite ? (
                                 <a
-                                  href={c.website}
+                                  href={safeWebsite}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="ms-2"
@@ -247,7 +250,7 @@ const BlogDetailsArea = ({ post }: BlogDetailsAreaProps) => {
                           </div>
                         </article>
                       </li>
-                    ))
+                    )})
                   )}
                 </ul>
               </div>

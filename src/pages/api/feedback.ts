@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
 // Email transporter configuration
@@ -88,9 +88,30 @@ function generateFeedbackEmailHTML(data: FeedbackData): string {
   `;
 }
 
-export async function POST(request: NextRequest) {
+type FeedbackResponse = {
+  success: boolean;
+  message: string;
+  error?: string;
+};
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<FeedbackResponse>) {
+  if (req.method === "GET") {
+    return res.status(200).json({
+      success: true,
+      message: "Feedback API endpoint ready",
+    });
+  }
+
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "GET, POST");
+    return res.status(405).json({
+      success: false,
+      message: "Method not allowed",
+    });
+  }
+
   try {
-    const body: FeedbackData = await request.json();
+    const body = (req.body ?? {}) as FeedbackData;
 
     // Validate required fields
     const requiredFields = [
@@ -102,37 +123,28 @@ export async function POST(request: NextRequest) {
     ];
     for (const field of requiredFields) {
       if (!body[field as keyof FeedbackData]) {
-        return NextResponse.json(
-          {
-            success: false,
-            message: `${field} is required`,
-          },
-          { status: 400 }
-        );
+        return res.status(400).json({
+          success: false,
+          message: `${field} is required`,
+        });
       }
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(body.email)) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Invalid email format",
-        },
-        { status: 400 }
-      );
+      return res.status(400).json({
+        success: false,
+        message: "Invalid email format",
+      });
     }
 
     // Validate phone (should be digits)
     if (body.phone.replace(/\D/g, "").length < 10) {
-      return NextResponse.json(
-        {
-          success: false,
-          message: "Phone number must have at least 10 digits",
-        },
-        { status: 400 }
-      );
+      return res.status(400).json({
+        success: false,
+        message: "Phone number must have at least 10 digits",
+      });
     }
 
     // Send email notification to admin
@@ -165,29 +177,15 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    return NextResponse.json(
-      {
-        success: true,
-        message: "Feedback submitted successfully",
-      },
-      { status: 200 }
-    );
-  } catch (error: any) {
+    return res.status(200).json({
+      success: true,
+      message: "Feedback submitted successfully",
+    });
+  } catch (error: unknown) {
     console.error("Error submitting feedback:", error);
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Failed to submit feedback",
-        error: error.message,
-      },
-      { status: 500 }
-    );
+    return res.status(500).json({
+      success: false,
+      message: "Failed to submit feedback",
+    });
   }
-}
-
-export async function GET() {
-  return NextResponse.json({
-    success: true,
-    message: "Feedback API endpoint ready",
-  });
 }

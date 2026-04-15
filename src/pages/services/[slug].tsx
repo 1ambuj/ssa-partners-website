@@ -1,7 +1,7 @@
 import React, { FormEvent, useMemo, useState } from "react";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 import Blog from "@/components/container/home/Blog";
@@ -18,7 +18,7 @@ type Props = {
   service: Service;
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
 };

@@ -1,8 +1,29 @@
-import { NextRequest, NextResponse } from "next/server";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export async function POST(request: NextRequest) {
+type BlogApiResponse = {
+  success: boolean;
+  message: string;
+  error?: string;
+};
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<BlogApiResponse>) {
+  if (req.method === "GET") {
+    return res.status(200).json({
+      success: true,
+      message: "Blog API endpoint ready",
+    });
+  }
+
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "GET, POST");
+    return res.status(405).json({
+      success: false,
+      message: "Method not allowed",
+    });
+  }
+
   try {
-    const body = await request.json();
+    const body = req.body ?? {};
     const { action, id, ...blogData } = body;
 
     // Note: The actual blog operations are now handled by the BlogService in the client
@@ -11,43 +32,26 @@ export async function POST(request: NextRequest) {
     if (action === "validate") {
       // Validate blog data
       if (!blogData.title || !blogData.content) {
-        return NextResponse.json(
-          {
-            success: false,
-            message: "Title and content are required",
-          },
-          { status: 400 }
-        );
+        return res.status(400).json({
+          success: false,
+          message: "Title and content are required",
+        });
       }
 
-      return NextResponse.json({
+      return res.status(200).json({
         success: true,
         message: "Blog data is valid",
       });
     }
 
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Invalid action",
-      },
-      { status: 400 }
-    );
-  } catch (error: any) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Server error",
-        error: error.message,
-      },
-      { status: 500 }
-    );
+    return res.status(400).json({
+      success: false,
+      message: "Invalid action",
+    });
+  } catch {
+    return res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
-}
-
-export async function GET(request: NextRequest) {
-  return NextResponse.json({
-    success: true,
-    message: "Blog API endpoint ready",
-  });
 }

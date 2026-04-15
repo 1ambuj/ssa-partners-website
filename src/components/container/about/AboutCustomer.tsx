@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Pagination } from "swiper";
+import SwiperCore from "swiper";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";

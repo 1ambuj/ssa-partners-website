@@ -10,7 +10,7 @@ import teamTwo from "public/images/team/2.png";
 import teamThree from "public/images/team/3.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

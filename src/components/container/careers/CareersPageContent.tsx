@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { JobService, formatJobDate } from "@/lib/jobService";
 import { JobPost } from "@/lib/types";
 import { siteConfig } from "@/data/siteConfig";
+import { sanitizeRichHtml } from "@/lib/security";
 
 const cvEmail = siteConfig.email.sandeep;
 const mailtoCvUrl = (subject?: string) => {
@@ -334,7 +335,10 @@ const CareersPageContent: React.FC = () => {
                 </div>
                 <p>{selectedJob.summary}</p>
                 {selectedJob.description && (
-                  <div className="small mt-3" dangerouslySetInnerHTML={{ __html: selectedJob.description }} />
+                  <div
+                    className="small mt-3"
+                    dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(selectedJob.description) }}
+                  />
                 )}
                 {selectedJob.salary && (
                   <p className="mb-1 mt-3">

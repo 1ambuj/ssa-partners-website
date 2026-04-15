@@ -41,7 +41,7 @@
 			height: 50px;
 			line-height: 50px;
 			color: #fff;
-			font-family: var(heading-font);
+			font-family: var(--heading-font);
 			background:  var(--heading-color);
 			text-align: center;
 			font-size: 25px;
@@ -391,7 +391,7 @@
 			line-height: 50px;
 			font-weight: 500;
 			color: var(--heading-color);
-			font-family: var(heading-font);
+			font-family: var(--heading-font);
 			background: #fff;
 			position: absolute;
 			right: 0;

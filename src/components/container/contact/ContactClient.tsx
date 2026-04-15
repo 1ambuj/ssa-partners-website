@@ -9,7 +9,7 @@ import five from "public/images/client/5.png";
 import six from "public/images/client/2.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const ContactClient = () => {

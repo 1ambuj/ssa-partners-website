@@ -4,7 +4,7 @@ import Image from "next/image";
 import One from "public/images/bg/shape1.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const AboutBannerVideo = () => {

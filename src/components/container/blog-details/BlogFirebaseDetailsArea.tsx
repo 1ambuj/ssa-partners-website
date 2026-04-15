@@ -13,6 +13,7 @@ import Eight from "public/images/widget/3.png";
 import { BlogService } from "@/lib/blogService";
 import { formatBlogLongDate, toJsDate } from "@/lib/blogDateUtils";
 import type { BlogPost } from "@/lib/types";
+import { normalizeExternalUrl, sanitizeRichHtml } from "@/lib/security";
 
 const recentImages = [Six, Seven, Eight] as const;
 
@@ -154,7 +155,7 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
                 <div className="details">
                   <div
                     className="blog-dynamic-content"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
+                    dangerouslySetInnerHTML={{ __html: sanitizeRichHtml(post.content) }}
                   />
                   {post.subtitle?.trim() ? (
                     <blockquote>
@@ -221,13 +222,20 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
                       </article>
                     </li>
                   ) : (
-                    comments.map((c) => (
+                    comments.map((c) => {
+                      const safeWebsite = normalizeExternalUrl(c.website);
+                      return (
                       <li key={c.id} className="comment">
                         <article className="comment-body">
                           <footer className="comment-meta">
                             <div className="comment-author vcard">
-                              {c.website ? (
-                                <a href={c.website} target="_blank" rel="noopener noreferrer" className="ms-2">
+                              {safeWebsite ? (
+                                <a
+                                  href={safeWebsite}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="ms-2"
+                                >
                                   {c.name}
                                 </a>
                               ) : (
@@ -243,7 +251,7 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
                           </div>
                         </article>
                       </li>
-                    ))
+                    )})
                   )}
                 </ul>
               </div>

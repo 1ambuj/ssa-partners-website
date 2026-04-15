@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore from "swiper";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
-import { Pagination } from "swiper";
 import Image from "next/image";
 
 import One from "public/images/about/8.png";
