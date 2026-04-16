@@ -29,8 +29,17 @@ const ServiceBanner = () => {
             data-aos-duration="1500"
             data-aos-delay="400"
           >
-            Expert Audit, Taxation & Advisory — building on compliance and trust to elevate your business success
+            Expert Audit, Taxation, GST and Advisory Support
           </h3>
+          <p
+            className="service-banner-desc"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            data-aos-delay="450"
+          >
+            We combine technical depth with practical execution so your compliance,
+            reporting, and strategic decisions stay clean, timely, and reliable.
+          </p>
           <div
             className="scroll-down top_image_bounce "
             data-aos="fade-up"

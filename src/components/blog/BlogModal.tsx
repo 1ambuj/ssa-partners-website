@@ -2,10 +2,66 @@
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { toJsDate } from "@/lib/blogDateUtils";
 import { BlogPost } from "@/lib/types";
 import "react-quill/dist/quill.snow.css";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
+const quillModules = {
+  toolbar: [
+    [{ header: [1, 2, 3, false] }],
+    ["bold", "italic", "underline", "strike"],
+    ["blockquote", "code-block"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    [{ indent: "-1" }, { indent: "+1" }],
+    [{ color: [] }, { background: [] }],
+    [{ align: [] }],
+    ["link", "image", "video"],
+    ["clean"],
+  ],
+};
+
+const quillFormats = [
+  "header",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "code-block",
+  "list",
+  "bullet",
+  "indent",
+  "color",
+  "background",
+  "align",
+  "link",
+  "image",
+  "video",
+];
+
+const BLOG_CATEGORY_OPTIONS = [
+  "GST",
+  "Taxation",
+  "Audit",
+  "Advisory",
+  "LPO",
+  "BPO",
+  "LLP",
+  "NRI",
+  "Compliance",
+  "ROC",
+  "Startup",
+  "Accounting",
+  "Other",
+];
+
+function formatDateInputValue(value: unknown): string {
+  const parsed = toJsDate(value);
+  if (Number.isNaN(parsed.getTime())) return "";
+  return parsed.toISOString().split("T")[0];
+}
 
 interface BlogModalProps {
   show: boolean;
@@ -14,31 +70,37 @@ interface BlogModalProps {
   onSave: (blog: BlogPost) => Promise<void>;
 }
 
+const getDefaultFormData = (): BlogPost => ({
+  title: "",
+  subtitle: "",
+  content: "",
+  category: "GST",
+  author: "Sandeep Singla",
+  featured: false,
+  publishDate: new Date(),
+  createdAt: new Date(),
+});
+
 const BlogModal: React.FC<BlogModalProps> = ({ show, onHide, blog, onSave }) => {
-  const [formData, setFormData] = useState<BlogPost>({
-    title: "",
-    subtitle: "",
-    content: "",
-    category: "General",
-    featured: false,
-    publishDate: new Date(),
-    createdAt: new Date(),
-  });
+  const [formData, setFormData] = useState<BlogPost>(getDefaultFormData());
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (blog) {
-      setFormData(blog);
-    } else {
       setFormData({
-        title: "",
-        subtitle: "",
-        content: "",
-        category: "General",
-        featured: false,
-        publishDate: new Date(),
-        createdAt: new Date(),
+        ...getDefaultFormData(),
+        ...blog,
+        title: blog.title || "",
+        subtitle: blog.subtitle || "",
+        content: blog.content || "",
+        category: blog.category || "GST",
+        author: blog.author || "Sandeep Singla",
+        featured: !!blog.featured,
+        publishDate: blog.publishDate || new Date(),
+        createdAt: blog.createdAt || new Date(),
       });
+    } else {
+      setFormData(getDefaultFormData());
     }
   }, [blog, show]);
 
@@ -141,6 +203,21 @@ const BlogModal: React.FC<BlogModalProps> = ({ show, onHide, blog, onSave }) => 
                 </div>
 
                 <div className="mb-3">
+                  <label htmlFor="author" className="form-label">
+                    Author
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="author"
+                    name="author"
+                    value={formData.author || ""}
+                    onChange={handleChange}
+                    placeholder="Author name"
+                  />
+                </div>
+
+                <div className="mb-3">
                   <label htmlFor="category" className="form-label">
                     Category
                   </label>
@@ -151,11 +228,11 @@ const BlogModal: React.FC<BlogModalProps> = ({ show, onHide, blog, onSave }) => 
                     value={formData.category}
                     onChange={handleChange}
                   >
-                    <option value="General">General</option>
-                    <option value="News">News</option>
-                    <option value="Tutorial">Tutorial</option>
-                    <option value="Case Study">Case Study</option>
-                    <option value="Update">Update</option>
+                    {BLOG_CATEGORY_OPTIONS.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -168,11 +245,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ show, onHide, blog, onSave }) => 
                     className="form-control"
                     id="publishDate"
                     name="publishDate"
-                    value={
-                      formData.publishDate instanceof Date
-                        ? formData.publishDate.toISOString().split("T")[0]
-                        : new Date(formData.publishDate).toISOString().split("T")[0]
-                    }
+                    value={formatDateInputValue(formData.publishDate)}
                     onChange={(e) =>
                       setFormData({
                         ...formData,
@@ -200,28 +273,21 @@ const BlogModal: React.FC<BlogModalProps> = ({ show, onHide, blog, onSave }) => 
                   <label htmlFor="content" className="form-label">
                     Content * (Use the rich text editor below)
                   </label>
-                  <div style={{ backgroundColor: "#fff", marginTop: "10px" }}>
+                  <div className="small text-muted mb-2">
+                    Use H1 for main section titles and H2/H3 for subheadings.
+                  </div>
+                  <div
+                    className="blog-editor-wrapper"
+                    style={{ backgroundColor: "#fff", marginTop: "10px" }}
+                  >
                     <ReactQuill
+                      className="blog-quill-editor"
                       theme="snow"
                       value={formData.content}
                       onChange={handleContentChange}
                       placeholder="Write your blog content here..."
-                      modules={{
-                        toolbar: [
-                          [{ header: [1, 2, 3, false] }],
-                          ["bold", "italic", "underline", "strike"],
-                          ["blockquote", "code-block"],
-                          [{ list: "ordered" }, { list: "bullet" }],
-                          [{ script: "sub" }, { script: "super" }],
-                          [{ indent: "-1" }, { indent: "+1" }],
-                          [{ size: ["small", false, "large", "huge"] }],
-                          [{ color: [] }, { background: [] }],
-                          [{ font: [] }],
-                          [{ align: [] }],
-                          ["link", "image", "video"],
-                          ["clean"],
-                        ],
-                      }}
+                      modules={quillModules}
+                      formats={quillFormats}
                     />
                   </div>
                 </div>
@@ -248,6 +314,24 @@ const BlogModal: React.FC<BlogModalProps> = ({ show, onHide, blog, onSave }) => 
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        .blog-editor-wrapper .blog-quill-editor .ql-toolbar.ql-snow {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+
+        .blog-editor-wrapper .blog-quill-editor .ql-container.ql-snow {
+          min-height: 320px;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+
+        .blog-editor-wrapper .blog-quill-editor .ql-editor {
+          min-height: 280px;
+          padding: 14px 16px;
+          line-height: 1.7;
+        }
+      `}</style>
     </>
   );
 };

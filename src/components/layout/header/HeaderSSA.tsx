@@ -47,7 +47,7 @@ const HeaderSSA = () => {
     }, 150);
   }
 
-  function onServicesClick() {
+  function onServicesToggleClick() {
     if (servicesCloseTimer.current) {
       clearTimeout(servicesCloseTimer.current);
       servicesCloseTimer.current = null;
@@ -129,18 +129,23 @@ const HeaderSSA = () => {
               onMouseEnter={openServicesWithCancel}
               onMouseLeave={closeServicesWithDelay}
             >
-              <button
-                type="button"
-                onClick={onServicesClick}
-                className={`ssa-services-btn ${servicesOpen || isServicesActive ? "active" : ""}`}
-                aria-expanded={servicesOpen}
-                aria-haspopup="menu"
-              >
-                <span className="ssa-services-label">Services</span>
+              <div className={`ssa-services-btn ${servicesOpen || isServicesActive ? "active" : ""}`}>
+                <Link href="/service" className="ssa-services-label-link">
+                  <span className="ssa-services-label">Services</span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={onServicesToggleClick}
+                  className="ssa-services-toggle-btn"
+                  aria-expanded={servicesOpen}
+                  aria-haspopup="menu"
+                  aria-label="Toggle services menu"
+                >
                 <span className="ssa-services-plus">
                   {servicesOpen ? "−" : "+"}
                 </span>
-              </button>
+                </button>
+              </div>
               <div
                 className={`ssa-services-dropdown ${
                   servicesOpen ? "visible" : "hidden"

@@ -36,8 +36,9 @@ const ServiceArea = () => {
                     <Link href={service.href}>{service.title}</Link>
                   </h4>
                   <p>{service.description}</p>
-                  <Link className="case-view-btn" href={service.href}>
-                    <span>Discover More</span> →
+                  <Link className="case-view-btn service-plus-btn" href={service.href} aria-label={`View ${service.title}`}>
+                    <span className="service-btn-label">View Details</span>
+                    <span className="service-btn-plus" aria-hidden="true">+</span>
                   </Link>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import One from "public/images/team/1.png";
+import SandeepImage from "public/images/team/3.png";
 import { formatBlogDate } from "@/data/blogPost";
 import type { BlogPost } from "@/data/blogPost";
-import { formatBlogLongDate } from "@/lib/blogDateUtils";
+import { formatBlogDateTime } from "@/lib/blogDateUtils";
 import type { BlogPost as FirebaseBlogPost } from "@/lib/types";
 
 export interface BlogDetailsBannerProps {
@@ -30,7 +30,7 @@ const BlogDetailsBanner = ({
         </Link>
         <h2>{title}</h2>
         <div className="author-meta">
-          <Image src={One} alt="img" />
+          <Image src={SandeepImage} alt={authorName} />
           <p>
             <span>{authorName} . </span> {dateLabel}
             {commentsLabel ? ` . ${commentsLabel}` : ""}
@@ -57,8 +57,8 @@ export const BlogDetailsBannerFromFirebase = ({ post }: { post: FirebaseBlogPost
   <BlogDetailsBanner
     title={post.title}
     category={post.category || "Blog"}
-    dateLabel={formatBlogLongDate(post.publishDate)}
-    authorName={post.author}
+    dateLabel={formatBlogDateTime(post.publishDate)}
+    authorName={post.author || "Sandeep Singla"}
   />
 );
 

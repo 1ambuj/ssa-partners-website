@@ -152,18 +152,10 @@ const ContactForm = () => {
                   <div className="col-md-6">
                     <div className="single-input-inner style-bg">
                       <select
+                        className="contact-subject-select"
                         name="subject"
                         value={form.subject}
                         onChange={handleChange}
-                        style={{
-                          width: "100%",
-                          height: 50,
-                          border: 0,
-                          padding: "0 18px",
-                          background: "#f5f3ef",
-                          color: "#65645f",
-                          borderRadius: 0,
-                        }}
                       >
                         <option value="">Subject of Query</option>
                         {subjects.map((s) => (

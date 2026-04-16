@@ -18,7 +18,7 @@ export function normalizeExternalUrl(value?: string): string | null {
 export function sanitizeRichHtml(value?: string): string {
   if (!value) return "";
   return sanitizeHtml(value, {
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "h1", "h2", "u"]),
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "h1", "h2", "h3", "u"]),
     allowedAttributes: {
       a: ["href", "name", "target", "rel"],
       img: ["src", "alt", "title", "width", "height", "loading"],

@@ -1005,15 +1005,9 @@ html {
         height: 68px;
         display: flex;
         align-items: center;
-        gap: 0.25rem;
+        gap: 0.3rem;
         line-height: 1;
-        background: none;
-        border: none;
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: inherit;
         color: var(--ssa-header-text);
-        cursor: pointer;
         padding: 0;
         transition: color 0.2s;
 
@@ -1022,9 +1016,28 @@ html {
           color: var(--ssa-header-accent);
         }
 
+        .ssa-services-label-link {
+          color: inherit;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          height: 68px;
+        }
+
+        .ssa-services-toggle-btn {
+          background: none;
+          border: none;
+          color: inherit;
+          cursor: pointer;
+          padding: 0 0 0 2px;
+          display: inline-flex;
+          align-items: center;
+          height: 68px;
+        }
+
         .ssa-services-plus {
           font-size: inherit;
-          color: var(--ssa-header-text);
+          color: inherit;
         }
       }
 
@@ -2249,6 +2262,445 @@ html {
 
   .section-title .content {
     font-size: 15px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Legal pages (Terms & Privacy): readable typography & spacing
+   ------------------------------------------------------------------ */
+.legal-page {
+  --legal-max-width: 62rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4.5rem;
+  min-height: 55vh;
+  background: #fafaf9;
+}
+
+.legal-page .container {
+  max-width: calc(var(--legal-max-width) + 2rem);
+}
+
+.legal-page-card {
+  background: var(--color-white, #fff);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 13, 29, 0.06);
+  padding: 2.5rem 2.25rem 3rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(15, 13, 29, 0.06);
+}
+
+@media (min-width: 768px) {
+  .legal-page-card {
+    padding: 3rem 2.5rem 3.5rem;
+  }
+}
+
+.legal-page-card > h1 {
+  font-family: var(--heading-font, var(--body-font));
+  color: var(--heading-color);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.legal-intro {
+  font-family: var(--body-font);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--paragraph-color);
+  margin: 0 0 2.25rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(15, 13, 29, 0.08);
+}
+
+.legal-section {
+  margin-top: 2rem;
+}
+
+.legal-section:first-of-type {
+  margin-top: 0;
+}
+
+.legal-section h2 {
+  font-family: var(--heading-font, var(--body-font));
+  color: var(--heading-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 0.85rem;
+  padding-top: 0.25rem;
+}
+
+.legal-section p {
+  font-family: var(--body-font);
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--paragraph-color);
+  margin: 0 0 1rem;
+}
+
+.legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 575px) {
+  .legal-page {
+    padding-top: 1.75rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .legal-page-card {
+    padding: 1.75rem 1.25rem 2.25rem;
+    border-radius: 10px;
+  }
+}
+
+/* Services page: process block alignment (reference-style) */
+.ssa-services-page {
+  --ssa-services-blue-start: #1e293b;
+  --ssa-services-blue-mid: #334155;
+  --ssa-services-blue-end: #1e293b;
+
+  #service-area {
+    background: #f5f3ef;
+  }
+
+  #service-area .row > [class*="col-"] {
+    margin-bottom: 24px;
+  }
+
+  #service-area .single-service-inner {
+    background: #fff;
+    border: 1px solid #efefef;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 34px 24px 24px;
+    height: 100%;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  #service-area .single-service-inner:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: #e2e2e2;
+    background: #fff;
+  }
+
+  #service-area .single-service-inner .thumb {
+    margin-bottom: 20px;
+  }
+
+  #service-area .single-service-inner .thumb img {
+    max-height: 64px;
+    width: auto;
+  }
+
+  #service-area .single-service-inner .details h4 {
+    font-size: 1.32rem;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    position: relative;
+  }
+
+  #service-area .single-service-inner .details h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 118px;
+    height: 1px;
+    background: #6f6f6f;
+  }
+
+  #service-area .single-service-inner .details h4 a {
+    color: var(--heading-color);
+  }
+
+  #service-area .single-service-inner .details p {
+    font-size: 0.98rem;
+    line-height: 1.82;
+    color: #66645f;
+    margin-bottom: 24px;
+    min-height: 110px;
+  }
+
+  #service-area .single-service-inner .details .service-plus-btn {
+    width: 42px !important;
+    min-width: 42px;
+    height: 42px;
+    border-radius: 0;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: #0f0f14;
+    color: #fff !important;
+    padding: 0 !important;
+    line-height: 1;
+    text-decoration: none;
+    transition: background 0.25s ease;
+  }
+
+  #service-area .single-service-inner .details .service-plus-btn .service-btn-label {
+    font-size: 0 !important;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 !important;
+    transition: opacity 0.2s ease, max-width 0.2s ease, font-size 0.2s ease;
+  }
+
+  #service-area .single-service-inner .details .service-plus-btn .service-btn-plus {
+    font-size: 1.2rem !important;
+    font-weight: 600;
+    margin: 0 !important;
+    float: none !important;
+    line-height: 1;
+  }
+
+  #service-area .single-service-inner:hover .details .service-plus-btn {
+    width: 140px !important;
+    padding: 0 14px !important;
+    justify-content: space-between;
+    background: var(--main-color);
+  }
+
+  #service-area .single-service-inner:hover .details .service-plus-btn .service-btn-label {
+    font-size: 0.82rem !important;
+    font-weight: 500;
+    opacity: 1;
+    max-width: 90px;
+  }
+
+  .industries-area {
+    .industries-slider-wrap {
+      padding-bottom: 0 !important;
+      overflow: visible;
+    }
+
+    .industries-swiper {
+      padding: 6px 4px 0;
+    }
+
+    .industries-swiper .swiper-slide {
+      height: auto;
+      padding-bottom: 4px;
+    }
+
+    .industries-swiper .swiper-pagination {
+      position: static !important;
+      margin-top: 20px;
+      line-height: 1;
+    }
+
+    .industries-swiper .swiper-pagination-bullet {
+      width: 9px;
+      height: 9px;
+      margin: 0 4px !important;
+      opacity: 0.32;
+      background: var(--main-color);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .industries-swiper .swiper-pagination-bullet-active {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    .single-industry-card {
+      padding: 24px 22px 22px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+    }
+
+    .single-industry-card .industry-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .single-industry-card .industry-index {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: #8f8d88;
+      font-weight: 600;
+    }
+
+    .single-industry-card h4 {
+      margin-bottom: 10px;
+      min-height: 54px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .single-industry-card p {
+      margin-top: auto;
+    }
+  }
+
+  #service-area {
+    padding-bottom: 34px;
+  }
+
+  .work-process {
+    margin-top: 26px;
+    margin-bottom: 34px;
+    border-radius: 0;
+    overflow: visible;
+    background: linear-gradient(
+      to right,
+      var(--ssa-services-blue-start) 0%,
+      var(--ssa-services-blue-mid) 50%,
+      var(--ssa-services-blue-end) 100%
+    );
+    border: 1px solid rgba(116, 146, 182, 0.24);
+  }
+
+  .work-process .row {
+    align-items: stretch;
+  }
+
+  .work-process .row > .col-lg-5 {
+    padding-left: 14px;
+  }
+
+  .work-process-thumb-image {
+    height: clamp(430px, 50vw, 620px);
+    min-height: 430px;
+    max-height: 620px;
+    margin-top: -38px;
+  }
+
+  .work-process-thumb-image img {
+    transform: scale(1);
+  }
+
+  .work-process-thumb .quote-wrap {
+    width: 300px;
+    padding: 30px 28px;
+  }
+
+  .work-process-thumb .quote-wrap h4 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .work-process-thumb .quote-wrap p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .table-data {
+    display: flex !important;
+    gap: 10px;
+  }
+  
+  .work-process .section-title.style-white {
+    padding: 42px 32px !important;
+  }
+
+  .work-process .process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 14px;
+  }
+
+  .work-process .process-step-card {
+    margin-top: 0 !important;
+    padding: 0;
+    border: 1px solid rgba(190, 211, 235, 0.2);
+    border-radius: 0;
+    background: rgba(8, 27, 45, 0.32);
+    align-items: stretch;
+  }
+
+  .work-process .process-step-card .media-left {
+    width: 62px;
+    min-width: 62px;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--main-color);
+    background: rgba(167, 194, 224, 0.16);
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .work-process .process-step-card .media-body {
+    padding: 12px 15px;
+  }
+
+  .work-process .process-step-card .media-body h4 {
+    font-size: 1.02rem;
+    margin-bottom: 5px;
+  }
+
+  .work-process .process-step-card .media-body p {
+    font-size: 0.88rem;
+    line-height: 1.48;
+    margin-bottom: 0;
+    color: rgba(236, 245, 255, 0.88);
+  }
+
+  /* Keep numbers white even on hover/focus */
+  .work-process .process-step-card:hover .media-left,
+  .work-process .process-step-card:focus-within .media-left {
+    color: #ffffff;
+    background: var(--main-color);
+  }
+
+  @media (max-width: 991px) {
+    #service-area .single-service-inner {
+      padding: 30px 20px 20px;
+    }
+
+    #service-area .single-service-inner .details h4 {
+      font-size: 1.45rem;
+    }
+
+    #service-area .single-service-inner .details p {
+      min-height: auto;
+      margin-bottom: 18px;
+    }
+
+    #service-area {
+      padding-bottom: 20px;
+    }
+
+    .work-process {
+      margin-top: 18px;
+      margin-bottom: 24px;
+    }
+
+    .work-process .row > .col-lg-5 {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .work-process-thumb-image {
+      height: 320px;
+      min-height: 320px;
+      max-height: 360px;
+      margin-top: 0;
+    }
+
+    .work-process .section-title.style-white {
+      padding: 34px 20px !important;
+    }
+
+    .work-process .process-steps-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
   }
 }
 

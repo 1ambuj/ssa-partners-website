@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useAuth } from "@/lib/AuthContext";
+import { formatBlogDateTime, toJsDate } from "@/lib/blogDateUtils";
 import { BlogService } from "@/lib/blogService";
 import { BlogPost } from "@/lib/types";
 import BlogModal from "./BlogModal";
@@ -21,7 +22,10 @@ const BlogDashboard: React.FC = () => {
 
   const loadBlogs = async () => {
     const allBlogs = await BlogService.getAllBlogs();
-    setBlogs(allBlogs);
+    const sortedBlogs = [...allBlogs].sort(
+      (a, b) => toJsDate(b.publishDate).getTime() - toJsDate(a.publishDate).getTime(),
+    );
+    setBlogs(sortedBlogs);
     setLoading(false);
   };
 
@@ -107,21 +111,23 @@ const BlogDashboard: React.FC = () => {
                     )}
                   </td>
                   <td>
-                    {new Date(blog.publishDate).toLocaleDateString()}
+                    {formatBlogDateTime(blog.publishDate) || "-"}
                   </td>
-                  <td>
-                    <button
-                      className="btn btn-sm btn-border-black border-radius me-2"
-                      onClick={() => handleEditBlog(blog)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-sm btn-danger border-radius"
-                      onClick={() => handleDeleteBlog(blog.id!)}
-                    >
-                      Delete
-                    </button>
+                  <td className="table-data">
+                    <div className="d-flex align-items-center gap-2 flex-nowrap">
+                      <button
+                        className="btn btn-sm btn-border-black border-radius"
+                        onClick={() => handleEditBlog(blog)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btn btn-sm btn-danger border-radius"
+                        onClick={() => handleDeleteBlog(blog.id!)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

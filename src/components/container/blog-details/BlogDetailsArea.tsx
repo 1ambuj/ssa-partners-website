@@ -10,6 +10,7 @@ import Five from "public/images/team/2.png";
 import Six from "public/images/widget/1.png";
 import Seven from "public/images/widget/2.png";
 import Eight from "public/images/widget/3.png";
+import BlogContactSection from "@/components/container/blog-details/BlogContactSection";
 import type { BlogPost } from "@/data/blogPost";
 import { blogPosts, formatBlogDate } from "@/data/blogPost";
 import { normalizeExternalUrl } from "@/lib/security";
@@ -345,7 +346,7 @@ const BlogDetailsArea = ({ post }: BlogDetailsAreaProps) => {
                 </ul>
               </div>
               <div className="widget widget-recent-post">
-                <h4 className="widget-title">Recent News</h4>
+                <h4 className="widget-title">Latest Blog</h4>
                 <ul>
                   {recent.map((p, idx) => (
                     <li key={p.slug}>
@@ -367,6 +368,7 @@ const BlogDetailsArea = ({ post }: BlogDetailsAreaProps) => {
                   ))}
                 </ul>
               </div>
+              <BlogContactSection blogTitle={post.title} />
               <div className="widget widget_tag_cloud mb-0">
                 <h4 className="widget-title">Tags</h4>
                 <div className="tagcloud">

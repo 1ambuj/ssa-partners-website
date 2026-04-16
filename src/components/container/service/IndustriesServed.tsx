@@ -48,8 +48,11 @@ const IndustriesServed = () => {
               return (
                 <SwiperSlide key={index}>
                   <div className="single-industry-card">
-                    <div className="industry-icon">
-                      <IconComponent />
+                    <div className="industry-card-top">
+                      <div className="industry-icon">
+                        <IconComponent />
+                      </div>
+                      <span className="industry-index">#{String(index + 1).padStart(2, "0")}</span>
                     </div>
                     <h4>{industry.title}</h4>
                     <p>{industry.description}</p>

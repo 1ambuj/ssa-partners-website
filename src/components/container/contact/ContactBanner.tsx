@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { siteConfig } from "@/data/siteConfig";
 
 import One from "public/images/about/4.png";
 
@@ -61,8 +62,10 @@ const ContactBanner = () => {
       <div className="contact-g-map">
         <iframe
           title="Office Map"
-          src="https://www.google.com/maps?q=E-127%20GF%20Sushant%20Shopping%20Arcade%20Sushant%20Lok-1%20Gurgaon&output=embed"
+          src={siteConfig.contact.mapEmbedUrl}
           loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
         />
       </div>
     </>

@@ -40,8 +40,8 @@ const PROCESS_STEPS = [
 const ProcessTwo = () => {
   return (
     <div className="work-process bg-black p-4 p-lg-0">
-      <div className="row">
-        <div className="col-lg-6">
+      <div className="row align-items-stretch">
+        <div className="col-lg-5">
           <div className="work-process-thumb work-process-thumb-image">
             <Image src={One} alt="img " />
             <div className="quote-wrap pd-10 pd-lg-20">
@@ -50,15 +50,16 @@ const ProcessTwo = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-6 align-self-center">
+        <div className="col-lg-7 align-self-center">
           <div className="section-title style-white mb-0 pd-top-100 pd-bottom-100">
             <h6 className="sub-title">// Our Process</h6>
             <h2 className="title">How We Deliver Value</h2>
             <p className="content mb-4">
               Our structured 6S methodology ensures every engagement is customized, scalable, and built for long-term success. We go beyond compliance to deliver practical, value-driven solutions.
             </p>
+            <div className="process-steps-grid">
             {PROCESS_STEPS.map((step) => (
-              <div key={step.num} className="media single-list-media style-2 mt-4">
+              <div key={step.num} className="media single-list-media style-2 process-step-card mt-4">
                 <div className="media-left">{step.num}</div>
                 <div className="media-body align-self-center">
                   <h4>{step.title}</h4>
@@ -67,6 +68,7 @@ const ProcessTwo = () => {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,13 +1,90 @@
 /* Contact page - template design with our content */
 .contact-page-area .single-list-media.style-3 .media-left i {
-  font-size: 1.5rem;
+  font-size: 1.18rem;
 }
+
+.contact-page-area .single-list-media.style-3 .media-left {
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(250, 100, 0, 0.14);
+  color: var(--heading-color);
+  margin-right: 14px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.contact-page-area .single-list-media.style-3 {
+  align-items: flex-start;
+}
+
+.contact-page-area .section-title .title {
+  font-size: clamp(2rem, 2.8vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.contact-page-area .section-title .content {
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.contact-page-area .single-list-media.style-3 .media-body p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 3px;
+}
+
+.contact-page-area .single-list-media.style-3 .media-body h4 {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
 .contact-page-area .single-list-media.style-3 .media-body a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.25s ease;
 }
 .contact-page-area .single-list-media.style-3 .media-body a:hover {
   color: var(--main-color);
+}
+
+.contact-page-area .contact-subject-select {
+  width: 100%;
+  height: 56px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #f7f4ef;
+  color: var(--paragraph-color);
+  padding: 0 44px 0 20px;
+  font-size: 16px;
+  line-height: 56px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--heading-color) 50%),
+    linear-gradient(135deg, var(--heading-color) 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) 25px,
+    calc(100% - 16px) 25px;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.contact-page-area .contact-subject-select:focus {
+  outline: none;
+  background-color: #f7f4ef;
+  box-shadow: 0 0 0 1px rgba(20, 88, 134, 0.12);
+}
+
+.contact-page-area .contact-subject-select option {
+  color: var(--heading-color);
 }
 
 /* legacy - kept for any remaining references */

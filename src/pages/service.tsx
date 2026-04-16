@@ -14,10 +14,12 @@ const Service = () => {
       footer={true}
       bodyClass={true}
     >
-      <ServiceBanner />
-      <ServiceArea />
-      <ProcessTwo />
-      <IndustriesServed />
+      <div className="ssa-services-page">
+        <ServiceBanner />
+        <ServiceArea />
+        <ProcessTwo />
+        <IndustriesServed />
+      </div>
       {/* <ContactClient />
       <ContactInstagram /> */}
     </Layout>

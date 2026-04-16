@@ -14,12 +14,13 @@ const AboutThree = () => {
             data-aos-delay="100"
           >
             <div className="section-title mb-0">
-              <h6 className="sub-title">// About Attax</h6>
-              <h2 className="title">Helping You Put Systems in that Work</h2>
+              <h6 className="sub-title">// Why SSA</h6>
+              <h2 className="title">Helping You Put Systems That Work</h2>
               <p className="content mb-4">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour,
+                As chartered accountants, we help you build clear processes for
+                books, compliance, and reporting—so statutory audits, tax filings,
+                and board or investor reviews run smoothly, not as last-minute
+                firefighting.
               </p>
               <div className="row">
                 <div className="col-md-4 align-self-center">
@@ -33,8 +34,9 @@ const AboutThree = () => {
                 </div>
                 <div className="col-md-8">
                   <strong>
-                    99.9% Customer Satisfaction Based on 750+ Reviews and 20,000
-                    Objective Resource
+                    Structured delivery across audit, tax, GST, and advisory—
+                    with emphasis on timelines, documentation, and outcomes you
+                    can stand behind.
                   </strong>
                 </div>
               </div>
@@ -45,7 +47,7 @@ const AboutThree = () => {
                 >
                   Explore More
                 </Link>
-                <Link className="btn btn-base border-radius" href="/about">
+                <Link className="btn btn-base border-radius" href="/contact">
                   Get Started
                 </Link>
               </div>
@@ -67,7 +69,7 @@ const AboutThree = () => {
                         cx="50"
                         cy="50"
                         r="45"
-                        style={{ "--percent": 75 } as React.CSSProperties}
+                        style={{ "--percent": 95 } as React.CSSProperties}
                       ></circle>
                     </svg>
                     <div className="number">
@@ -79,9 +81,10 @@ const AboutThree = () => {
                 </div>
               </div>
               <div className="media-body align-self-center">
-                <h4>Business Consulting</h4>
+                <h4>Audit &amp; assurance</h4>
                 <p>
-                  There are many variations of passages Lorem Ipsum available,
+                  Statutory, tax, and internal audits with clear observations,
+                  action items, and support through closure.
                 </p>
               </div>
             </div>
@@ -100,7 +103,7 @@ const AboutThree = () => {
                         cx="50"
                         cy="50"
                         r="45"
-                        style={{ "--percent": 65 } as React.CSSProperties}
+                        style={{ "--percent": 85 } as React.CSSProperties}
                       ></circle>
                     </svg>
                     <div className="number">
@@ -112,9 +115,10 @@ const AboutThree = () => {
                 </div>
               </div>
               <div className="media-body align-self-center">
-                <h4>Financial Advising</h4>
+                <h4>Direct tax &amp; GST</h4>
                 <p>
-                  There are many variations of passages Lorem Ipsum available,
+                  Planning, returns, assessments, and reconciliations aligned
+                  with current law and your operating model.
                 </p>
               </div>
             </div>
@@ -133,7 +137,7 @@ const AboutThree = () => {
                         cx="50"
                         cy="50"
                         r="45"
-                        style={{ "--percent": 65 } as React.CSSProperties}
+                        style={{ "--percent": 75 } as React.CSSProperties}
                       ></circle>
                     </svg>
                     <div className="number">
@@ -145,9 +149,10 @@ const AboutThree = () => {
                 </div>
               </div>
               <div className="media-body align-self-center">
-                <h4>Brand Consulting</h4>
+                <h4>Advisory &amp; compliance</h4>
                 <p>
-                  There are many variations of passages Lorem Ipsum available,
+                  Corporate structuring, regulatory filings, NRI matters, and
+                  ongoing compliance support for growing businesses.
                 </p>
               </div>
             </div>

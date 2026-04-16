@@ -28,3 +28,15 @@ export function formatBlogLongDate(publishDate: unknown): string {
     day: "numeric",
   });
 }
+
+export function formatBlogDateTime(publishDate: unknown): string {
+  const d = toJsDate(publishDate);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}

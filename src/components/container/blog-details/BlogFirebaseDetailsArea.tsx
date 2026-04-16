@@ -10,12 +10,26 @@ import Three from "public/images/blog/10.png";
 import Six from "public/images/widget/1.png";
 import Seven from "public/images/widget/2.png";
 import Eight from "public/images/widget/3.png";
+import BlogContactSection from "@/components/container/blog-details/BlogContactSection";
 import { BlogService } from "@/lib/blogService";
 import { formatBlogLongDate, toJsDate } from "@/lib/blogDateUtils";
 import type { BlogPost } from "@/lib/types";
 import { normalizeExternalUrl, sanitizeRichHtml } from "@/lib/security";
 
 const recentImages = [Six, Seven, Eight] as const;
+
+function getBlogRecentSortTime(post: BlogPost): number {
+  const createdTime = toJsDate(post.createdAt).getTime();
+  if (!Number.isNaN(createdTime)) return createdTime;
+
+  const publishTime = toJsDate(post.publishDate).getTime();
+  if (!Number.isNaN(publishTime)) return publishTime;
+
+  const updatedTime = toJsDate(post.updatedAt).getTime();
+  if (!Number.isNaN(updatedTime)) return updatedTime;
+
+  return 0;
+}
 
 type BlogComment = {
   id: string;
@@ -76,7 +90,7 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
   const recent = useMemo(() => {
     return [...allBlogs]
       .filter((b) => (b.slug || b.id) !== slug)
-      .sort((a, b) => toJsDate(b.publishDate).getTime() - toJsDate(a.publishDate).getTime())
+      .sort((a, b) => getBlogRecentSortTime(b) - getBlogRecentSortTime(a))
       .slice(0, 3);
   }, [allBlogs, slug]);
 
@@ -341,7 +355,7 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
                 </ul>
               </div>
               <div className="widget widget-recent-post">
-                <h4 className="widget-title">Recent News</h4>
+                <h4 className="widget-title">Latest Blog</h4>
                 <ul>
                   {recent.map((p, idx) => (
                     <li key={p.id || p.slug}>
@@ -370,6 +384,7 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
                   ))}
                 </ul>
               </div>
+              <BlogContactSection blogTitle={post.title} />
             </div>
           </div>
         </div>

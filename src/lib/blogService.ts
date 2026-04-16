@@ -13,6 +13,7 @@ import {
   Timestamp,
 } from "firebase/firestore";
 import { db } from "./firebase";
+import { toJsDate } from "./blogDateUtils";
 import { BlogPost, ApiResponse } from "./types";
 
 export const BlogService = {
@@ -23,15 +24,14 @@ export const BlogService = {
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/(^-|-$)/g, "");
+      const publishDate = toJsDate(post.publishDate);
 
       const docRef = await addDoc(collection(db, "blogs"), {
         ...post,
         slug,
-        publishDate: post.publishDate
-          ? Timestamp.fromDate(
-              new Date(post.publishDate)
-            )
-          : Timestamp.now(),
+        publishDate: Number.isNaN(publishDate.getTime())
+          ? Timestamp.now()
+          : Timestamp.fromDate(publishDate),
         createdAt: Timestamp.now(),
         updatedAt: Timestamp.now(),
       });
@@ -55,8 +55,25 @@ export const BlogService = {
   async updateBlog(id: string, post: Partial<BlogPost>): Promise<ApiResponse> {
     try {
       const docRef = doc(db, "blogs", id);
+      const slug = post.title
+        ? post.title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, "")
+        : undefined;
+      const publishDate = toJsDate(post.publishDate);
+
       await updateDoc(docRef, {
-        ...post,
+        ...(typeof post.title === "string" ? { title: post.title } : {}),
+        ...(typeof post.subtitle === "string" ? { subtitle: post.subtitle } : {}),
+        ...(typeof post.content === "string" ? { content: post.content } : {}),
+        ...(typeof post.category === "string" ? { category: post.category } : {}),
+        ...(typeof post.author === "string" ? { author: post.author } : {}),
+        ...(typeof post.featured === "boolean" ? { featured: post.featured } : {}),
+        ...(slug ? { slug } : {}),
+        ...(!Number.isNaN(publishDate.getTime())
+          ? { publishDate: Timestamp.fromDate(publishDate) }
+          : {}),
         updatedAt: Timestamp.now(),
       });
 

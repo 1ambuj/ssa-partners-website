@@ -66,7 +66,7 @@ export const siteConfig = {
       "Services for non-residents",
     ],
     mapEmbedUrl:
-      "https://www.google.com/maps?q=E-127%20GF%20Sushant%20Shopping%20Arcade%20Sushant%20Lok-1%20Gurgaon&output=embed",
+      "https://maps.google.com/maps?width=100%25&height=500&hl=en&q=E-127%20GF%20Sushant%20Shopping%20Arcade%20Sushant%20Lok-1%20Gurgaon&t=&z=16&ie=UTF8&iwloc=B&output=embed",
   },
   footer: {
     about:
