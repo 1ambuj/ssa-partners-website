@@ -793,7 +793,7 @@ html {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("../../../public/images/Picture3.png") center / cover no-repeat;
+    background: url("/images/Picture3.png") center / cover no-repeat;
     opacity: 0.03;
     pointer-events: none;
   }
@@ -828,7 +828,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../../../public/images/Picture3.png") center / cover no-repeat;
+  background: url("/images/Picture3.png") center / cover no-repeat;
   opacity: 0.03;
   pointer-events: none;
 }
