@@ -2,9 +2,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 import One from "public/images/bg/14.png";
+import Two from "public/images/about/4.png";
 
 import Three from "public/images/case-study/1.png";
 import Four from "public/images/case-study/2.png";
@@ -30,10 +30,10 @@ const CaseStudyArea = () => {
   return (
     <>
       <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <SsaBrochureMark
+        <Image
           className="left_image_bounce position-bottom-left"
-          size="lg"
-          tone="blue"
+          src={Two}
+          alt="img"
         />
         <div className="container">
           <div className="row justify-content-center">
@@ -74,10 +74,10 @@ const CaseStudyArea = () => {
         id="case-study-area"
         className="case-study-area bg-sky pd-top-110 pd-bottom-90 bg-relative"
       >
-        <SsaBrochureMark
+        <Image
           className="left_image_bounce position-top-right"
-          size="lg"
-          tone="blue"
+          src={Two}
+          alt="img"
         />
         <div className="container">
           <div className="row justify-content-center">

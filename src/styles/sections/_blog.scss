@@ -73,11 +73,19 @@
     align-items: center;
     padding: 7px 12px;
     border-radius: 999px;
-    background: #eaf2ff;
-    color: #145886;
+    border: 1px solid rgba(243, 121, 32, 0.25);
+    background: rgba(243, 121, 32, 0.08);
+    color: var(--heading-color);
     font-size: 13px;
     font-weight: 600;
     line-height: 1.2;
+    transition: all 0.2s ease;
+}
+
+.blog-details-area .author-meta-right .topic-chip:hover {
+    border-color: var(--main-color);
+    background: rgba(243, 121, 32, 0.14);
+    color: var(--main-color);
 }
 
 .blog-details-area .author-meta-right .topic-chip-list {
@@ -220,41 +228,75 @@
 /************ page navigation ************/
 .paginations {   
     display: inline-flex;
-    margin: 10px 0 0 0;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0 0 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(15, 13, 29, 0.08);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 10px 22px rgba(15, 13, 29, 0.07);
+
     .prev,
     .next {
-        @include transition(all, .4s, ease);
+        @include transition(all, .3s, ease);
+        border: 1px solid rgba(15, 13, 29, 0.12);
+        background: #fff;
+        color: var(--heading-color);
+
         &:hover {
-            border: 1px solid var(--main-color);
+            border-color: var(--main-color);
+            color: var(--main-color);
+            background: rgba(243, 121, 32, 0.08);
         }
     }
+
     .page-numbers {
-        height: 50px;
-        width: 50px;
-        margin-right: 8px;
-        border: 0;
-        border-radius: 5px;
-        line-height: 50px;
+        height: 44px;
+        min-width: 44px;
+        padding: 0 12px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        line-height: 42px;
         text-align: center;
         text-decoration: none;
-        @include transition(all, .4s, ease);
-        display: block;
-        color: #fff;
-        font-size: 18px;
-        background: var(--heading-color);
-        font-weight: 700;
+        @include transition(all, .25s, ease);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--heading-color);
+        font-size: 15px;
+        background: #f5f7fb;
+        font-weight: 600;
+
         &:active,   
         &:focus,    
         &:hover {
-            background: var(--main-color);
-            color: #fff;
-
+            background: rgba(243, 121, 32, 0.12);
+            color: var(--main-color);
+            border-color: rgba(243, 121, 32, 0.3);
         }
+
         &.current {
             background: var(--main-color);
             color: #FFF;
-            border: 1px solid var(--main-color);
+            border-color: var(--main-color);
+            box-shadow: 0 8px 16px rgba(243, 121, 32, 0.28);
         }       
+    }
+}
+
+@media (max-width: 575px) {
+    .paginations {
+        gap: 8px;
+        padding: 8px 10px;
+    }
+
+    .paginations .page-numbers {
+        height: 40px;
+        min-width: 40px;
+        font-size: 14px;
     }
 }
 
@@ -288,10 +330,10 @@
     p,
     ul,
     ol {
-        margin-bottom: 0.72em;
+        margin-bottom: 0.9em;
         color: var(--paragraph-color);
         font-size: 16px;
-        line-height: 1.75;
+        line-height: 1.82;
     }
 
     ul,
@@ -344,7 +386,7 @@
             }
         }
         .details {
-            padding: 30px clamp(18px, 3vw, 36px) 28px;
+            padding: 34px clamp(20px, 3vw, 40px) 30px;
         }
     }
     blockquote {
@@ -443,19 +485,24 @@
 
 .blog-details-page-content .blog-comment,
 .blog-details-page-content .blog-comment-form {
-    max-width: 860px;
+    max-width: 100%;
+    width: 100%;
 }
 
 .blog-details-page-content .blog-comment .comment,
 .blog-details-page-content .blog-comment-form {
     border: 1px solid rgba(15, 13, 29, 0.08);
     border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(15, 13, 29, 0.05);
+    box-shadow: 0 12px 28px rgba(15, 13, 29, 0.06);
     background: #fff;
 }
 
 .blog-details-page-content .blog-comment .comment {
     padding: 30px;
+}
+
+.blog-details-page-content .blog-comment .comment-list {
+    width: 100%;
 }
 
 .blog-details-page-content .blog-comment-form {
@@ -543,7 +590,8 @@
 @media (min-width: 992px) {
     .blog-layout-row {
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
+        overflow: visible;
     }
 
     .blog-layout-row > .blog-main-col {
@@ -558,6 +606,12 @@
         flex: 0 0 22%;
         max-width: 22%;
         padding-left: 12px;
+        align-self: stretch;
+        overflow: visible;
+    }
+
+    .blog-layout-row > .blog-side-col .blog-modern-sidebar {
+        height: 100%;
     }
 }
 
@@ -627,6 +681,12 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.blog-modern-sidebar {
+    position: static;
+    top: auto;
+    overflow: visible;
+}
+
 .blog-modern-sidebar .widget:hover,
 .blog-modern-sidebar .blog-contact-widget:hover {
     transform: translateY(-2px);
@@ -671,15 +731,15 @@
 }
 
 .blog-modern-sidebar .widget-recent-post .title a {
-    color: var(--main-color);
+    color: var(--heading-color);
     text-decoration: none;
     transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 .blog-modern-sidebar .widget-recent-post .title a:hover {
-    color: var(--heading-color);
+    color: var(--main-color);
     text-decoration: underline;
-    text-decoration-color: rgba(15, 13, 29, 0.35);
+    text-decoration-color: rgba(243, 121, 32, 0.4);
 }
 
 .blog-modern-sidebar .widget.widget-recent-post {
@@ -720,7 +780,24 @@
     background: linear-gradient(160deg, #f3f7ff 0%, #ffffff 100%);
 }
 
+@media (min-width: 992px) {
+    .blog-contact-sticky-shell .blog-contact-widget {
+        margin-bottom: 0;
+    }
+
+    .blog-contact-sticky-inner.is-fixed {
+        position: fixed;
+        top: 18px;
+        z-index: 7;
+    }
+}
+
 @media (max-width: 991px) {
+    .blog-modern-sidebar {
+        position: static;
+        top: auto;
+    }
+
     .blog-details-page-content .single-blog-inner .details {
         padding: 24px 18px 22px;
     }
@@ -737,6 +814,12 @@
     .blog-modern-sidebar .blog-contact-widget {
         padding: 18px 16px;
         border-radius: 16px;
+    }
+
+    .blog-contact-sticky-inner.is-fixed {
+        position: static;
+        top: auto;
+        width: auto !important;
     }
 }
 

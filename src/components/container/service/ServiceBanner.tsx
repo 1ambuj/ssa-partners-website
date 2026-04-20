@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 import Two from "public/images/bg/14.png";
 
 const ServiceBanner = () => {
@@ -14,6 +15,11 @@ const ServiceBanner = () => {
           size="lg"
           tone="blue"
         />
+        {/* <div className="d-inline-flex align-items-center gap-3 flex-wrap about-banner-kicker">
+          
+          <h4>More About Us</h4>
+        </div> */}
+        <SsaBrochureMark size="sm" />
         <div className="container">
           <h4
             className=""

@@ -36,6 +36,26 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off("routeChangeComplete", handleRouteDone);
     };
   }, [router.events]);
+
+  useEffect(() => {
+    const onUnhandledRejection = (event: PromiseRejectionEvent) => {
+      const reason = event.reason as { message?: string; code?: string } | undefined;
+      const msg = String(reason?.message || "");
+      const code = String(reason?.code || "");
+      const isFirestorePermissionError =
+        msg.includes("Missing or insufficient permissions") || code.includes("permission-denied");
+      if (isFirestorePermissionError) {
+        event.preventDefault();
+        console.warn("Suppressed Firestore permission error at runtime.");
+      }
+    };
+
+    window.addEventListener("unhandledrejection", onUnhandledRejection);
+    return () => {
+      window.removeEventListener("unhandledrejection", onUnhandledRejection);
+    };
+  }, []);
+
   return (
     <AuthProvider>
       <RouteProgress />

@@ -74,15 +74,15 @@ const JobModal: React.FC<JobModalProps> = ({ show, job, onHide, onSave }) => {
   return (
     <>
       <div className="modal-backdrop fade show" style={{ display: "block" }} onClick={onHide} />
-      <div className="modal fade show d-block" tabIndex={-1} role="dialog">
+      <div className="modal fade show d-block admin-job-modal" tabIndex={-1} role="dialog">
         <div className="modal-dialog modal-lg modal-dialog-scrollable" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-content">
-            <div className="modal-header">
+          <div className="modal-content admin-job-modal-content">
+            <div className="modal-header admin-job-modal-header">
               <h5 className="modal-title">{job.id ? "Edit Job" : "Add Job"}</h5>
               <button type="button" className="btn-close" onClick={onHide} disabled={saving} />
             </div>
             <form onSubmit={handleSubmit}>
-              <div className="modal-body" style={{ maxHeight: "70vh", overflowY: "auto" }}>
+              <div className="modal-body admin-job-modal-body" style={{ maxHeight: "70vh", overflowY: "auto" }}>
                 <div className="row g-3">
                   <div className="col-md-6">
                     <label className="form-label">Job Title *</label>
@@ -202,7 +202,7 @@ const JobModal: React.FC<JobModalProps> = ({ show, job, onHide, onSave }) => {
                   </div>
                 </div>
               </div>
-              <div className="modal-footer">
+              <div className="modal-footer admin-job-modal-footer">
                 <button type="button" className="btn btn-border-black border-radius" onClick={onHide} disabled={saving}>
                   Cancel
                 </button>

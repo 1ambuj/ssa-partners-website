@@ -781,9 +781,27 @@ html {
 
 /* FAQ with header-style gradient (matches header/footer) */
 .ssa-faq-header-style {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
   background: linear-gradient(to right, #1e293b 0%, #334155 50%, #1e293b 100%) !important;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../../../public/images/Picture3.png") center / cover no-repeat;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   .attax-accordion {
     border-top: none;
@@ -796,6 +814,28 @@ html {
   .accordion-item:first-child {
     border-top: 1px solid rgba(148, 163, 184, 0.2);
   }
+}
+
+/* Home services: keep same color feel, add very subtle PPT texture */
+.service-area.bg-header-style {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.service-area.bg-header-style::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../../../public/images/Picture3.png") center / cover no-repeat;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.service-area.bg-header-style > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Service tabs — soften borders on dark bg */
@@ -2015,6 +2055,29 @@ html {
   background-image: url("../../../public/images/bg/3.png");
 }
 
+.career-banner-clean {
+  background: linear-gradient(180deg, #f8f9fd 0%, #f5f7fc 100%);
+
+  h4 {
+    color: var(--main-color);
+  }
+
+  h3 {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+  }
+
+  .career-banner-copy {
+    max-width: 760px;
+    margin: 16px auto 0;
+    color: #5b6574;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
 .career-meta-chips {
   display: flex;
   flex-wrap: wrap;
@@ -2038,6 +2101,61 @@ html {
 }
 
 .careers-page-area {
+  .section-title {
+    .title {
+      color: #15172f;
+      letter-spacing: -0.02em;
+    }
+
+    .content {
+      color: #5a6173;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+  }
+
+  .career-surface-card {
+    border: 1px solid rgba(15, 13, 29, 0.08) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%) !important;
+    box-shadow: 0 14px 34px rgba(15, 13, 29, 0.08) !important;
+    padding: 30px 28px !important;
+  }
+
+  .career-btn-primary,
+  .career-btn-outline {
+    min-width: 136px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 8px !important;
+    padding: 11px 18px !important;
+    transition: all 0.25s ease;
+  }
+
+  .career-btn-outline {
+    background: #fff !important;
+    border: 1px solid rgba(21, 23, 47, 0.22) !important;
+    color: #1b203f !important;
+
+    &:hover {
+      border-color: rgba(21, 23, 47, 0.35) !important;
+      color: #1b203f !important;
+      box-shadow: none !important;
+      transform: none;
+    }
+  }
+
+  .career-btn-primary {
+    box-shadow: 0 8px 18px rgba(250, 100, 0, 0.16);
+
+    &:hover {
+      transform: none;
+      box-shadow: 0 8px 18px rgba(250, 100, 0, 0.16);
+    }
+  }
+
   .single-pricing-inner.career-job-card {
     text-align: left;
     position: relative;
@@ -2056,16 +2174,18 @@ html {
     h4 {
       display: -webkit-box;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
       min-height: 2.6em;
+      margin-bottom: 12px;
     }
 
     h2.career-job-type {
       font-size: 1.35rem;
       line-height: 1.3;
-      margin-bottom: 6px;
+      margin-bottom: 12px;
       color: var(--main-color);
       white-space: nowrap;
       overflow: hidden;
@@ -2094,6 +2214,7 @@ html {
       line-height: 1.55;
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       flex: 1;
@@ -2132,16 +2253,141 @@ html {
   }
 
   .single-pricing-inner.career-benefit-card {
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    border-top: 3px solid rgba(250, 100, 0, 0.2) !important;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 64px;
+      background: linear-gradient(180deg, rgba(250, 100, 0, 0.07) 0%, rgba(250, 100, 0, 0) 100%);
+      pointer-events: none;
+    }
+
+    .career-benefit-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(250, 100, 0, 0.24);
+      background: #fff;
+      color: var(--main-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 8px 18px rgba(250, 100, 0, 0.12);
+    }
+
+    h4 {
+      min-height: 2.6em;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .month {
+      min-height: 2.8em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #4f576b;
+    }
+
+    p {
+      flex: 1;
+      color: #62697a;
+      margin-bottom: 14px;
+    }
+
+    ul {
+      margin-top: auto;
+      margin-bottom: 0;
+      padding-top: 6px;
+
+      li {
+        padding-left: 28px;
+        position: relative;
+      }
+
+      li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--main-color);
+        font-size: 12px;
+      }
+    }
 
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(15, 13, 29, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(15, 13, 29, 0.12);
+      border-top-color: rgba(250, 100, 0, 0.38) !important;
     }
 
     ul li {
       text-align: left;
     }
+  }
+
+  .col-lg-3.col-md-6 {
+    display: flex;
+  }
+}
+
+.careers-openings-surface {
+  background: linear-gradient(180deg, #f6f8fd 0%, #f4f7ff 100%);
+}
+
+.careers-benefits-surface {
+  background: #fff;
+}
+
+.career-footer-cta {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.career-btn-sway {
+  position: relative;
+  top: 28px;
+  z-index: 3;
+  animation: careerBtnSway 2.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.career-btn-sway:hover {
+  animation-play-state: paused;
+}
+
+@keyframes careerBtnSway {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -2153,6 +2399,29 @@ html {
   }
 }
 
+@media (max-width: 991px) {
+  .careers-page-area {
+    .career-surface-card {
+      padding: 24px 20px !important;
+      border-radius: 12px !important;
+    }
+
+    .career-actions {
+      justify-content: flex-start !important;
+    }
+
+    .career-btn-primary,
+    .career-btn-outline {
+      min-width: 124px;
+      padding: 10px 14px !important;
+    }
+  }
+
+  .career-btn-sway {
+    animation-duration: 2.6s;
+  }
+}
+
 .career-modal-shell {
   border-radius: 16px !important;
   box-shadow: 0 24px 60px rgba(15, 13, 29, 0.18) !important;
@@ -2160,6 +2429,11 @@ html {
 
 /* Admin dashboard tabs */
 .admin-tab-btn {
+  min-width: 92px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+
   &.active {
     background: var(--heading-color) !important;
     border-color: var(--heading-color) !important;
@@ -2171,6 +2445,197 @@ html {
       color: #fff !important;
     }
   }
+}
+
+.admin-controls-shell {
+  border: 1px solid rgba(15, 13, 29, 0.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafe 100%);
+  box-shadow: 0 8px 20px rgba(15, 13, 29, 0.06);
+}
+
+.admin-controls-title {
+  font-size: 0.98rem;
+  color: #4d5364;
+}
+
+.admin-tab-group .btn {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.admin-logout-btn {
+  min-width: 88px;
+}
+
+.admin-jobs-shell {
+  border: 1px solid rgba(15, 13, 29, 0.1);
+  border-radius: 18px;
+  padding: 20px 18px 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfcff 100%);
+  box-shadow: 0 12px 28px rgba(15, 13, 29, 0.07);
+  margin-bottom: 24px;
+}
+
+.admin-jobs-title {
+  font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+}
+
+.admin-new-job-btn {
+  min-width: 146px;
+  padding: 9px 16px !important;
+}
+
+.admin-job-table-wrap {
+  border: 1px solid rgba(15, 13, 29, 0.08);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.admin-job-table {
+  margin-bottom: 0 !important;
+}
+
+.admin-job-table thead th {
+  border-bottom-width: 1px;
+  border-color: rgba(15, 13, 29, 0.09);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #5c6374;
+  background: #f8f9fc;
+}
+
+.admin-job-table tbody tr td {
+  vertical-align: middle;
+  border-color: rgba(15, 13, 29, 0.07);
+}
+
+.admin-job-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  white-space: nowrap;
+  min-width: 152px;
+}
+
+.admin-job-actions .btn {
+  min-width: 66px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-blog-shell {
+  border: 1px solid rgba(15, 13, 29, 0.1);
+  border-radius: 18px;
+  padding: 20px 18px 16px;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfcff 100%);
+  box-shadow: 0 12px 28px rgba(15, 13, 29, 0.07);
+}
+
+.admin-blog-title {
+  font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+}
+
+.admin-new-blog-btn {
+  min-width: 152px;
+  padding: 9px 16px !important;
+}
+
+.admin-blog-table-wrap {
+  border: 1px solid rgba(15, 13, 29, 0.08);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.admin-blog-table {
+  margin-bottom: 0 !important;
+}
+
+.admin-blog-table thead th {
+  border-bottom-width: 1px;
+  border-color: rgba(15, 13, 29, 0.09);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #5c6374;
+  background: #f8f9fc;
+}
+
+.admin-blog-table tbody tr td {
+  vertical-align: middle;
+  border-color: rgba(15, 13, 29, 0.07);
+}
+
+.admin-blog-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  min-width: 152px;
+  white-space: nowrap;
+}
+
+.admin-blog-actions .btn {
+  min-width: 66px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-status-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 6px 10px;
+}
+
+.admin-status-badge--featured {
+  background: rgba(243, 121, 32, 0.16);
+  color: #7d3f12;
+}
+
+.admin-status-badge--standard {
+  background: rgba(15, 13, 29, 0.09);
+  color: #4e5567;
+}
+
+.admin-job-modal-content {
+  border-radius: 16px !important;
+  border: 1px solid rgba(15, 13, 29, 0.1) !important;
+  box-shadow: 0 20px 48px rgba(15, 13, 29, 0.18) !important;
+}
+
+.admin-job-modal-header {
+  border-bottom: 1px solid rgba(15, 13, 29, 0.08) !important;
+  background: linear-gradient(180deg, #fcfcff 0%, #f6f8fd 100%);
+}
+
+.admin-job-modal-body .form-label {
+  font-weight: 600;
+  color: #3f4557;
+}
+
+.admin-job-modal-body .form-control,
+.admin-job-modal-body .form-select {
+  border: 1px solid rgba(15, 13, 29, 0.15);
+  border-radius: 10px;
+}
+
+.admin-job-modal-body .form-control:focus,
+.admin-job-modal-body .form-select:focus {
+  border-color: rgba(243, 121, 32, 0.5);
+  box-shadow: 0 0 0 0.12rem rgba(243, 121, 32, 0.18);
+}
+
+.admin-job-modal-footer {
+  border-top: 1px solid rgba(15, 13, 29, 0.08) !important;
 }
 
 /* Service cards — compact modern refinement */

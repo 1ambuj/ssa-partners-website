@@ -5,7 +5,7 @@
   --ssa-mark-h: 62px;
   --tri-w: 36px;
   --tri-h: 32px;
-  --ssa-mark-blue: #3b6f93;
+  --ssa-mark-blue: #fa6400;
   --ssa-mark-grey: #4a4f54;
   position: relative;
   display: inline-block;
@@ -34,11 +34,7 @@
   bottom: 12px;
   width: calc(var(--tri-w) + 4px);
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    rgba(41, 46, 52, 0.92) 0%,
-    rgba(74, 79, 84, 0.9) 100%
-  );
+  background: #fff;
   transform: rotate(-38deg);
   transform-origin: left center;
   z-index: 2;

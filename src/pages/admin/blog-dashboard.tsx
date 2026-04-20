@@ -11,7 +11,7 @@ const AdminDashboardPage: React.FC = () => {
       footer={true}
       bodyClass={true}
     >
-      <div className="container mt-5 mb-5">
+      <div className="container ">
         <AdminDashboard />
       </div>
     </Layout>

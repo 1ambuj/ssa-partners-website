@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { servicesList } from "@/data/servicesData";
-import One from "public/images/about/5.png";
+import One from "public/images/about/4.png";
 
 const ServiceArea = () => {
   return (

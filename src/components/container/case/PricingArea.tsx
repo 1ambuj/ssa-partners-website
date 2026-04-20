@@ -2,18 +2,18 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
+import One from "public/images/about/4.png";
 import Two from "public/images/bg/14.png";
 
 const PricingArea = () => {
   return (
     <>
       <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <SsaBrochureMark
+        <Image
           className="left_image_bounce position-bottom-left"
-          size="lg"
-          tone="blue"
+          src={One}
+          alt="img"
         />
         <div className="container">
           <h4>Our Pricing</h4>
@@ -50,10 +50,10 @@ const PricingArea = () => {
         id="pricing-area"
         className="pricing-area bg-relative pd-top-115 pd-bottom-90 cus-price"
       >
-        <SsaBrochureMark
+        <Image
           className="top_image_bounce position-top-right"
-          size="lg"
-          tone="blue"
+          src={One}
+          alt="img"
         />
         <div className="container">
           <div className="row justify-content-center">

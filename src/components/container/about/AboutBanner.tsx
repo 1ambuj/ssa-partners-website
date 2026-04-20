@@ -1,6 +1,5 @@
-import React from "react";
-
 import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
+import React from "react";
 
 const AboutBanner = () => {
   return (

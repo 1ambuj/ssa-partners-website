@@ -10,17 +10,26 @@ const BlogDetailPage: React.FC = () => {
   const router = useRouter();
   const [blog, setBlog] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
 
   useEffect(() => {
     if (!router.isReady) return;
 
     const loadBlog = async () => {
-      const { slug } = router.query;
-      if (slug) {
-        const blogPost = await BlogService.getBlogBySlug(slug as string);
-        setBlog(blogPost);
+      try {
+        setLoadError("");
+        const { slug } = router.query;
+        if (slug) {
+          const blogPost = await BlogService.getBlogBySlug(slug as string);
+          setBlog(blogPost);
+        }
+      } catch (e) {
+        console.error("Failed to load blog detail", e);
+        setBlog(null);
+        setLoadError("Could not load this blog post right now.");
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     loadBlog();
@@ -59,9 +68,15 @@ const BlogDetailPage: React.FC = () => {
       >
         <div className="blog-details-area pd-top-120 pd-bottom-120">
           <div className="container">
-            <p className="alert alert-warning mb-0" role="alert">
-              Blog post not found.
-            </p>
+            {loadError ? (
+              <p className="alert alert-danger mb-0" role="alert">
+                {loadError}
+              </p>
+            ) : (
+              <p className="alert alert-warning mb-0" role="alert">
+                Blog post not found.
+              </p>
+            )}
           </div>
         </div>
       </Layout>

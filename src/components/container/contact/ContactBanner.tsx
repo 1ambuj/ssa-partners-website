@@ -1,20 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
+import One from "public/images/about/4.png";
 import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 const ContactBanner = () => {
   return (
     <>
       <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <SsaBrochureMark
+        <Image
           className="left_image_bounce position-bottom-left"
-          size="lg"
-          tone="blue"
+          src={One}
+          alt="img"
         />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
+            <SsaBrochureMark size="sm" />
               <h4
                 className=""
                 data-aos="fade-up"

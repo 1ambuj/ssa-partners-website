@@ -37,7 +37,7 @@ const ServiceTwo = () => {
                         </div>
                       )}
                       <div className="animate-img-1" aria-hidden>
-                        <SsaBrochureMark size="lg" tone="blue" />
+                        <SsaBrochureMark size="lg" tone="blue" className="service-two-white-mark" />
                       </div>
 
                       <div className="details">

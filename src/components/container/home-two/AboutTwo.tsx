@@ -7,6 +7,7 @@ import One from "public/images/about/1.png";
 import Two from "public/images/about/2.png";
 import Three from "public/images/about/3.png";
 import Five from "public/images/about/11.png";
+import Four from "public/images/about/4.png";
 
 import Link from "next/link";
 
@@ -29,11 +30,12 @@ const AboutTwo = () => {
                 src={Three}
                 alt="img"
               />
-              <SsaBrochureMark
+              {/* <SsaBrochureMark
                 className="about-img-4 top_image_bounce"
                 size="lg"
                 tone="blue"
-              />
+              /> */}
+              <Image className="about-img-4 top_image_bounce" src={Four} alt="img" />
               <div className="exp-wrap">
                 <div className="exp-inner">
                   <h2>25 +</h2>

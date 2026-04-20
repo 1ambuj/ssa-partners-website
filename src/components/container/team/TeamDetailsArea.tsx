@@ -2,8 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
+import Two from "public/images/about/4.png";
 import Three from "public/images/service-icon/1.png";
 import Four from "public/images/service-icon/2.png";
 import Five from "public/images/service-icon/3.png";
@@ -132,10 +132,10 @@ const TeamDetailsArea = ({ member }: TeamDetailsAreaProps) => {
       </div>
 
       <div className="service-area bg-relative pd-bottom-90">
-        <SsaBrochureMark
+        <Image
           className="left_image_bounce position-top-right"
-          size="lg"
-          tone="blue"
+          src={Two}
+          alt="img"
         />
         <div className="container">
           <div className="section-title ">

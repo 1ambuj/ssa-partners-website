@@ -1,26 +1,28 @@
 import React from "react";
 import Image from "next/image";
+import One from "public/images/about/4.png";
 import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 const CareerBanner = () => {
   return (
     <>
-      <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <SsaBrochureMark
+      <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center career-banner-clean">
+        <Image
           className="left_image_bounce position-bottom-left"
-          size="lg"
-          tone="blue"
+          src={One}
+          alt="img"
         />
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-6">
+            <div className="col-lg-8">
+              <SsaBrochureMark size="sm" />
               <h4
                 className=""
                 data-aos="fade-up"
                 data-aos-duration="1500"
                 data-aos-delay="300"
               >
-                Get In Touch
+                Careers at SSA
               </h4>
               <h3
                 className=""
@@ -28,15 +30,23 @@ const CareerBanner = () => {
                 data-aos-duration="1500"
                 data-aos-delay="400"
               >
-                SSA Sandeep Singla & Associates
+                Build your career with meaningful client work
               </h3>
+              <p
+                className="career-banner-copy"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                data-aos-delay="450"
+              >
+                Join a collaborative team focused on audit, taxation, advisory, and compliance excellence.
+              </p>
               <div
                 className="scroll-down top_image_bounce "
                 data-aos="fade-up"
                 data-aos-duration="1500"
                 data-aos-delay="500"
               >
-                <a href="#contact-page-area">
+                <a href="#careers-openings">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"

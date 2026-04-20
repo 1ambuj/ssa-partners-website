@@ -7,10 +7,10 @@ import Image from "next/image";
 import BlogDashboard from "@/components/blog/BlogDashboard";
 import JobList from "@/components/admin/JobList";
 import JobModal from "@/components/admin/JobModal";
-import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 import { JobService } from "@/lib/jobService";
 import { JobPost } from "@/lib/types";
 import One from "public/images/about/4.png";
+import SsaBrochureMark from "../ui/SsaBrochureMark";
 
 const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"blogs" | "jobs">("blogs");
@@ -127,14 +127,15 @@ const AdminDashboard: React.FC = () => {
   return (
     <div className="admin-dashboard">
       <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <SsaBrochureMark
+        <Image
           className="left_image_bounce position-bottom-left"
-          size="lg"
-          tone="blue"
+          src={One}
+          alt="img"
         />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
+              <SsaBrochureMark size="sm" />
               <h4
                 className=""
                 data-aos="fade-up"
@@ -213,10 +214,10 @@ const AdminDashboard: React.FC = () => {
       {activeTab === "blogs" && <BlogDashboard />}
 
       {activeTab === "jobs" && (
-        <div>
-          <div className="d-column justify-content-between align-items-center mb-3">
-            <h1 className="mb-4">Manage Job Postings</h1>
-            <button className="btn btn-base border-radius btn-sm px-5 py-2" onClick={handleNewJob}>
+        <div className="container admin-jobs-shell">
+          <div className="admin-jobs-header d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+            <h1 className="mb-0 admin-jobs-title">Manage Job Postings</h1>
+            <button className="btn btn-base border-radius btn-sm admin-new-job-btn" onClick={handleNewJob}>
               + New Job Post
             </button>
           </div>

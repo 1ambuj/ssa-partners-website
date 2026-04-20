@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import DefaultDetail from "public/images/blog/09.png";
 import Two from "public/images/icon/7.png";
@@ -53,15 +53,65 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
   const [website, setWebsite] = useState("");
   const [message, setMessage] = useState("");
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error" | "network">("idle");
+  const rowRef = useRef<HTMLDivElement | null>(null);
+  const stickyShellRef = useRef<HTMLDivElement | null>(null);
+  const stickyInnerRef = useRef<HTMLDivElement | null>(null);
+  const [contactFixed, setContactFixed] = useState(false);
+  const [contactWidth, setContactWidth] = useState<number | undefined>(undefined);
+  const [contactHeight, setContactHeight] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const list = await BlogService.getAllBlogs();
-      if (!cancelled) setAllBlogs(list);
+      try {
+        const list = await BlogService.getAllBlogs();
+        if (!cancelled) setAllBlogs(list);
+      } catch (e) {
+        console.error("Failed to load recent blogs", e);
+        if (!cancelled) setAllBlogs([]);
+      }
     })();
     return () => {
       cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const topOffset = 100;
+    const syncSticky = () => {
+      const rowEl = rowRef.current;
+      const shellEl = stickyShellRef.current;
+      const innerEl = stickyInnerRef.current;
+      if (!rowEl || !shellEl || !innerEl) return;
+
+      if (window.innerWidth < 992) {
+        setContactFixed(false);
+        setContactWidth(undefined);
+        setContactHeight(undefined);
+        return;
+      }
+
+      const shellRect = shellEl.getBoundingClientRect();
+      const rowRect = rowEl.getBoundingClientRect();
+      const innerHeight = innerEl.offsetHeight;
+      const shouldFix = shellRect.top <= topOffset && rowRect.bottom > topOffset + innerHeight + 16;
+
+      setContactFixed(shouldFix);
+      if (shouldFix) {
+        setContactWidth(shellEl.clientWidth);
+        setContactHeight(innerHeight);
+      } else {
+        setContactWidth(undefined);
+        setContactHeight(undefined);
+      }
+    };
+
+    syncSticky();
+    window.addEventListener("scroll", syncSticky, { passive: true });
+    window.addEventListener("resize", syncSticky);
+    return () => {
+      window.removeEventListener("scroll", syncSticky);
+      window.removeEventListener("resize", syncSticky);
     };
   }, []);
 
@@ -114,7 +164,7 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
   return (
     <div className="blog-area pd-bottom-120 pd-top-60">
       <div className="container">
-        <div className="row blog-layout-row">
+        <div className="row blog-layout-row" ref={rowRef}>
           <div className="col-xl-9 col-lg-8 blog-main-col">
             <div className="blog-details-page-content">
               <div className="single-blog-inner">
@@ -329,7 +379,19 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
                   ))}
                 </ul>
               </div>
-              <BlogContactSection blogTitle={post.title} />
+              <div
+                className="blog-contact-sticky-shell"
+                ref={stickyShellRef}
+                style={contactFixed && contactHeight ? { minHeight: `${contactHeight}px` } : undefined}
+              >
+                <div
+                  ref={stickyInnerRef}
+                  className={`blog-contact-sticky-inner${contactFixed ? " is-fixed" : ""}`}
+                  style={contactFixed && contactWidth ? { width: `${contactWidth}px` } : undefined}
+                >
+                  <BlogContactSection blogTitle={post.title} />
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -47,63 +47,73 @@ export function useBlogPostComments(postKey: string, legacySlug: string) {
   useEffect(() => {
     if (!postKey || !legacySlug) return;
 
-    const unsub = BlogCommentService.subscribe(postKey, (list, meta) => {
-      if (meta?.firestoreError) {
-        localModeRef.current = true;
-        migrationDoneRef.current = true;
-        setComments(readLocalComments(legacySlug));
-        return;
-      }
-
-      setComments(list);
-
-      if (migrationDoneRef.current) return;
-
-      if (list.length > 0) {
-        migrationDoneRef.current = true;
-        return;
-      }
-
-      if (migrationLockRef.current) return;
-      if (typeof window === "undefined") {
-        migrationDoneRef.current = true;
-        return;
-      }
-
-      const raw = window.localStorage.getItem(commentsStorageKey(legacySlug));
-      if (!raw) {
-        migrationDoneRef.current = true;
-        return;
-      }
-
-      let parsed: unknown;
-      try {
-        parsed = JSON.parse(raw);
-      } catch {
-        migrationDoneRef.current = true;
-        return;
-      }
-      if (!Array.isArray(parsed) || parsed.length === 0) {
-        migrationDoneRef.current = true;
-        return;
-      }
-
-      migrationLockRef.current = true;
-      migrationDoneRef.current = true;
-
-      void (async () => {
-        try {
-          await BlogCommentService.migrateFromLocal(postKey, parsed as StoredBlogComment[]);
-          window.localStorage.removeItem(commentsStorageKey(legacySlug));
-        } catch (e) {
-          console.error("Blog comment migration failed", e);
+    let unsub: (() => void) | undefined;
+    try {
+      unsub = BlogCommentService.subscribe(postKey, (list, meta) => {
+        if (meta?.firestoreError) {
           localModeRef.current = true;
+          migrationDoneRef.current = true;
           setComments(readLocalComments(legacySlug));
+          return;
         }
-      })();
-    });
 
-    return () => unsub();
+        setComments(list);
+
+        if (migrationDoneRef.current) return;
+
+        if (list.length > 0) {
+          migrationDoneRef.current = true;
+          return;
+        }
+
+        if (migrationLockRef.current) return;
+        if (typeof window === "undefined") {
+          migrationDoneRef.current = true;
+          return;
+        }
+
+        const raw = window.localStorage.getItem(commentsStorageKey(legacySlug));
+        if (!raw) {
+          migrationDoneRef.current = true;
+          return;
+        }
+
+        let parsed: unknown;
+        try {
+          parsed = JSON.parse(raw);
+        } catch {
+          migrationDoneRef.current = true;
+          return;
+        }
+        if (!Array.isArray(parsed) || parsed.length === 0) {
+          migrationDoneRef.current = true;
+          return;
+        }
+
+        migrationLockRef.current = true;
+        migrationDoneRef.current = true;
+
+        void (async () => {
+          try {
+            await BlogCommentService.migrateFromLocal(postKey, parsed as StoredBlogComment[]);
+            window.localStorage.removeItem(commentsStorageKey(legacySlug));
+          } catch (e) {
+            console.error("Blog comment migration failed", e);
+            localModeRef.current = true;
+            setComments(readLocalComments(legacySlug));
+          }
+        })();
+      });
+    } catch (e) {
+      console.error("Blog comment subscribe setup failed", e);
+      localModeRef.current = true;
+      migrationDoneRef.current = true;
+      setComments(readLocalComments(legacySlug));
+    }
+
+    return () => {
+      if (typeof unsub === "function") unsub();
+    };
   }, [postKey, legacySlug]);
 
   const addComment = useCallback(

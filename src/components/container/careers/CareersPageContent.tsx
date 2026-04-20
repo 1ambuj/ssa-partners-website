@@ -19,24 +19,28 @@ const mailtoCvUrl = (subject?: string) => {
 
 const benefits = [
   {
+    icon: "fas fa-chart-line",
     title: "Professional Growth",
     tag: "Develop your expertise",
     body: "Continuous learning, certifications, and mentorship from industry experts.",
     point: "Structured learning paths",
   },
   {
+    icon: "fas fa-users",
     title: "Collaborative Culture",
     tag: "Work with the best",
     body: "Flat hierarchy with open communication and a supportive team environment.",
     point: "Open feedback & teamwork",
   },
   {
+    icon: "fas fa-globe-asia",
     title: "Global Exposure",
     tag: "Real client work",
     body: "Cross-border projects and international clients across industries.",
     point: "Diverse engagements",
   },
   {
+    icon: "fas fa-balance-scale",
     title: "Work–Life Balance",
     tag: "Sustainable pace",
     body: "Flexible arrangements and understanding management when it matters.",
@@ -180,33 +184,20 @@ const CareersPageContent: React.FC = () => {
     <>
       <div
         id="careers-openings"
-        className="careers-page-area pricing-area bg-relative bg-sky pd-top-115 pd-bottom-90 "
+        className="careers-page-area careers-openings-surface pricing-area bg-relative bg-sky pd-top-115 pd-bottom-90  "
       >
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-7">
-              <div className="section-title text-center">
-                <h6 className="sub-title">{"// Careers"}</h6>
-                <h2 className="title">Join Our Team</h2>
-                <p className="content mt-3 mb-0">
-                  Explore current openings and apply in a few clicks. Cards use our polished pricing-style layout—hover
-                  for the accent border and button feedback.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {loadError ? (
             <div className="row justify-content-center pd-top-60">
               <div className="col-lg-8 text-center">
-                <div className="single-pricing-inner text-center career-state-card">
+                <div className="single-pricing-inner text-center career-state-card career-surface-card">
                   <h4>Could not load openings</h4>
                   <p className="month">Something went wrong</p>
                   <p>{loadError}</p>
                   <p className="small" style={{ color: "#65645f" }}>
                     You can still send your CV—we&apos;ll review it for future opportunities.
                   </p>
-                  <a href={mailtoCvUrl()} className="btn btn-black border-radius mt-2">
+                  <a href={mailtoCvUrl()} className="btn btn-black border-radius mt-2 career-btn-outline">
                     <i className="fas fa-envelope me-2" /> Email Your CV
                   </a>
                 </div>
@@ -219,11 +210,11 @@ const CareersPageContent: React.FC = () => {
               </div>
             </div>
           ) : jobs.length > 0 ? (
-            <div className="row pd-top-60">
+            <div className="row pd-bottom-60">
               {jobs.map((job) => (
                 <div key={job.id} className="col-lg-4 col-md-6 mb-5">
                   <div
-                    className={`single-pricing-inner career-job-card${job.featured ? " featured-job" : ""}`}
+                    className={`single-pricing-inner career-job-card career-surface-card${job.featured ? " featured-job" : ""}`}
                   >
                     {job.featured ? <span className="career-featured-ribbon">Featured</span> : null}
                     <h4>{job.title}</h4>
@@ -240,14 +231,14 @@ const CareersPageContent: React.FC = () => {
                     <div className="career-actions">
                       <button
                         type="button"
-                        className="btn btn-black border-radius"
+                        className="btn btn-black border-radius career-btn-outline"
                         onClick={() => setSelectedJob(selectedJob?.id === job.id ? null : job)}
                       >
                         View Details
                       </button>
                       <button
                         type="button"
-                        className="btn btn-base border-radius"
+                        className="btn btn-base border-radius career-btn-primary"
                         onClick={() => handleApply(job)}
                       >
                         Apply Now
@@ -260,14 +251,14 @@ const CareersPageContent: React.FC = () => {
           ) : (
             <div className="row justify-content-center pd-top-60">
               <div className="col-lg-8 text-center">
-                <div className="single-pricing-inner text-center career-state-card">
+                <div className="single-pricing-inner text-center career-state-card career-surface-card">
                   <h4>No current openings</h4>
                   <p className="month">Check back soon</p>
                   <p>
                     We&apos;re not actively hiring right now. Send your CV and we&apos;ll keep you in mind for future
                     roles.
                   </p>
-                  <a href={mailtoCvUrl()} className="btn btn-black border-radius mt-2">
+                  <a href={mailtoCvUrl()} className="btn btn-black border-radius mt-2 career-btn-outline">
                     <i className="fas fa-envelope me-2" /> Email Your CV
                   </a>
                 </div>
@@ -277,7 +268,7 @@ const CareersPageContent: React.FC = () => {
         </div>
       </div>
 
-      <div className="careers-page-area pricing-area bg-relative pd-top-90 pd-bottom-90 ">
+      <div className="careers-page-area careers-benefits-surface pricing-area bg-relative pd-top-90 pd-bottom-90 ">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-7">
@@ -289,8 +280,11 @@ const CareersPageContent: React.FC = () => {
           </div>
           <div className="row pd-top-60">
             {benefits.map((b) => (
-              <div key={b.title} className="col-lg-3 col-md-6">
-                <div className="single-pricing-inner text-center career-benefit-card">
+              <div key={b.title} className="col-lg-3 col-md-6 mb-4">
+                <div className="single-pricing-inner text-center career-benefit-card career-surface-card">
+                  <div className="career-benefit-icon" aria-hidden="true">
+                    <i className={b.icon} />
+                  </div>
                   <h4>{b.title}</h4>
                   <p className="month">{b.tag}</p>
                   <p>{b.body}</p>
@@ -301,9 +295,9 @@ const CareersPageContent: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="text-center pd-top-60">
+          <div className="text-center pd-top-60 career-footer-cta">
             <p className="content mb-3">Don&apos;t see a perfect match? Send us your CV anyway.</p>
-            <a href={mailtoCvUrl()} className="btn btn-black border-radius">
+            <a href={mailtoCvUrl()} className="btn btn-black border-radius career-btn-sway">
               <i className="fas fa-envelope me-2" /> Email Your CV
             </a>
           </div>

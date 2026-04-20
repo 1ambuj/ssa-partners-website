@@ -37,8 +37,8 @@ const JobList: React.FC<JobListProps> = ({
   }
 
   return (
-    <div className="table-responsive">
-      <table className="table table-hover">
+    <div className="table-responsive admin-job-table-wrap">
+      <table className="table table-hover admin-job-table">
         <thead className="table-light">
           <tr>
             <th>Title</th>
@@ -68,19 +68,21 @@ const JobList: React.FC<JobListProps> = ({
                 )}
               </td>
               <td>{formatJobDate(job.createdAt)}</td>
-              <td>
-              <button
-                className="btn btn-sm btn-border-black border-radius me-1"
-                onClick={() => onEdit(job)}
-              >
-                Edit
-              </button>
-              <button
-                className="btn btn-sm btn-danger border-radius"
-                  onClick={() => job.id && onDelete(job.id)}
-                >
-                  Delete
-                </button>
+              <td className="text-end align-middle">
+                <div className="admin-job-actions">
+                  <button
+                    className="btn btn-sm btn-border-black border-radius"
+                    onClick={() => onEdit(job)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-sm btn-danger border-radius"
+                    onClick={() => job.id && onDelete(job.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </td>
             </tr>
           ))}

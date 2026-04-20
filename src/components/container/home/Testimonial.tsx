@@ -20,8 +20,8 @@ const Testimonial = () => {
     <div className="testimonial-area bg-sky pd-top-120 pd-bottom-120 custt-test">
       <div className="container">
         <div className="section-title text-center">
-          <h6 className="sub-title">Client&apos;s Feedbacks</h6>
-          <h2 className="title">Peoples say&apos;s about us</h2>
+          <h6 className="sub-title">Client Feedback</h6>
+          <h2 className="title">What Clients Say About Us</h2>
         </div>
         <div className="testimonial-wrap">
           <Swiper
@@ -52,12 +52,12 @@ const Testimonial = () => {
                     src={eighteen}
                     alt="img"
                   />
-                  Corporate Party Band
+                  GST & Compliance Support
                 </h5>
                 <p className="pb-3">
-                  Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco.
+                  SSA Partners helped us streamline GST filing and monthly
+                  compliance. Their team is responsive, practical, and always
+                  clear on statutory timelines.
                 </p>
                 <Image src={twentysix} alt="img" />
                 <div className="media">
@@ -65,8 +65,8 @@ const Testimonial = () => {
                     <Image src={teamOne} alt="img" />
                   </div>
                   <div className="media-body align-self-center">
-                    <h6>David D. Rethman</h6>
-                    <p className="designation mb-0">CEO & Founder</p>
+                    <h6>Finance Head, Manufacturing Client</h6>
+                    <p className="designation mb-0">Gurgaon</p>
                   </div>
                 </div>
               </div>
@@ -79,12 +79,12 @@ const Testimonial = () => {
                     src={eighteen}
                     alt="img"
                   />
-                  Wedding Party band
+                  Audit & Advisory
                 </h5>
                 <p className="pb-3">
-                  Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco.
+                  We received timely audit support and clear risk pointers. The
+                  team gave actionable recommendations that improved our internal
+                  financial controls.
                 </p>
                 <Image src={twentysix} alt="img" />
                 <div className="media">
@@ -92,8 +92,8 @@ const Testimonial = () => {
                     <Image src={teamThree} alt="img" />
                   </div>
                   <div className="media-body align-self-center">
-                    <h6>Lany. Rethman</h6>
-                    <p className="designation mb-0">CEO & Founder</p>
+                    <h6>Director, Services Company</h6>
+                    <p className="designation mb-0">New Delhi</p>
                   </div>
                 </div>
               </div>
@@ -106,12 +106,12 @@ const Testimonial = () => {
                     src={eighteen}
                     alt="img"
                   />
-                  Corporate Party Band
+                  Tax Planning & Representation
                 </h5>
                 <p className="pb-3">
-                  Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco.
+                  From tax planning to departmental notices, SSA Partners handled
+                  everything professionally. Their guidance reduced compliance
+                  stress for our leadership team.
                 </p>
                 <Image src={twentysix} alt="img" />
                 <div className="media">
@@ -119,8 +119,8 @@ const Testimonial = () => {
                     <Image src={teamTwo} alt="img" />
                   </div>
                   <div className="media-body align-self-center">
-                    <h6>David D. Rethman</h6>
-                    <p className="designation mb-0">CEO & Founder</p>
+                    <h6>Founder, Startup Client</h6>
+                    <p className="designation mb-0">Noida</p>
                   </div>
                 </div>
               </div>
@@ -133,12 +133,12 @@ const Testimonial = () => {
                     src={eighteen}
                     alt="img"
                   />
-                  Corporate Party Band
+                  GST & Compliance Support
                 </h5>
                 <p className="pb-3">
-                  Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco.
+                  SSA Partners helped us streamline GST filing and monthly
+                  compliance. Their team is responsive, practical, and always
+                  clear on statutory timelines.
                 </p>
                 <Image src={twentysix} alt="img" />
                 <div className="media">
@@ -146,8 +146,8 @@ const Testimonial = () => {
                     <Image src={teamOne} alt="img" />
                   </div>
                   <div className="media-body align-self-center">
-                    <h6>David D. Rethman</h6>
-                    <p className="designation mb-0">CEO & Founder</p>
+                    <h6>Finance Head, Manufacturing Client</h6>
+                    <p className="designation mb-0">Gurgaon</p>
                   </div>
                 </div>
               </div>
@@ -160,12 +160,12 @@ const Testimonial = () => {
                     src={eighteen}
                     alt="img"
                   />
-                  Wedding Party band
+                  Audit & Advisory
                 </h5>
                 <p className="pb-3">
-                  Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco.
+                  We received timely audit support and clear risk pointers. The
+                  team gave actionable recommendations that improved our internal
+                  financial controls.
                 </p>
                 <Image src={twentysix} alt="img" />
                 <div className="media">
@@ -173,8 +173,8 @@ const Testimonial = () => {
                     <Image src={teamThree} alt="img" />
                   </div>
                   <div className="media-body align-self-center">
-                    <h6>Lany. Rethman</h6>
-                    <p className="designation mb-0">CEO & Founder</p>
+                    <h6>Director, Services Company</h6>
+                    <p className="designation mb-0">New Delhi</p>
                   </div>
                 </div>
               </div>
@@ -187,12 +187,12 @@ const Testimonial = () => {
                     src={eighteen}
                     alt="img"
                   />
-                  Corporate Party Band
+                  Tax Planning & Representation
                 </h5>
                 <p className="pb-3">
-                  Adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco.
+                  From tax planning to departmental notices, SSA Partners handled
+                  everything professionally. Their guidance reduced compliance
+                  stress for our leadership team.
                 </p>
                 <Image src={twentysix} alt="img" />
                 <div className="media">
@@ -200,8 +200,8 @@ const Testimonial = () => {
                     <Image src={teamTwo} alt="img" />
                   </div>
                   <div className="media-body align-self-center">
-                    <h6>David D. Rethman</h6>
-                    <p className="designation mb-0">CEO & Founder</p>
+                    <h6>Founder, Startup Client</h6>
+                    <p className="designation mb-0">Noida</p>
                   </div>
                 </div>
               </div>

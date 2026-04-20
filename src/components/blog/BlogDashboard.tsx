@@ -69,70 +69,70 @@ const BlogDashboard: React.FC = () => {
 
   return (
     <div className="blog-dashboard p-4">
-      <h1 className="mb-4">Blog Management</h1>
-
-      <button
-        className="btn btn-base border-radius mb-3"
-        onClick={handleNewBlog}
-      >
-        + New Blog Post
-      </button>
-
-      {loading ? (
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
+      <div className="admin-blog-shell">
+        <div className="admin-blog-header d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+          <h1 className="mb-0 admin-blog-title">Blog Management</h1>
+          <button className="btn btn-base border-radius btn-sm admin-new-blog-btn" onClick={handleNewBlog}>
+            + New Blog Post
+          </button>
         </div>
-      ) : (
-        <div className="table-responsive">
-          <table className="table table-hover">
-            <thead className="table-light">
-              <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Featured</th>
-                <th>Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {blogs.map((blog) => (
-                <tr key={blog.id}>
-                  <td>
-                    <strong>{blog.title}</strong>
-                    <br />
-                    <small className="text-muted">{blog.subtitle}</small>
-                  </td>
-                  <td>{blog.category}</td>
-                  <td>
-                    {blog.featured ? (
-                      <span className="badge bg-success">Featured</span>
-                    ) : (
-                      <span className="badge bg-secondary">Hidden</span>
-                    )}
-                  </td>
-                  <td>
-                    {formatBlogDateTime(blog.publishDate) || "-"}
-                  </td>
-                  <td className="table-data">
-                    <button
-                      className="btn btn-sm btn-border-black border-radius me-2"
-                      onClick={() => handleEditBlog(blog)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-sm btn-danger border-radius"
-                      onClick={() => handleDeleteBlog(blog.id!)}
-                    >
-                      Delete
-                    </button>
-                  </td>
+
+        {loading ? (
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        ) : (
+          <div className="table-responsive admin-blog-table-wrap">
+            <table className="table table-hover admin-blog-table">
+              <thead className="table-light">
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+              </thead>
+              <tbody>
+                {blogs.map((blog) => (
+                  <tr key={blog.id}>
+                    <td>
+                      <strong>{blog.title}</strong>
+                      <br />
+                      <small className="text-muted">{blog.subtitle}</small>
+                    </td>
+                    <td>{blog.category}</td>
+                    <td>
+                      {blog.featured ? (
+                        <span className="badge rounded-pill admin-status-badge admin-status-badge--featured">Featured</span>
+                      ) : (
+                        <span className="badge rounded-pill admin-status-badge admin-status-badge--standard">Standard</span>
+                      )}
+                    </td>
+                    <td>{formatBlogDateTime(blog.publishDate) || "-"}</td>
+                    <td>
+                      <div className="admin-blog-actions">
+                        <button
+                          className="btn btn-sm btn-border-black border-radius"
+                          onClick={() => handleEditBlog(blog)}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="btn btn-sm btn-danger border-radius"
+                          onClick={() => handleDeleteBlog(blog.id!)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
 
       <BlogModal
         show={showModal}
