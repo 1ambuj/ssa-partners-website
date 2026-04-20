@@ -7,6 +7,7 @@ import Image from "next/image";
 import BlogDashboard from "@/components/blog/BlogDashboard";
 import JobList from "@/components/admin/JobList";
 import JobModal from "@/components/admin/JobModal";
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 import { JobService } from "@/lib/jobService";
 import { JobPost } from "@/lib/types";
 import One from "public/images/about/4.png";
@@ -126,10 +127,10 @@ const AdminDashboard: React.FC = () => {
   return (
     <div className="admin-dashboard">
       <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <Image
+        <SsaBrochureMark
           className="left_image_bounce position-bottom-left"
-          src={One}
-          alt="img"
+          size="lg"
+          tone="blue"
         />
         <div className="container">
           <div className="row justify-content-center">

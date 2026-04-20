@@ -13,6 +13,7 @@ export interface BlogDetailsBannerProps {
   dateLabel: string;
   authorName?: string;
   commentsLabel?: string;
+  exploreTopics?: string[];
 }
 
 const BlogDetailsBanner = ({
@@ -21,6 +22,7 @@ const BlogDetailsBanner = ({
   dateLabel,
   authorName = "SSA Team",
   commentsLabel,
+  exploreTopics = [],
 }: BlogDetailsBannerProps) => {
   return (
     <div className="blog-details-area pd-top-120 pd-bottom-120">
@@ -30,11 +32,30 @@ const BlogDetailsBanner = ({
         </Link>
         <h2>{title}</h2>
         <div className="author-meta">
-          <Image src={SandeepImage} alt={authorName} />
-          <p>
-            <span>{authorName} . </span> {dateLabel}
-            {commentsLabel ? ` . ${commentsLabel}` : ""}
-          </p>
+          <div className="author-meta-left">
+            <Image src={SandeepImage} alt={authorName} />
+            <p>
+              <span>{authorName} . </span> {dateLabel}
+              {commentsLabel ? ` . ${commentsLabel}` : ""}
+            </p>
+          </div>
+          <div className="author-meta-right">
+            <span className="topic-label">Explore Topics</span>
+            <div className="topic-chip-list">
+              <Link href="/blog" className="topic-chip">
+                All
+              </Link>
+              {(exploreTopics.length ? exploreTopics : [category || "Blog"]).map((topic) => (
+                <Link
+                  key={topic}
+                  href={`/blog?cat=${encodeURIComponent(topic)}`}
+                  className="topic-chip"
+                >
+                  {topic}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -49,6 +70,7 @@ export const BlogDetailsBannerFromStatic = ({ post }: { post: BlogPost }) => (
     dateLabel={formatBlogDate(post.date)}
     authorName={post.authorName}
     commentsLabel={post.commentsLabel}
+    exploreTopics={["Advisory", "BPO", "GST", "LPO", "Other", "Taxation"]}
   />
 );
 
@@ -59,6 +81,7 @@ export const BlogDetailsBannerFromFirebase = ({ post }: { post: FirebaseBlogPost
     category={post.category || "Blog"}
     dateLabel={formatBlogDateTime(post.publishDate)}
     authorName={post.author || "Sandeep Singla"}
+    exploreTopics={["Advisory", "BPO", "GST", "LPO", "Other", "Taxation"]}
   />
 );
 

@@ -2,8 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
-
-import One from "public/images/about/4.png";
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 const ContactForm = () => {
   const { addresses, email, phone, contact } = siteConfig;
@@ -58,10 +57,10 @@ const ContactForm = () => {
       id="contact-page-area"
       className="contact-page-area bg-sky pd-top-120 pd-bottom-120 bg-relative"
     >
-      <Image
+      <SsaBrochureMark
         className="left_image_bounce position-top-right"
-        src={One}
-        alt="img"
+        size="lg"
+        tone="blue"
       />
       <div className="container">
         <div className="contact-page-inner">

@@ -26,6 +26,14 @@ service cloud.firestore {
       allow read, update, delete: if request.auth != null;
     }
 
+    // Blog comments: public read + create; delete only when signed in (admin blog login)
+    match /blog_comments/{commentId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if false;
+      allow delete: if request.auth != null;
+    }
+
     // Partner/Client login lookup (email/password in Firestore)
     match /user/{userId} {
       allow read: if true;

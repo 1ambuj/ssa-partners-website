@@ -40,6 +40,13 @@
 		z-index: 0;
 		width: 170px;
 	}
+	/* When About uses CSS brochure mark instead of png, keep it aligned with container */
+	.about-img-4.ssa-brochure-mark {
+		left: -12px;
+		bottom: 44px;
+		width: var(--ssa-mark-w);
+		height: var(--ssa-mark-h);
+	}
 	.about-img-5 {
 		position: absolute;
 		right: -50px;

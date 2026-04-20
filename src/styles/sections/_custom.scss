@@ -477,13 +477,93 @@ html {
 }
 
 .cus-abo-vid {
-  .slide-item {
+  .slide-item:not(.about-banner-video-slide) {
     background-image: url("../../../public/images/bg/2.png");
+  }
+
+  .about-banner-video-slide {
+    background-image: none !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-banner-video-slide::before {
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 9, 9, 0.15) 0%,
+      rgba(10, 9, 9, 0.42) 100%
+    ) !important;
+  }
+
+  .about-banner-video-media {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    object-fit: cover;
+    pointer-events: none;
   }
 
   .banner-content-area {
     z-index: 9;
   }
+}
+
+/* About page video strip — modern framed showcase */
+.about-video-showcase-outer {
+  padding-top: 8px;
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+
+.about-video-showcase-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(15, 13, 29, 0.08);
+  box-shadow:
+    0 2px 4px rgba(15, 13, 29, 0.04),
+    0 16px 40px rgba(15, 13, 29, 0.1),
+    0 32px 80px rgba(15, 13, 29, 0.06);
+}
+
+.cus-abo-vid .about-video-showcase .about-banner-single-video .slide-item {
+  padding: 0 !important;
+  min-height: clamp(500px, 62vh, 860px);
+}
+
+@media (max-width: 767px) {
+  .cus-abo-vid .about-video-showcase .about-banner-single-video .slide-item {
+    min-height: clamp(340px, 70vw, 540px);
+  }
+}
+
+.cus-abo-vid .about-video-showcase-frame .banner-content-area.about-video-showcase-cta {
+  bottom: clamp(18px, 3.5vw, 32px);
+  right: clamp(18px, 3.5vw, 32px);
+  left: auto;
+  padding: clamp(20px, 3vw, 28px) clamp(28px, 4vw, 44px) clamp(20px, 3vw, 28px) clamp(22px, 3.5vw, 32px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.cus-abo-vid .about-video-showcase-frame .about-video-showcase-cta h2 {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.cus-abo-vid .about-video-showcase-frame .about-video-showcase-cta p {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  opacity: 0.92;
+  margin-bottom: 4px;
 }
 
 .my-cus-btn {

@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 import { servicesList } from "@/data/servicesData";
+
 const ServiceTwo = () => {
   const [imgTab, setImgTab] = useState(0);
 
@@ -29,19 +31,14 @@ const ServiceTwo = () => {
                       <div className="thumb">
                         <Image src={service.mainImg} alt="Main service" />
                       </div>
-                       {service.animImg2 && (
+                      {service.animImg2 && (
                         <div className="animate-img-2">
                           <Image src={service.animImg2} alt="Animated 2" />
                         </div>
                       )}
-                     
-                      {service.animImg1 && (
-                        <div className="animate-img-1">
-                          <Image src={service.animImg1} alt="Animated 1" />
-                        </div>
-                      )}
-
-                     
+                      <div className="animate-img-1" aria-hidden>
+                        <SsaBrochureMark size="lg" tone="blue" />
+                      </div>
 
                       <div className="details">
                         <div className="details-inner">

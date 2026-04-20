@@ -2,8 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
-import One from "public/images/about/4.png";
 import Two from "public/images/about/5.png";
 import Three from "public/images/about/7.png";
 
@@ -20,10 +20,10 @@ const LatestArticle = () => {
   return (
     <>
       <div className="blog-area bg-relative bg-sky pd-top-115 pd-bottom-120">
-        <Image
+        <SsaBrochureMark
           className="top_image_bounce position-top-right"
-          src={One}
-          alt="img"
+          size="lg"
+          tone="blue"
         />
         <Image
           className="top_image_bounce position-bottom-right"

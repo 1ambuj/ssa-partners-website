@@ -1,32 +1,28 @@
 import React from "react";
 
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
+
 const AboutBanner = () => {
   return (
     <div className="banner-area pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover">
       <div className="container">
-        
-        {/* Small Title */}
-        <h4>More About Us</h4>
+        <div className="d-inline-flex align-items-center gap-3 flex-wrap about-banner-kicker">
+          <SsaBrochureMark size="sm" />
+          <h4>More About Us</h4>
+        </div>
 
-        {/* Main Heading */}
-        <h3>
-          A Decade of Excellence in Financial, Tax & Legal Consulting
-        </h3>
+        <h3>A Decade of Excellence in Financial, Tax & Legal Consulting</h3>
 
         <div className="row">
-          
-          {/* Text Content */}
           <div className="col-lg-6 mt-lg-4 pt-lg-2">
             <p>
-              Sandeep Singla & Associates is a professionally managed firm
-              offering comprehensive services in audit, taxation, GST, advisory,
-              and legal consulting. With over a decade of experience, we help
-              businesses establish strong financial foundations, ensure
+              Sandeep Singla & Associates is a professionally managed firm offering comprehensive
+              services in audit, taxation, GST, advisory, and legal consulting. With over a decade
+              of experience, we help businesses establish strong financial foundations, ensure
               regulatory compliance, and achieve sustainable growth.
             </p>
           </div>
 
-          {/* Scroll Animation */}
           <div className="col-lg-6 order-lg-first text-lg-center">
             <div className="scroll-down top_image_bounce">
               <a href="#about-area">
@@ -46,7 +42,6 @@ const AboutBanner = () => {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </div>

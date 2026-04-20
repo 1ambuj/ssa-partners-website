@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import Image from "next/image";
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 import One from "public/images/about/1.png";
 import Two from "public/images/about/2.png";
 import Three from "public/images/about/3.png";
-import Four from "public/images/about/4.png";
 import Five from "public/images/about/11.png";
 
 import Link from "next/link";
@@ -29,10 +29,10 @@ const AboutTwo = () => {
                 src={Three}
                 alt="img"
               />
-              <Image
+              <SsaBrochureMark
                 className="about-img-4 top_image_bounce"
-                src={Four}
-                alt="img"
+                size="lg"
+                tone="blue"
               />
               <div className="exp-wrap">
                 <div className="exp-inner">

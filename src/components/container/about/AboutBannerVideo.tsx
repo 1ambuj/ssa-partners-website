@@ -1,65 +1,43 @@
-import React from "react";
 import Image from "next/image";
 
 import One from "public/images/bg/shape1.png";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
+const ABOUT_VIDEO_SRC = "/videos/220941_medium.mp4";
 
 const AboutBannerVideo = () => {
   return (
-    <div className="bg-light cus-abo-vid">
+    <div className="bg-light cus-abo-vid about-video-showcase-outer">
       <div className="container">
-        <div className="banner-video-area banner-video-area-2">
+        <div className="banner-video-area banner-video-area-2 about-video-showcase">
           <Image
             className="top_image_bounce banner-animate-image-1"
             src={One}
-            alt="img"
+            alt=""
           />
-          <Swiper
-            spaceBetween={0}
-            slidesPerView={1}
-            pagination={false}
-            loop={true}
-            navigation={false}
-            className="slider banner-slider"
-            modules={[Autoplay]}
-            autoplay={{
-              delay: 9000,
-              disableOnInteraction: false,
-            }}
-          >
-            <SwiperSlide>
-              <div className="slide-item text-center">
-                <span className="video-play-btn my-cus-btn" style={{ cursor: "default" }}>
-                  <i className="fa fa-play"></i>
-                </span>
+          <div className="about-video-showcase-frame">
+            <div className="slider banner-slider about-banner-single-video">
+              <div className="slide-item text-center about-banner-video-slide">
+                <video
+                  className="about-banner-video-media"
+                  src={ABOUT_VIDEO_SRC}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  aria-label="About SSA — firm highlight"
+                />
               </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slide-item text-center">
-                <span className="video-play-btn my-cus-btn" style={{ cursor: "default" }}>
-                  <i className="fa fa-play"></i>
-                </span>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="slide-item text-center">
-                <span className="video-play-btn my-cus-btn" style={{ cursor: "default" }}>
-                  <i className="fa fa-play"></i>
-                </span>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-          <div className="banner-content-area">
-            <p>From</p>
-            <h2>2010</h2>
+            </div>
+            <div className="banner-content-area about-video-showcase-cta">
+              <p>From</p>
+              <h2>2010</h2>
+            </div>
           </div>
           <Image
             className="top_image_bounce banner-animate-image"
             src={One}
-            alt="img"
+            alt=""
           />
         </div>
       </div>

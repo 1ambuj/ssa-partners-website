@@ -1,16 +1,15 @@
 import React from "react";
 import Image from "next/image";
-
-import One from "public/images/about/4.png";
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 const CareerBanner = () => {
   return (
     <>
       <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <Image
+        <SsaBrochureMark
           className="left_image_bounce position-bottom-left"
-          src={One}
-          alt="img"
+          size="lg"
+          tone="blue"
         />
         <div className="container">
           <div className="row justify-content-center">

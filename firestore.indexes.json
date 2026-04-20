@@ -1,0 +1,13 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "blog_comments",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "postKey", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

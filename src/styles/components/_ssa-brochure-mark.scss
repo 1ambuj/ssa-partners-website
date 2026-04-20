@@ -1,0 +1,101 @@
+/* Brochure-style mark: blue triangle + diagonal; optional orange tile (top accent). */
+
+.ssa-brochure-mark {
+  --ssa-mark-w: 52px;
+  --ssa-mark-h: 62px;
+  --tri-w: 36px;
+  --tri-h: 32px;
+  --ssa-mark-blue: #3b6f93;
+  --ssa-mark-grey: #4a4f54;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: var(--ssa-mark-w);
+  height: var(--ssa-mark-h);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.ssa-brochure-mark::after {
+  content: "";
+  position: absolute;
+  left: calc((var(--ssa-mark-w) - var(--tri-w)) / 2);
+  top: calc((var(--ssa-mark-h) - var(--tri-h)) / 2 - 2px);
+  width: var(--tri-w);
+  height: var(--tri-h);
+  background: var(--ssa-mark-blue);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 1;
+}
+
+.ssa-brochure-mark__slash {
+  position: absolute;
+  left: calc((var(--ssa-mark-w) - var(--tri-w)) / 2 + 5px);
+  bottom: 12px;
+  width: calc(var(--tri-w) + 4px);
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(41, 46, 52, 0.92) 0%,
+    rgba(74, 79, 84, 0.9) 100%
+  );
+  transform: rotate(-38deg);
+  transform-origin: left center;
+  z-index: 2;
+  border-radius: 999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+}
+
+.ssa-brochure-mark--tone-orange::after {
+  background: var(--main-color);
+  /* Top accent: diamond-like geometric shape */
+  clip-path: polygon(50% 0%, 100% 32%, 82% 100%, 18% 100%, 0% 32%);
+}
+
+.ssa-brochure-mark--tone-orange .ssa-brochure-mark__slash {
+  background: rgba(15, 13, 29, 0.58);
+}
+
+.ssa-brochure-mark--sm {
+  --ssa-mark-w: 42px;
+  --ssa-mark-h: 50px;
+  --tri-w: 28px;
+  --tri-h: 25px;
+}
+
+.ssa-brochure-mark--sm .ssa-brochure-mark__slash {
+  left: calc((var(--ssa-mark-w) - var(--tri-w)) / 2 + 4px);
+  width: calc(var(--tri-w) + 3px);
+  bottom: 10px;
+}
+
+.ssa-brochure-mark--lg {
+  // --ssa-mark-w: 116px;
+  --ssa-mark-h: 100px;
+  --tri-w: 100px;
+  --tri-h: 90px;
+}
+
+.ssa-brochure-mark--lg .ssa-brochure-mark__slash {
+  left: calc((var(--ssa-mark-w) - var(--tri-w)) / 2 + 8px);
+  width: calc(var(--tri-w) + 10px);
+  bottom: -5px;
+}
+
+@media (max-width: 991px) {
+  .ssa-brochure-mark--lg {
+    --ssa-mark-w: 92px;
+    --ssa-mark-h: 82px;
+    --tri-w: 78px;
+    --tri-h: 70px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ssa-brochure-mark--lg {
+    --ssa-mark-w: 76px;
+    --ssa-mark-h: 68px;
+    --tri-w: 64px;
+    --tri-h: 56px;
+  }
+}

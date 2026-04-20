@@ -114,20 +114,18 @@ const BlogDashboard: React.FC = () => {
                     {formatBlogDateTime(blog.publishDate) || "-"}
                   </td>
                   <td className="table-data">
-                    <div className="d-flex align-items-center gap-2 flex-nowrap">
-                      <button
-                        className="btn btn-sm btn-border-black border-radius"
-                        onClick={() => handleEditBlog(blog)}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        className="btn btn-sm btn-danger border-radius"
-                        onClick={() => handleDeleteBlog(blog.id!)}
-                      >
-                        Delete
-                      </button>
-                    </div>
+                    <button
+                      className="btn btn-sm btn-border-black border-radius me-2"
+                      onClick={() => handleEditBlog(blog)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-sm btn-danger border-radius"
+                      onClick={() => handleDeleteBlog(blog.id!)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
