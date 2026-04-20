@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
-import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 import Two from "public/images/bg/14.png";
 
 const ServiceBanner = () => {
