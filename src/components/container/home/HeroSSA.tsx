@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 const heroSliderSlides = [
   {
@@ -67,7 +68,8 @@ const HeroSSA = () => {
           <div className="ssa-hero-accent-bar" aria-hidden />
           <div className="col-12 mb-3">
             <div className="ssa-hero-badge">
-              <span className="ssa-hero-badge-dot" aria-hidden />
+              {/* <span className="ssa-hero-badge-dot" aria-hidden /> */}
+              <SsaBrochureMark size="sm" />
               Hi, we&apos;re SSA
             </div>
           </div>

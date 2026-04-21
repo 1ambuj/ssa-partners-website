@@ -3,7 +3,6 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 
 import One from "public/images/bg/10.png";
-import Two from "public/images/bg/9.png";
 import Three from "public/images/bg/8.png";
 import Four from "public/images/bg/6.png";
 import Five from "public/images/bg/7.png";
@@ -66,9 +65,9 @@ const CallBack = () => {
   }
 
   return (
-    <div className="contact-area pd-top-110 bg-cover pd-bottom-120">
+    <div className="contact-area ssa-home-callback pd-top-90 bg-cover pd-bottom-90">
       <Image className="bg-img-1" src={One} alt="img" />
-      <Image className="bg-img-2" src={Two} alt="img" />
+      <img className="bg-img-2 callback-picture4" src="/images/picture4.png" alt="" />
       <Image
         className="bg-img-3 "
         data-aos="fade-right"

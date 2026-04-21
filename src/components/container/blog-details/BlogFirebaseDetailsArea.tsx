@@ -7,11 +7,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import DefaultDetail from "public/images/blog/09.png";
 import Two from "public/images/icon/7.png";
 import BlogContactSection from "@/components/container/blog-details/BlogContactSection";
-import { useBlogPostComments } from "@/hooks/useBlogPostComments";
 import { BlogService } from "@/lib/blogService";
 import { formatBlogLongDate, toJsDate } from "@/lib/blogDateUtils";
 import type { BlogPost } from "@/lib/types";
-import { normalizeExternalUrl, sanitizeRichHtml } from "@/lib/security";
+import { sanitizeRichHtml } from "@/lib/security";
 
 function getBlogRecentSortTime(post: BlogPost): number {
   const createdTime = toJsDate(post.createdAt).getTime();
@@ -26,33 +25,13 @@ function getBlogRecentSortTime(post: BlogPost): number {
   return 0;
 }
 
-function formatCommentDate(iso: string) {
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
-  });
-}
-
 interface BlogFirebaseDetailsAreaProps {
   post: BlogPost;
 }
 
 const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
   const slug = post.slug || post.id || "";
-  const commentPostKey = slug ? `fb:${slug}` : "";
-  const { comments, addComment, removeComment, canModerate } = useBlogPostComments(
-    commentPostKey,
-    slug,
-  );
   const [allBlogs, setAllBlogs] = useState<BlogPost[]>([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [website, setWebsite] = useState("");
-  const [message, setMessage] = useState("");
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error" | "network">("idle");
   const rowRef = useRef<HTMLDivElement | null>(null);
   const stickyShellRef = useRef<HTMLDivElement | null>(null);
   const stickyInnerRef = useRef<HTMLDivElement | null>(null);
@@ -121,43 +100,6 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
       .sort((a, b) => getBlogRecentSortTime(b) - getBlogRecentSortTime(a))
       .slice(0, 3);
   }, [allBlogs, slug]);
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitStatus("idle");
-    if (!name.trim() || !email.trim() || !message.trim()) {
-      setSubmitStatus("error");
-      return;
-    }
-    if (!commentPostKey) {
-      setSubmitStatus("network");
-      return;
-    }
-    const result = await addComment({
-      name: name.trim(),
-      email: email.trim(),
-      website: website.trim() || undefined,
-      message: message.trim(),
-    });
-    if (!result.success) {
-      setSubmitStatus("network");
-      return;
-    }
-    setSubmitStatus("success");
-    setName("");
-    setEmail("");
-    setWebsite("");
-    setMessage("");
-  };
-
-  const handleDeleteComment = async (commentId: string) => {
-    if (!canModerate) return;
-    if (!window.confirm("Delete this comment?")) return;
-    const result = await removeComment(commentId);
-    if (!result.success) {
-      window.alert(result.message || "Could not delete. Sign in as admin and deploy latest Firestore rules.");
-    }
-  };
 
   const postHref = (b: BlogPost) => `/blog/${b.slug || b.id}`;
 
@@ -231,137 +173,7 @@ const BlogFirebaseDetailsArea = ({ post }: BlogFirebaseDetailsAreaProps) => {
                   </div>
                 </div>
               </div>
-              <div className="blog-comment">
-                <div className="mb-3">
-                  <h3>
-                    {comments.length} {comments.length === 1 ? "Comment" : "Comments"}
-                  </h3>
-                </div>
-                <ul className="comment-list">
-                  {comments.length === 0 ? (
-                    <li className="comment">
-                      <article className="comment-body">
-                        <div className="comment-content">
-                          <p className="mb-0">No comments yet. Be the first to comment.</p>
-                        </div>
-                      </article>
-                    </li>
-                  ) : (
-                    comments.map((c) => {
-                      const safeWebsite = normalizeExternalUrl(c.website);
-                      return (
-                      <li key={c.id} className="comment">
-                        <article className="comment-body">
-                          <footer className="comment-meta">
-                            <div className="comment-author vcard">
-                              {safeWebsite ? (
-                                <a
-                                  href={safeWebsite}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="ms-2"
-                                >
-                                  {c.name}
-                                </a>
-                              ) : (
-                                <span className="ms-2">{c.name}</span>
-                              )}
-                            </div>
-                          </footer>
-                          <div className="comment-content">
-                            <p className="mb-0">{c.message}</p>
-                          </div>
-                          <div className="date blog-comment-date-row">
-                            <span className="comment-reply-link">{formatCommentDate(c.createdAt)}</span>
-                            {canModerate ? (
-                              <button
-                                type="button"
-                                className="btn btn-sm btn-outline-danger border-radius blog-comment-delete"
-                                onClick={() => void handleDeleteComment(c.id)}
-                              >
-                                Delete
-                              </button>
-                            ) : null}
-                          </div>
-                        </article>
-                      </li>
-                    )})
-                  )}
-                </ul>
-              </div>
-              <div className="row g-4 blog-comment-layout">
-                <div className="col-12">
-                  <form className="blog-comment-form" onSubmit={onSubmit}>
-                    <div className="mb-3">
-                      <h3>Leave a Reply</h3>
-                    </div>
-                    <div className="row">
-                      <div className="col-md-4">
-                        <div className="single-input-inner">
-                          <input
-                            type="text"
-                            placeholder="Name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-4">
-                        <div className="single-input-inner">
-                          <input
-                            type="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-4">
-                        <div className="single-input-inner">
-                          <input
-                            type="url"
-                            placeholder="Website (optional)"
-                            value={website}
-                            onChange={(e) => setWebsite(e.target.value)}
-                          />
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        <div className="single-input-inner">
-                          <textarea
-                            placeholder="Message"
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                            required
-                          ></textarea>
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        {submitStatus === "success" ? (
-                          <div className="alert alert-success mb-3" role="status">
-                            Comment posted.
-                          </div>
-                        ) : null}
-                        {submitStatus === "error" ? (
-                          <div className="alert alert-danger mb-3" role="alert">
-                            Please fill name, email, and message.
-                          </div>
-                        ) : null}
-                        {submitStatus === "network" ? (
-                          <div className="alert alert-danger mb-3" role="alert">
-                            Could not save comment. Check your connection and Firestore rules, then try again.
-                          </div>
-                        ) : null}
-                        <button type="submit" className="btn btn-black border-radius">
-                          Post Comment
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+              
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-12 blog-side-col">

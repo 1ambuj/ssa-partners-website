@@ -603,36 +603,36 @@
 }
 
 .blog-page-btn {
-	height: 100px;
-	width: 100px;
-	line-height: 100px;
-	text-align: center;
+	height: 132px;
+	width: 132px;
 	border-radius: 50%;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
-	background: var(--main-color);
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid rgba(15, 13, 29, 0.12);
+	box-shadow: 0 10px 24px rgba(15, 13, 29, 0.12);
+	transition: none;
 	&:after {
 		content: '';
 		position: absolute;
-		left: 5px;
-		top: 5px;
+		left: 7px;
+		top: 7px;
 		height: 100%;
 		width: 100%;
-		background: var(--main-color);
 		border-radius: 50%;
-		transition: 0.4s;
+		transition: none;
 		z-index: 0;
-		border: 2px solid var(--heading-color);
+		border: 2px solid rgba(15, 13, 29, 0.25);
 	}
 	img {
 		position: relative;
 		z-index: 2;
-	}
-	&:hover {
-		&:after {
-			left: 0;
-			top: 0;
-		}
+		width: 70px;
+		height: 70px;
+		object-fit: contain;
 	}
 }
 

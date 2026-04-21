@@ -11,7 +11,7 @@ import Four from "public/images/blog/1.png";
 import Six from "public/images/blog/2.png";
 import Seven from "public/images/blog/3.png";
 import Five from "public/images/right-up.png";
-import Eight from "public/images/right-up2.png";
+import Eight from "public/images/Picture6.png";
 import { blogPosts, formatBlogDate } from "@/data/blogPost";
 
 const LatestArticle = () => {
@@ -25,16 +25,7 @@ const LatestArticle = () => {
           size="lg"
           tone="blue"
         />
-        <Image
-          className="top_image_bounce position-bottom-right"
-          src={Two}
-          alt="img"
-        />
-        <Image
-          className="left_image_bounce position-bottom-left"
-          src={Three}
-          alt="img"
-        />
+       
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-7">
@@ -81,9 +72,14 @@ const LatestArticle = () => {
           </div>
         </div>
       </div>
-      <div className="btn-wrap text-center mt--50 mb-5">
-        <Link className="blog-page-btn left_image_bounce mb-4" href="/blog">
-          <Image src={Eight} alt="img" />
+      <div className="btn-wrap text-center mb-5 ssa-home-latest-blog__image-wrap">
+        <Link
+          className="ssa-home-latest-blog__image-link"
+          href="/blog"
+          aria-label="Explore blog"
+        >
+          <Image className="ssa-home-latest-blog__image-link-icon" src={Eight} alt="Explore blog" />
+          <span className="ssa-home-latest-blog__image-link-text">Explore Blog</span>
         </Link>
       </div>
     </>

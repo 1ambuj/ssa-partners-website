@@ -25,17 +25,17 @@ const AboutTwo = () => {
             <div className="about-thumb-area cussi-about-thumber">
               <Image className="about-img-1" src={One} alt="img" />
               <Image className="about-img-2 cus-img-2" src={Two} alt="img" />
-              <Image
+              {/* <Image
                 className="about-img-3 top_image_bounce"
                 src={Three}
                 alt="img"
-              />
+              /> */}
               {/* <SsaBrochureMark
                 className="about-img-4 top_image_bounce"
                 size="lg"
                 tone="blue"
               /> */}
-              <Image className="about-img-4 top_image_bounce" src={Four} alt="img" />
+              {/* <Image className="about-img-4 top_image_bounce" src={Four} alt="img" /> */}
               <div className="exp-wrap">
                 <div className="exp-inner">
                   <h2>25 +</h2>

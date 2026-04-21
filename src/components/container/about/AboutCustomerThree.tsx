@@ -87,7 +87,7 @@ const AboutCustomerThree = () => {
                       <div className="thumb">
                         <Image src={One} alt="img" />
                       </div>
-                      <p>
+                      <p className="content">
                         All the Lorem Ipsum generators on the Internet tend
                         repeat predefined chunks as necessary, making this the
                         generator on the Internet. It uses a dictionary of over
@@ -103,7 +103,7 @@ const AboutCustomerThree = () => {
                       <div className="thumb">
                         <Image src={One} alt="img" />
                       </div>
-                      <p>
+                      <p className="content">
                         All the Lorem Ipsum generators on the Internet tend
                         repeat predefined chunks as necessary, making this the
                         generator on the Internet. It uses a dictionary of over

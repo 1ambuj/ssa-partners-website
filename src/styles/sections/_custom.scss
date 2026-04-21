@@ -286,7 +286,7 @@ html {
 }
 
 .cus-ins {
-  background-image: url("../../../public/images/bg/11.png");
+  background-image: url("/images/bg/11.png");
 }
 
 .test-ins {
@@ -326,20 +326,20 @@ html {
 }
 
 .cus-ban-two {
-  background-image: url("../../../public/images/bg/1.png");
+  background-image: url("/images/bg/1.png");
   overflow-x: clip !important;
 }
 
 .cus-vid-ban-two {
   .slide-item {
     &:nth-of-type(1) {
-      background-image: url("../../../public/images/bg/2.png");
+      background-image: url("/images/bg/2.png");
     }
     &:nth-of-type(2) {
-      background-image: url("../../../public/images/bg/2.png");
+      background-image: url("/images/bg/2.png");
     }
     &:nth-of-type(3) {
-      background-image: url("../../../public/images/bg/2.png");
+      background-image: url("/images/bg/2.png");
     }
   }
 
@@ -407,15 +407,15 @@ html {
 }
 
 .cus-sha {
-  background-image: url("../../../public/images/bg/4.png");
+  background-image: url("/images/bg/4.png");
 }
 
 .cus-pric {
-  background-image: url("../../../public/images/bg/3.png");
+  background-image: url("/images/bg/3.png");
 }
 
 .cus-con-ins {
-  background-image: url("../../../public/images/bg/11.png");
+  background-image: url("/images/bg/11.png");
 }
 
 .test-ins {
@@ -431,7 +431,7 @@ html {
 }
 
 .blog-cus-one {
-  background-image: url("../../../public/images/bg/13.png");
+  background-image: url("/images/bg/13.png");
 }
 
 .blog-cus-vid-area {
@@ -478,7 +478,7 @@ html {
 
 .cus-abo-vid {
   .slide-item:not(.about-banner-video-slide) {
-    background-image: url("../../../public/images/bg/2.png");
+    background-image: url("/images/bg/2.png");
   }
 
   .about-banner-video-slide {
@@ -671,14 +671,48 @@ html {
 }
 
 .cus-about-team {
-  background-image: url("../../../public/images/bg/3.png");
+  background-image: url("/images/bg/3.png");
 }
 
 .abo-cus-cta {
-  background-image: url("../../../public/images/bg/4.png");
+  background-image: url("/images/bg/4.png");
 }
 
 .testim-cus {
+  .testimonial-slider {
+    overflow: hidden;
+  }
+
+  .single-testimonial-inner {
+    padding-right: 10px;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .single-testimonial-inner .content {
+    margin-bottom: 16px;
+    max-height: 118px;
+    overflow-y: auto;
+    padding-right: 6px;
+    border: 0;
+    background: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(200, 200, 200, 0.7) transparent;
+  }
+
+  .single-testimonial-inner .content::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .single-testimonial-inner .content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .single-testimonial-inner .content::-webkit-scrollbar-thumb {
+    background: rgba(200, 200, 200, 0.7);
+    border-radius: 999px;
+  }
+
   .testimonial-slider-control {
     position: absolute;
     width: auto;
@@ -729,11 +763,11 @@ html {
 }
 
 .ad-o {
-  background-image: url("../../../public/images/bg/3.png");
+  background-image: url("/images/bg/3.png");
 }
 
 .ad-tt {
-  background-image: url("../../../public/images/bg/4.png");
+  background-image: url("/images/bg/4.png");
 }
 
 html {
@@ -741,7 +775,7 @@ html {
 }
 
 .cas-det-cus {
-  background-image: url("../../../public/images/bg/16.png");
+  background-image: url("/images/bg/16.png");
 }
 
 .cus-faq {
@@ -763,7 +797,7 @@ html {
 }
 
 .cus-price {
-  background-image: url("../../../public/images/bg/3.png");
+  background-image: url("/images/bg/3.png");
 }
 
 .cus-ins-two {
@@ -771,7 +805,7 @@ html {
 }
 
 .cus-fa {
-  background-image: url("../../../public/images/bg/5.png");
+  background-image: url("/images/bg/5.png");
 
   .accordion-item {
     border: 0px;
@@ -836,6 +870,13 @@ html {
 .service-area.bg-header-style > * {
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .ssa-faq-header-style::before,
+  .service-area.bg-header-style::before {
+    opacity: 0.11;
+  }
 }
 
 /* Service tabs — soften borders on dark bg */
@@ -2050,9 +2091,131 @@ html {
   }
 }
 
-/* Careers page — pricing-style cards (single-pricing-inner) */
+/* Home — Request a call back: subtle branded texture (same asset as footer) */
+.ssa-home-callback {
+  position: relative;
+  overflow: hidden;
+  background: #f9f8f4;
+
+  /* Branded texture — bottom layer */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/Picture2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Decorative theme images — above Picture2 overlay, below form column */
+  :is(.bg-img-1, .bg-img-2, .bg-img-3, .bg-img-4) {
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-from-inner {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Callback left decorative image replacement (Picture4) */
+.contact-area .bg-img-2.callback-picture4,
+.contact-area .bg-img-2.callback-picture2 {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: min(34vw, 460px);
+  max-width: 34%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top left;
+  opacity: 0.96;
+}
+
+.contact-area .bg-img-3 {
+  height: clamp(260px, 42vw, 420px);
+  width: auto;
+  object-fit: contain;
+}
+
+/* Callback composition polish: human image + modern form card */
+.ssa-home-callback {
+  /* Keep the right orange banner strong like original */
+  .bg-img-1 {
+    opacity: 1;
+    filter: saturate(1.02) contrast(1.01);
+  }
+
+  .bg-img-3 {
+    left: clamp(20%, 16vw, 20%);
+    bottom: 30px;
+    height: clamp(380px, 37vw, 560px);
+    object-position: left bottom;
+    filter: drop-shadow(0 12px 24px rgba(15, 13, 29, 0.16));
+  }
+
+  .bg-img-4 {
+    opacity: 0.9;
+    filter: saturate(1.15) brightness(0.86) contrast(1.04);
+  }
+
+  .contact-from-inner {
+    background: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(250, 247, 242, 0.9) 100%
+    );
+    border: 1px solid rgba(28, 47, 69, 0.1);
+    border-radius: 18px;
+    box-shadow: 0 16px 34px rgba(15, 13, 29, 0.1);
+    backdrop-filter: blur(2px);
+    padding: clamp(22px, 2.8vw, 36px);
+
+    .single-input-inner input,
+    .single-input-inner textarea {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(28, 47, 69, 0.11);
+      border-radius: 10px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+      &:focus {
+        background: #fff;
+        border-color: rgba(243, 121, 32, 0.46);
+        box-shadow: 0 0 0 3px rgba(243, 121, 32, 0.14);
+      }
+    }
+  }
+
+  @media (max-width: 1199.98px) {
+    .bg-img-3 {
+      left: 14%;
+      bottom: 14px;
+      height: clamp(290px, 44vw, 420px);
+      opacity: 0.72;
+    }
+  }
+}
+// /* Careers page — pricing-style cards (single-pricing-inner) */
 .cus-careers {
-  background-image: url("../../../public/images/bg/3.png");
+  background-image: url("/images/bg/3.png");
 }
 
 .career-banner-clean {
