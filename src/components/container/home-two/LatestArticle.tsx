@@ -31,11 +31,9 @@ const LatestArticle = () => {
             <div className="col-lg-7">
               <div className="section-title text-center">
                 <h6 className="sub-title">// Latest Articles</h6>
-                <h2 className="title">Blog & News From Us!</h2>
+                <h2 className="title">Professional articles & regulatory updates!</h2>
                 <p className="content mb-4">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour,
+                Articles and commentary on taxation, audit, GST, FEMA, and related regulatory developments
                 </p>
               </div>
             </div>

@@ -9,11 +9,7 @@ const AboutTab = () => {
 
   return (
     <div id="about-area" className="about-area bg-sky bg-relative pd-bottom-90">
-      <Image
-        className="top_image_bounce position-bottom-left"
-        src={One}
-        alt="img"
-      />
+      
       <div className="container">
         <div className="row">
           <div

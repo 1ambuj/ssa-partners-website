@@ -11,11 +11,11 @@ const AboutTax = () => {
     <div className="about-area pd-top-80 bg-relative pd-bottom-80">
       
       {/* Background Shape */}
-      <Image
+      {/* <Image
         className="top_image_bounce position-bottom-left"
         src={One}
         alt="img"
-      />
+      /> */}
 
       <div className="container">
         <div className="row">

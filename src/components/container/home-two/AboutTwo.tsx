@@ -1,15 +1,9 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from "react";
 import Image from "next/image";
-import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 import One from "public/images/about/1.png";
 import Two from "public/images/about/2.png";
-import Three from "public/images/about/3.png";
-import Five from "public/images/about/11.png";
-import Four from "public/images/about/4.png";
-
-import Link from "next/link";
 
 const AboutTwo = () => {
   return (
@@ -25,21 +19,14 @@ const AboutTwo = () => {
             <div className="about-thumb-area cussi-about-thumber">
               <Image className="about-img-1" src={One} alt="img" />
               <Image className="about-img-2 cus-img-2" src={Two} alt="img" />
-              {/* <Image
-                className="about-img-3 top_image_bounce"
-                src={Three}
-                alt="img"
-              /> */}
-              {/* <SsaBrochureMark
-                className="about-img-4 top_image_bounce"
-                size="lg"
-                tone="blue"
-              /> */}
-              {/* <Image className="about-img-4 top_image_bounce" src={Four} alt="img" /> */}
-              <div className="exp-wrap">
-                <div className="exp-inner">
-                  <h2>25 +</h2>
-                  <p>Years Experienced</p>
+              <div className="about-facts-wrap">
+                <div className="about-fact-item">
+                  <h5>Established 2010</h5>
+                  <p>Year of establishment</p>
+                </div>
+                <div className="about-fact-item">
+                  <h5>New Delhi &amp; Gurgaon</h5>
+                  <p>Office locations</p>
                 </div>
               </div>
             </div>
@@ -56,30 +43,24 @@ const AboutTwo = () => {
                  Specialized in Audit, Tax, Advisory & Compliance
               </h2>
               <p className="content">
-              Sandeep Singla & Associates provides expert services in Audit & Assurance, Taxation, Advisory, GST, and Legal Consulting. With over a decade of experience, we assist businesses in establishing liaison offices, subsidiaries, joint ventures, and other legal entities in India.
+                Sandeep Singla &amp; Associates provides expert services in Audit
+                &amp; Assurance, Taxation, Advisory, GST, and Legal Consulting.
+                With over a decade of experience, we assist businesses in
+                establishing liaison offices, subsidiaries, joint ventures, and
+                other legal entities in India.
               </p>
-              <p className="quote mt-4 pb-2">
-              &quot;Our vision is to be recognized as a trusted partner in financial and business consulting, empowering
-              organizations to achieve sustainable growth and operational excellence.&quot;
+              <p className="content mt-3">
+                Beyond core audit and tax services, the firm provides advisory
+                in Capital Structuring, Business Strategy, Tax Law
+                Interpretation, Corporate Accounting &amp; Finance Reporting,
+                Statutory Compliance Management, and Process Design and Internal
+                Control Structuring.
               </p>
-              <div className="row">
-                <div className="col-md-6 mt-3">
-                  <h5 className="d-flex align-items-center gap-2">
-                    <Image className="me-2" src={Five} alt="img" />    Professional Team
-                  </h5>
-                </div>
-                <div className="col-md-6 mt-3">
-                  <h5 className="d-flex align-items-center gap-2">
-                    <Image className="me-2" src={Five} alt="img" /> 
-                    Trusted Advisory
-                  </h5>
-                </div>
-              </div>
-              <div className="btn-wrap">
-                <Link className="btn btn-base border-radius" href="/about">
-                  Discover More
-                </Link>
-              </div>
+              <p className="content mt-3 mb-0">
+                &quot;Our vision is to be recognized as a trusted partner in
+                financial and business consulting, empowering organizations to
+                achieve sustainable growth and operational excellence.&quot;
+              </p>
             </div>
           </div>
         </div>

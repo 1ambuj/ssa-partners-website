@@ -5,7 +5,6 @@ import Image from "next/image";
 import One from "public/images/bg/10.png";
 import Three from "public/images/bg/8.png";
 import Four from "public/images/bg/6.png";
-import Five from "public/images/bg/7.png";
 
 const CallBack = () => {
   const [name, setName] = useState("");
@@ -68,19 +67,23 @@ const CallBack = () => {
     <div className="contact-area ssa-home-callback pd-top-90 bg-cover pd-bottom-90">
       <Image className="bg-img-1" src={One} alt="img" />
       <img className="bg-img-2 callback-picture4" src="/images/picture4.png" alt="" />
-      <Image
-        className="bg-img-3 "
-        data-aos="fade-right"
-        data-aos-duration="1500"
-        data-aos-delay="300"
-        src={Five}
-        alt="img"
-      />
       <Image className="bg-img-4 left_image_bounce" src={Three} alt="img" />
       <div className="container">
         <div className="contact-inner">
-          <div className="row">
-            <div className="col-xl-7 col-lg-7 offset-xl-5 offset-lg-5">
+          <div className="row align-items-center g-4">
+            <div className="col-xl-5 col-lg-5">
+              <div className="callback-left-content">
+                <h6 className="sub-title">// CONTACT US</h6>
+                <h2>Discuss your compliance, audit, and tax requirements with us</h2>
+                <p>
+                  Our team supports businesses with practical guidance across
+                  audit, taxation, GST, regulatory filings, and advisory
+                  matters. Share your requirements and we will get back with a
+                  suitable engagement approach.
+                </p>
+              </div>
+            </div>
+            <div className="col-xl-7 col-lg-7">
               <div className="contact-from-inner">
                 <Image
                   className="ci-bg-img-1 top_image_bounce"
