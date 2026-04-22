@@ -44,10 +44,12 @@ const AboutCustomerThree = () => {
           <div className="row">
             <div className="col-lg-6">
               <div className="section-title mb-0">
-                <h6 className="sub-title">// CUSTOMERS FEEDBACK</h6>
+                <h6 className="sub-title">//Our engagement approach
+                </h6>
                 <h2 className="title">
-                  What they&apos;re talking about services
+                The 6S methodology — applied across all engagements
                 </h2>
+                <p>The firm follows a structured 6S framework across all engagements — Scan, Study, Strategize, Structure, Support, and Sustain — ensuring systematic, compliant, and consistent service delivery tailored to each client's regulatory and operational requirements</p>
                 <Swiper
                   spaceBetween={0}
                   slidesPerView={1}
@@ -72,14 +74,10 @@ const AboutCustomerThree = () => {
                         <Image src={One} alt="img" />
                       </div>
                       <p className="content">
-                        All the Lorem Ipsum generators on the Internet tend
-                        repeat predefined chunks as necessary, making this the
-                        generator on the Internet. It uses a dictionary of over
-                        Latin combined with a handful of model sentence
-                        structures,
+                      Diagnostic assessment of business structure, regulatory environment, internal controls, and compliance status.
                       </p>
-                      <h4>David D. Rethman</h4>
-                      <p className="designation">CEO & Founder</p>
+                      <h4>Scan</h4>
+                     
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
@@ -88,14 +86,10 @@ const AboutCustomerThree = () => {
                         <Image src={One} alt="img" />
                       </div>
                       <p className="content">
-                        All the Lorem Ipsum generators on the Internet tend
-                        repeat predefined chunks as necessary, making this the
-                        generator on the Internet. It uses a dictionary of over
-                        Latin combined with a handful of model sentence
-                        structures,
+                      Analysis of financial data, tax exposures, and compliance records to identify risks and gaps
                       </p>
-                      <h4>David D. Rethman</h4>
-                      <p className="designation">CEO & Founder</p>
+                      <h4>Study</h4>
+                    
                     </div>
                   </SwiperSlide>
                   <SwiperSlide>
@@ -104,14 +98,48 @@ const AboutCustomerThree = () => {
                         <Image src={One} alt="img" />
                       </div>
                       <p className="content">
-                        All the Lorem Ipsum generators on the Internet tend
-                        repeat predefined chunks as necessary, making this the
-                        generator on the Internet. It uses a dictionary of over
-                        Latin combined with a handful of model sentence
-                        structures,
+                      Development of customised solutions covering tax planning, restructuring, and compliance measures.
+
                       </p>
-                      <h4>David D. Rethman</h4>
-                      <p className="designation">CEO & Founder</p>
+                      <h4>Strategize</h4>
+                     
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="single-testimonial-inner">
+                      <div className="thumb">
+                        <Image src={One} alt="img" />
+                      </div>
+                      <p className="content">
+                      Design of implementation frameworks with reporting tools, timelines, and checkpoints.
+                      </p>
+                      <h4>Structure</h4>
+                     
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="single-testimonial-inner">
+                      <div className="thumb">
+                        <Image src={One} alt="img" />
+                      </div>
+                      <p className="content">
+                      Delivery of audits, compliance filings, legal documentation, and advisory with continuous guidance.
+                      </p>
+                      <h4>Support</h4>
+                      
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="single-testimonial-inner">
+                      <div className="thumb">
+                        <Image src={One} alt="img" />
+                      </div>
+                      <p className="content">
+                      Long-term integration through training, periodic reviews, and embedding compliance in business operations.
+
+                      </p>
+                      <h4>Sustain</h4>
+                      
                     </div>
                   </SwiperSlide>
                 </Swiper>
@@ -130,22 +158,13 @@ const AboutCustomerThree = () => {
             <div className="col-lg-5 offset-lg-1 col-md-8">
               <div className="about-thumb-area pb-0 pe-0 mt-4 mt-lg-0">
                 <Image className="about-img-1" src={Three} alt="img" />
-                <Image
+                {/* <Image
                   className="about-img-5 top_image_bounce"
                   src={Two}
                   alt="img"
                 />
-                <Image
-                  className="about-img-6 top_image_bounce"
-                  src={Four}
-                  alt="img"
-                />
-                <div className="avg-ratting-wrap">
-                  <div className="avg-ratting-inner">
-                    <h2>4.8 +</h2>
-                    <p>Avg Rating</p>
-                  </div>
-                </div>
+                 */}
+                
               </div>
             </div>
           </div>

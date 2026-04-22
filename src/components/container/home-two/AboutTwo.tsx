@@ -37,11 +37,17 @@ const AboutTwo = () => {
               /> */}
               {/* <Image className="about-img-4 top_image_bounce" src={Four} alt="img" /> */}
               <div className="exp-wrap">
-                <div className="exp-inner">
-                  <h2>25 +</h2>
-                  <p>Years Experienced</p>
+                <div className="exp-inner exp-inner--details">
+                  <div className="exp-item">
+                    <h3>Established 2010</h3>
+                    <p>Year of establishment</p>
+                  </div>
                 </div>
               </div>
+              {/* <div className="about-location-tag">
+                <h4>New Delhi &amp; Gurgaon</h4>
+                <p>Office locations</p>
+              </div> */}
             </div>
           </div>
           <div
@@ -57,12 +63,15 @@ const AboutTwo = () => {
               </h2>
               <p className="content">
               Sandeep Singla & Associates provides expert services in Audit & Assurance, Taxation, Advisory, GST, and Legal Consulting. With over a decade of experience, we assist businesses in establishing liaison offices, subsidiaries, joint ventures, and other legal entities in India.
+
+              </p>
+              <p className="content">
+              Beyond core audit and tax services, the firm provides advisory in Capital Structuring, Business Strategy, Tax Law Interpretation, Corporate Accounting & Finance Reporting, Statutory Compliance Management, and Process Design and Internal Control Structuring.
               </p>
               <p className="quote mt-4 pb-2">
-              &quot;Our vision is to be recognized as a trusted partner in financial and business consulting, empowering
-              organizations to achieve sustainable growth and operational excellence.&quot;
-              </p>
-              <div className="row">
+              &quot;Our vision is to be recognized as a trusted partner in financial and business consulting, em
+                powering organizations to achieve sustainable growth and operational excellence.&quot;              </p>
+              {/* <div className="row">
                 <div className="col-md-6 mt-3">
                   <h5 className="d-flex align-items-center gap-2">
                     <Image className="me-2" src={Five} alt="img" />    Professional Team
@@ -74,10 +83,10 @@ const AboutTwo = () => {
                     Trusted Advisory
                   </h5>
                 </div>
-              </div>
+              </div> */}
               <div className="btn-wrap">
-                <Link className="btn btn-base border-radius" href="/about">
-                  Discover More
+                <Link className="btn btn-base border-radius " href="/about">
+                  Know More
                 </Link>
               </div>
             </div>
