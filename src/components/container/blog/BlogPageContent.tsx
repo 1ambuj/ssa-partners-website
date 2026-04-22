@@ -56,11 +56,6 @@ const BlogPageContent = () => {
     return { filteredPosts: paginatedPosts, totalPages };
   }, [catStr, searchStr, currentPage]);
 
-  const categories = useMemo(
-    () => Array.from(new Set(blogPosts.flatMap((p) => p.categories || []))).sort(),
-    []
-  );
-
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const term = searchInput.trim();
@@ -75,8 +70,7 @@ const BlogPageContent = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-7">
-            <div className="section-title text-center blog-page-hero-head">
-              <h6 className="sub-title">Latest Insights</h6>
+            <div className="section-title text-center">
               <h2 className="title">
                 {searchStr
                   ? "Search Results"
@@ -104,26 +98,6 @@ const BlogPageContent = () => {
                   <Image src={SearchIcon} alt="Search" />
                 </button>
               </form>
-              <div className="blog-top-categories mt-4">
-                <span className="blog-top-categories__label">Categories:</span>
-                <div className="blog-top-categories__list">
-                  <Link
-                    href="/blog"
-                    className={!catStr ? "active" : ""}
-                  >
-                    All
-                  </Link>
-                  {categories.map((c) => (
-                    <Link
-                      key={c}
-                      href={categoryHref(c)}
-                      className={catStr === c ? "active" : ""}
-                    >
-                      {c}
-                    </Link>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>

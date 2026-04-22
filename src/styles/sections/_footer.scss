@@ -24,7 +24,7 @@
  	.widget {
  		position: relative;
  		z-index: 2;
-		margin-bottom: 70px;
+ 		margin-bottom: 70px;
  	}
 	.widget-title {
 		margin-bottom: 20px;
@@ -94,6 +94,7 @@
 					display: block;
 					width: 100%;
 					padding: 4px 10px;
+					// border-radius: 6px;
 					transition: all 0.2s ease;
 					color: #dbe5f2;
 					&:hover {
@@ -182,7 +183,7 @@
 		display: flex;
 		align-items: flex-start;
 		gap: 10px;
-		margin-bottom: 18px;
+		margin-bottom: 14px;
 
 		i {
 			color: var(--main-color);
@@ -197,10 +198,6 @@
 		}
 	}
 
-	.footer-address-item:last-child {
-		margin-bottom: 0;
-	}
-
 	.footer-contact-meta {
 		margin-bottom: 10px !important;
 		line-height: 1.55;
@@ -208,14 +205,7 @@
 }
 
 .footer-main-grid {
-	row-gap: 18px;
-	padding-top: 18px;
-	padding-bottom: 28px;
-	border-top: 1px solid rgba(214, 228, 246, 0.12);
-
-	.widget {
-		margin-bottom: 0;
-	}
+	row-gap: 10px;
 }
 
 .footer-contact-strip {
@@ -259,88 +249,9 @@
 	}
 }
 
-.footer-widget-block {
-	height: 100%;
-	padding-right: 10px;
-}
-
-@media all and (min-width: 992px) {
-	.footer-col-links-left {
-		padding-right: 32px;
-	}
-
-	.footer-col-links-left .footer-widget-block {
-		padding-right: 18px;
-	}
-
-	.footer-col-links-middle {
-		padding-left: 24px;
-		padding-right: 24px;
-	}
-
-	.footer-col-links-middle .footer-widget-block {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-
-	.footer-col-contact {
-		padding-left: 32px;
-	}
-
-	.footer-col-contact .footer-widget-block {
-		max-width: 360px;
-		margin-left: auto;
-		padding-left: 18px;
-		padding-right: 0;
-	}
-}
-
 
 .footer-top {
 	padding-bottom: 90px;
-	.footer-top-brand {
-		max-width: 390px;
-
-		.footer-brand-head {
-			display: flex;
-			align-items: center;
-			gap: 12px;
-			margin-bottom: 14px;
-		}
-
-		.thumb {
-			margin-bottom: 0;
-			width: 52px;
-			height: 52px;
-			border-radius: 12px;
-			padding: 4px;
-			background: rgba(255, 255, 255, 0.92);
-			border: 1px solid rgba(255, 255, 255, 0.28);
-			box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			overflow: hidden;
-		}
-
-		.footer-brand-logo-image {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-			border-radius: 8px;
-		}
-
-		.widget-title {
-			margin-bottom: 0;
-			line-height: 1.1;
-		}
-	}
-	.footer-subscribe-copy {
-		color: #d4deea;
-		font-weight: 500;
-		margin-bottom: 0;
-		line-height: 1.7;
-	}
 	h2 {
 		color: #f3f7fc;
 	}
@@ -359,7 +270,6 @@
 		position: relative;
 		padding: 35px;
 		padding-right: 150px;
-		border-radius: 8px;
 		.single-input-inner	{
 			margin-bottom: 15px;
 		}
@@ -397,21 +307,6 @@
 		span {
 			color: #dce8f8;
 		}
-	}
-}
-
-@media all and (max-width: 991px) {
-	.footer-top {
-		padding-bottom: 60px;
-	}
-
-	.footer-main-grid {
-		padding-top: 0;
-		border-top: 0;
-	}
-
-	.footer-widget-block {
-		padding-right: 0;
 	}
 }
 .footer-bottom {

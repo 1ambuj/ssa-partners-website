@@ -2,6 +2,7 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Layout from "@/components/layout/Layout";
 import TeamDetailsArea from "@/components/container/team/TeamDetailsArea";
+import ContactClientTwo from "@/components/container/contact/ContactClientTwo";
 import {
   teamMembers,
   getTeamMemberBySlug,
@@ -22,6 +23,7 @@ const TeamDetailsPage = ({ member }: TeamDetailsPageProps) => {
       bodyClass={1}
     >
       <TeamDetailsArea member={member} />
+      <ContactClientTwo />
     </Layout>
   );
 };

@@ -3,6 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import Two from "public/images/about/4.png";
+import Three from "public/images/service-icon/1.png";
+import Four from "public/images/service-icon/2.png";
+import Five from "public/images/service-icon/3.png";
 import type { TeamMember } from "@/data/teamMembers";
 
 interface TeamDetailsAreaProps {
@@ -32,18 +36,6 @@ const TeamDetailsArea = ({ member }: TeamDetailsAreaProps) => {
               >
                 {member.name}
               </h3>
-              <div
-                className="breadcrumb-inner d-inline-flex align-items-center gap-2 mt-3"
-                data-aos="fade-up"
-                data-aos-duration="1500"
-                data-aos-delay="450"
-              >
-                <Link href="/">Home</Link>
-                <span>/</span>
-                <Link href="/team">Team</Link>
-                <span>/</span>
-                <span>{member.name}</span>
-              </div>
               <div
                 className="scroll-down top_image_bounce "
                 data-aos="fade-up"
@@ -133,6 +125,82 @@ const TeamDetailsArea = ({ member }: TeamDetailsAreaProps) => {
                     </li>
                   </ul>
                 )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="service-area bg-relative pd-bottom-90">
+        <Image
+          className="left_image_bounce position-top-right"
+          src={Two}
+          alt="img"
+        />
+        <div className="container">
+          <div className="section-title ">
+            <h6 className="sub-title">// Service</h6>
+            <h2 className="title">My Service Here</h2>
+          </div>
+          <div className="row">
+            <div className="col-lg-4 col-md-6">
+              <div className="single-service-inner">
+                <div className="thumb">
+                  <Image src={Three} alt="img" />
+                </div>
+                <div className="details">
+                  <h4>
+                    <Link href="/service-details">Insurance Tax</Link>
+                  </h4>
+                  <p>
+                    Many desktop publishing packages and web page editors now
+                    use Lorem Ipsum as their default model text, and a search
+                    for &apos;lorem ipsum&apos; will{" "}
+                  </p>
+                  <Link className="case-view-btn" href="/case-study-details">
+                    <span>Learn More</span> +
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6">
+              <div className="single-service-inner">
+                <div className="thumb">
+                  <Image src={Four} alt="img" />
+                </div>
+                <div className="details">
+                  <h4>
+                    <Link href="/service-details">Financial Planning</Link>
+                  </h4>
+                  <p>
+                    Many desktop publishing packages and web page editors now
+                    use Lorem Ipsum as their default model text, and a search
+                    for &apos;lorem ipsum&apos; will{" "}
+                  </p>
+                  <Link className="case-view-btn" href="/case-study-details">
+                    <span>Learn More</span> +
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6">
+              <div className="single-service-inner">
+                <div className="thumb">
+                  <Image src={Five} alt="img" />
+                </div>
+                <div className="details">
+                  <h4>
+                    <Link href="/service-details">Audit & Assurancy</Link>
+                  </h4>
+                  <p>
+                    Many desktop publishing packages and web page editors now
+                    use Lorem Ipsum as their default model text, and a search
+                    for &apos;lorem ipsum&apos; will{" "}
+                  </p>
+                  <Link className="case-view-btn" href="/case-study-details">
+                    <span>Learn More</span> +
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

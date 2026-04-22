@@ -15,9 +15,6 @@ const BlogDetailsArea = ({ post }: BlogDetailsAreaProps) => {
   const recent = [...blogPosts]
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .slice(0, 3);
-  const postUrl = typeof window !== "undefined" ? window.location.href : `/blog-details/${post.slug}`;
-  const encodedUrl = encodeURIComponent(postUrl);
-  const encodedTitle = encodeURIComponent(post.title);
   return (
     <div className="blog-area pd-bottom-120">
       <div className="container">
@@ -59,56 +56,36 @@ const BlogDetailsArea = ({ post }: BlogDetailsAreaProps) => {
                           <strong>Share This : </strong>
                           <ul>
                             <li>
-                              <a
-                                href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Share on Facebook"
-                              >
+                              <Link href="/">
                                 <i
                                   className="fab fa-facebook-f"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
-                                href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Share on Twitter"
-                              >
+                              <Link href="/">
                                 <i
                                   className="fab fa-twitter"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
-                                href={`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Share on WhatsApp"
-                              >
+                              <Link href="/">
                                 <i
-                                  className="fab fa-whatsapp"
+                                  className="fab fa-instagram"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
-                                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Share on LinkedIn"
-                              >
+                              <Link href="/">
                                 <i
                                   className="fab fa-linkedin"
                                   aria-hidden="true"
                                 ></i>
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </div>

@@ -59,7 +59,7 @@ const ServiceTwo = () => {
             <div className="col-lg-6 offset-lg-2 align-self-center">
               <div className="section-title style-white mb-0 mt-2 mt-lg-0">
                 <h6 className="sub-title">// OUR SERVICES</h6>
-                <h2 className="title">Taxation, Audit & Advisory Services</h2>
+                <h2 className="title">Expert Taxation, Audit & Advisory Services</h2>
               </div>
 
               <ul className="service-tab-inner nav nav-tabs mt-lg-5 mt-4">

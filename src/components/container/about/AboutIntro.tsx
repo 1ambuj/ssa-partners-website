@@ -6,9 +6,9 @@ import Three from "public/images/icon/3.png";
 
 const AboutIntro = () => {
   return (
-    <div className="intro-area bg-light pd-top-90 pd-bottom-60 about-intro-premium">
+    <div className="intro-area bg-light pd-top-120 pd-bottom-60">
       <div className="container">
-        <div className="row pd-top-60">
+        <div className="row">
 
           {/* 1 */}
           <div className="col-lg-4 col-md-6">

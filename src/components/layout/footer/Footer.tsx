@@ -62,7 +62,10 @@ const Footer = () => {
   const {
     shortName,
     addresses,
+    email: emails,
+    phone,
     social,
+    workingHours,
     footer,
   } = siteConfig;
 
@@ -86,77 +89,34 @@ const Footer = () => {
     <footer id="contact" className="footer-area bg-cover">
       <div className="container">
         <div className="footer-top">
-          <div className="row align-items-center g-4">
-            <div className="col-lg-5">
-              <div className="footer-top-brand footer-brand-widget">
-                <div className="footer-brand-head">
-                  <div className="thumb">
-                    <Image
-                      src={siteConfig.logo}
-                      alt={`${siteConfig.shortName} logo`}
-                      width={44}
-                      height={44}
-                      className="footer-brand-logo-image"
-                    />
-                  </div>
-                  <h4 className="widget-title mb-0">SSA Partners</h4>
-                </div>
-                <div className="details">
-                  <p>
-                    Providing professional services in Audit, Taxation,
-                    Advisory and Compliance from offices in New Delhi and
-                    Gurgaon.
-                  </p>
-                  <ul className="social-media mt-4">
-                    <li>
-                      <a
-                        className="facebook"
-                        href={social.facebook}
-                        aria-label="Facebook"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="twitter"
-                        href={social.twitter}
-                        aria-label="Twitter"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="linkedin"
-                        href={social.linkedin}
-                        aria-label="LinkedIn"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fab fa-linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className="whatsapp"
-                        href={social.whatsapp}
-                        aria-label="WhatsApp"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fab fa-whatsapp" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          <div className="row">
+            <div className="col-lg-6 align-self-center mb-4 mb-lg-0">
+              <h2 className="animate-text-footer">
+                <span className="waviy ms-2">
+                  <span style={{ "--i": 1 } as React.CSSProperties}>L</span>
+                  <span className="ms-1" style={{ "--i": 2 } as React.CSSProperties}>e</span>
+                  <span className="ms-1" style={{ "--i": 3 } as React.CSSProperties}>t</span>
+                  <span className="ms-1" style={{ "--i": 4 } as React.CSSProperties}>&apos;</span>
+                  <span className="ms-1" style={{ "--i": 5 } as React.CSSProperties}>s</span>
+                  <span className="ms-2" style={{ "--i": 6 } as React.CSSProperties}>G</span>
+                  <span className="ms-1" style={{ "--i": 7 } as React.CSSProperties}>e</span>
+                  <span className="ms-1" style={{ "--i": 8 } as React.CSSProperties}>t</span>
+                  <span className="ms-1" style={{ "--i": 9 } as React.CSSProperties}>S</span>
+                  <span className="ms-1" style={{ "--i": 10 } as React.CSSProperties}>t</span>
+                  <span className="ms-1" style={{ "--i": 11 } as React.CSSProperties}>a</span>
+                  <span className="ms-1" style={{ "--i": 12 } as React.CSSProperties}>r</span>
+                  <span className="ms-1" style={{ "--i": 13 } as React.CSSProperties}>t</span>
+                  <span className="ms-1" style={{ "--i": 14 } as React.CSSProperties}>e</span>
+                  <span className="ms-1" style={{ "--i": 15 } as React.CSSProperties}>d</span>
+                </span>
+              </h2>
+
+              <p>
+                {footer.tagline},{" "}
+                <Link href="/contact">Contact us</Link>.
+              </p>
             </div>
-            <div className="col-lg-7">
+            <div className="col-lg-6">
               <form onSubmit={handleSubscribe} className="footer-subscribe">
                 <div className="single-input-inner">
                   <input
@@ -180,7 +140,7 @@ const Footer = () => {
                     {statusMessage}
                   </span>
                 ) : (
-                  <span>Stay us subscribing to our newsletter.</span>
+                  <span>{footer.subscribeHint}</span>
                 )}
               </form>
             </div>
@@ -188,10 +148,77 @@ const Footer = () => {
         </div>
       </div>
       <div className="container">
-        <div className="row footer-main-grid g-4 gx-xl-5">
-          <div className="col-lg-4 col-md-6 footer-col footer-col-links footer-col-links-left">
-            <div className="widget widget_nav_menu footer-widget-block">
-              <h4 className="widget-title">Quick Links</h4>
+        <div className="row footer-main-grid">
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_about pe-xl-4 footer-brand-widget">
+              <div className="footer-brand-head">
+                <div className="thumb">
+                  <Image
+                    src={siteConfig.logo}
+                    alt={`${siteConfig.shortName} logo`}
+                    width={44}
+                    height={44}
+                    className="footer-brand-logo-image"
+                  />
+                </div>
+                <h4 className="widget-title mb-0">SSA Partners</h4>
+              </div>
+              <div className="details">
+                <p>
+                  Specialized services in Audit &amp; Assurance, Advisory, Taxation and GST. We combine deep expertise with a modern approach to help businesses grow.
+                </p>
+                <ul className="social-media mt-4">
+                  <li>
+                    <a
+                      className="facebook"
+                      href={social.facebook}
+                      aria-label="Facebook"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-facebook-f" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="twitter"
+                      href={social.twitter}
+                      aria-label="Twitter"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-twitter" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="linkedin"
+                      href={social.linkedin}
+                      aria-label="LinkedIn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-linkedin" />
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="whatsapp"
+                      href={social.whatsapp}
+                      aria-label="WhatsApp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-whatsapp" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_nav_menu">
+              <h4 className="widget-title">Quick Link</h4>
               <ul>
                 {quickLinks.map((link) => (
                   <li key={link.href}>
@@ -201,9 +228,9 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="col-lg-4 col-md-6 footer-col footer-col-links footer-col-links-middle">
-            <div className="widget widget_nav_menu footer-widget-block">
-              <h4 className="widget-title">Other Links</h4>
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_nav_menu">
+              <h4 className="widget-title">Other Link</h4>
               <ul>
                 {otherLinks.map((link) => (
                   <li key={link.href}>
@@ -213,9 +240,9 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="col-lg-4 col-md-6 footer-col footer-col-contact">
-            <div className="widget widget_about footer-contact-widget footer-widget-block mb-0">
-              <h4 className="widget-title">Office Addresses</h4>
+          <div className="col-lg-3 col-md-6 footer-col">
+            <div className="widget widget_about footer-contact-widget">
+              <h4 className="widget-title">Contact Us</h4>
               <div className="details">
                 <div className="footer-address-item">
                   <i className="fas fa-map-marker-alt" aria-hidden="true" />
@@ -255,7 +282,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-4 align-self-center mb-1 mb-lg-0">
               <p>
-                Copyright © 2026 {shortName}. All rights reserved.
+                Copyright © {new Date().getFullYear()} {shortName}. All rights reserved.
               </p>
             </div>
             <div className="col-lg-5 align-self-center text-lg-center mb-3 mb-lg-0">
