@@ -38,9 +38,9 @@ const AboutThree = () => {
   return (
     <div className="about-area bg-sky pd-top-120 pd-bottom-90">
       <div className="container">
-        <div className="row">
+        <div className="row g-4 align-items-start">
           <div
-            className="col-lg-6 ssa-method-left-col"
+            className="col-lg-5 ssa-method-left-col"
             data-aos="fade-right"
             data-aos-duration="1500"
             data-aos-delay="100"
@@ -57,22 +57,20 @@ const AboutThree = () => {
                 delivery tailored to each client's regulatory and operational
                 requirements.
               </p>
-              <div className="ssa-method-overview">
+              {/* <div className="ssa-method-overview">
                 {engagementSteps.map((step) => (
                   <div key={step.title} className="ssa-method-overview-item">
                     <span>{step.title}</span>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
-          <div className="col-lg-6 ps-lg-5 mt-5 mt-lg-0">
+          <div className="col-lg-7 ssa-method-right-col mt-5 mt-lg-0">
             {engagementSteps.map((step, index) => (
               <div
                 key={step.title}
-                className={`media progressbar-media ssa-method-media ${
-                  index % 2 === 0 ? "ps-lg-5" : "pe-lg-5"
-                }`}
+                className="media progressbar-media ssa-method-media"
                 data-aos="fade-left"
                 data-aos-duration="1500"
                 data-aos-delay={300 + index * 100}
@@ -96,7 +94,7 @@ const AboutThree = () => {
                   </div>
                 </div>
                 <div className="media-body align-self-center">
-                  <h4>{step.title}</h4>
+                  {/* <h4>{step.title}</h4> */}
                   <p>{step.description}</p>
                 </div>
               </div>

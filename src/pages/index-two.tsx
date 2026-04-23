@@ -7,6 +7,7 @@ import BannerVideoTwo from "@/components/container/home-two/BannerVideoTwo";
 import Intro from "@/components/container/home-two/Intro";
 import AboutTwo from "@/components/container/home-two/AboutTwo";
 import ServiceTwo from "@/components/container/home-two/ServiceTwo";
+import IndustriesShowcase from "@/components/container/home-two/IndustriesShowcase";
 import AboutThree from "@/components/container/home-two/AboutThree";
 import TeamTwo from "../components/container/home-two/TeamTwo";
 import Cta from "@/components/container/home-two/Cta";
@@ -31,13 +32,19 @@ const HomeTwo = () => {
       {/* <Intro /> */}
       <AboutTwo />
       <ServiceTwo />
+      
       <AboutThree />
-      <TeamTwo />
+     
       {/* <Cta /> */}
       <AboutCustomerThree />
-      <CaseStudyTwo />
+      {/* <CaseStudyTwo /> */}
+     
+      
       <HomeFaq />
+      <IndustriesShowcase />
+    
       <CallBack />
+      <TeamTwo />
       <LatestArticle />
       {/* <ContactClientThree />
       <ContactInstagramTwo /> */}

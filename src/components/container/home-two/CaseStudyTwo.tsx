@@ -9,7 +9,7 @@ import Three from "public/images/case-study/3.png";
 
 const CaseStudyTwo = () => {
   return (
-    <div className="case-study-area pd-top-110 pd-bottom-90">
+    <div className="case-study-area pd-top-60 pd-bottom-90">
       <div className="container">
         <div className="section-title">
           <div className="row">

@@ -17,10 +17,11 @@ const AboutIntro = () => {
                 <Image src={One} alt="icon" />
               </div>
               <div className="details">
-                <h4>Chartered Expertise</h4>
+                <h4>Chartered Accountant-led services</h4>
                 <p>
-                  With over a decade of experience, we deliver solutions grounded
-                  in regulatory expertise and strategic business insight.
+                All engagements are conducted by qualified Chartered Accountants in accordance with
+                 ICAI standards and the
+                applicable Code of Ethics.
                 </p>
               </div>
             </div>
@@ -35,8 +36,10 @@ const AboutIntro = () => {
               <div className="details">
                 <h4>6S Methodology</h4>
                 <p>
-                  Scan, Study, Strategize, Structure, Support & Sustain — ensuring
-                  scalable and long-term business success.
+                  Scan, Study, Strategize, Structure, Support & Sustain —
+                  a structured engagement
+                  framework applied across all
+                  service mandates.
                 </p>
               </div>
             </div>
@@ -51,8 +54,9 @@ const AboutIntro = () => {
               <div className="details">
                 <h4>Integrated Services</h4>
                 <p>
-                  Audit, Taxation, FEMA, LPO & BPO — all under one roof for
-                  seamless execution and efficiency.
+                Audit, Taxation, GST, Advisory, FEMA, LPO & BPO — multiple
+                  service disciplines within a
+                  single professional practice.
                 </p>
               </div>
             </div>
@@ -65,10 +69,14 @@ const AboutIntro = () => {
                 <Image src={One} alt="icon" />
               </div>
               <div className="details">
-                <h4>Global Expertise</h4>
+                <h4>Cross-border regulatory services</h4>
                 <p>
-                  Supporting Indian and international clients with cross-border
-                  expansion and regulatory compliance.
+                The firm assists Indian and
+                international entities with FEMA,
+                RBI, MCA, and Income Tax
+                compliance requirements
+                applicable to cross-border
+                business activities.
                 </p>
               </div>
             </div>
@@ -81,10 +89,13 @@ const AboutIntro = () => {
                 <Image src={Two} alt="icon" />
               </div>
               <div className="details">
-                <h4>Confidential & Ethical</h4>
+                <h4>Confidential & ethical</h4>
                 <p>
-                  We ensure strict data confidentiality, compliance protocols,
-                  and ethical practices in every engagement.
+                The firm adheres to strict data
+                confidentiality standards,
+                compliance protocols, and the
+                ethical requirements prescribed
+                by ICAI in all engagements.
                 </p>
               </div>
             </div>
@@ -97,10 +108,14 @@ const AboutIntro = () => {
                 <Image src={Three} alt="icon" />
               </div>
               <div className="details">
-                <h4>Technology Driven</h4>
+                <h4>Technology-supported
+                delivery</h4>
                 <p>
-                  Using digital tools, MIS reporting, and dashboards for real-time
-                  visibility and efficiency.
+                The firm uses cloud-based
+                  accounting systems, MIS
+                  reporting dashboards, and
+                  digital compliance monitoring
+                  tools in service delivery.
                 </p>
               </div>
             </div>

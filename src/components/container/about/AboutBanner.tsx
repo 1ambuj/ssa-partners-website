@@ -3,14 +3,14 @@ import React from "react";
 
 const AboutBanner = () => {
   return (
-    <div className="banner-area pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover">
+    <div className="banner-area pd-bottom-60 banner-small-inner bg-light bg-relative bg-cover">
       <div className="container">
         <div className="d-inline-flex align-items-center gap-3 flex-wrap about-banner-kicker">
           <SsaBrochureMark size="sm" />
-          <h4>More About Us</h4>
+          <h4>About Us</h4>
         </div>
 
-        <h3>A Decade of Excellence in Financial, Tax & Legal Consulting</h3>
+        <h3>A Chartered Accountancy Firm Established in 2010</h3>
 
         <div className="row">
           <div className="col-lg-6 mt-lg-4 pt-lg-2">

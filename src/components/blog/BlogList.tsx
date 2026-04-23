@@ -16,7 +16,7 @@ import { BlogService } from "@/lib/blogService";
 import { formatBlogLongDate, toJsDate } from "@/lib/blogDateUtils";
 import type { BlogPost } from "@/lib/types";
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 12;
 const images = [One, Two, Three, Four, Five, Three] as const;
 
 interface BlogListProps {

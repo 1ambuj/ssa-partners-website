@@ -9,9 +9,7 @@ import "swiper/css/scrollbar";
 import Image from "next/image";
 
 import One from "public/images/about/8.png";
-import Two from "public/images/about/5.png";
 import Three from "public/images/about/6.png";
-import Four from "public/images/about/7.png";
 import Seven from "public/images/about/10.png";
 import Eight from "public/images/about/9.png";
 
@@ -33,7 +31,7 @@ const AboutCustomerThree = () => {
 
   return (
     <>
-      <div className="testimonial-area pd-top-120 testim-cus">
+      <div className="testimonial-area pd-top-120 testim-cus  pd-bottom-100">
         <Image className="tm-img-animation-1" src={Seven} alt="img" />
         <Image
           className="tm-img-animation-2 top_image_bounce"
@@ -156,15 +154,17 @@ const AboutCustomerThree = () => {
               </div>
             </div>
             <div className="col-lg-5 offset-lg-1 col-md-8">
-              <div className="about-thumb-area pb-0 pe-0 mt-4 mt-lg-0">
-                <Image className="about-img-1" src={Three} alt="img" />
-                {/* <Image
-                  className="about-img-5 top_image_bounce"
-                  src={Two}
-                  alt="img"
-                />
-                 */}
-                
+              <div className="about-thumb-area about-thumb-area-six pb-0 pe-0 mt-4 mt-lg-0">
+                <div className="six-module-image-frame">
+                  <span className="six-module-tag">6S Module</span>
+                  <Image
+                    className="about-img-1 six-module-main-image"
+                    src={Three}
+                    alt="6S module framework visual"
+                  />
+                  <span className="six-module-accent six-module-accent-one"></span>
+                  <span className="six-module-accent six-module-accent-two"></span>
+                </div>
               </div>
             </div>
           </div>

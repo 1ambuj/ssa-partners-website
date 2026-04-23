@@ -26,7 +26,7 @@ const about = () => {
         <AboutTax />
         <AboutTab />
         <AboutTeam />
-        <AboutCta />
+        {/* <AboutCta /> */}
         {/* <ContactClient />
         <ContactInstagram /> */}
       </div>

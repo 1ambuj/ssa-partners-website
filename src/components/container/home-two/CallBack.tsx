@@ -1,11 +1,9 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import { useState, useRef } from "react";
 import Image from "next/image";
 
 import One from "public/images/bg/10.png";
 import Three from "public/images/bg/8.png";
 import Four from "public/images/bg/6.png";
-import Five from "public/images/bg/7.png";
 
 const CallBack = () => {
   const [name, setName] = useState("");
@@ -19,45 +17,45 @@ const CallBack = () => {
 
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-  
+
     // clear previous timer (important)
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-  
+
     setStatus("sending");
     setError(null);
-  
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, phone, email, message }),
       });
-  
+
       const data = await res.json();
-  
+
       if (!res.ok || !data.ok) {
         throw new Error(data.error || "Failed to send");
       }
-  
+
       // success
       setStatus("success");
-  
+
       // reset form
       setName("");
       setPhone("");
       setEmail("");
       setMessage("");
-  
+
       // auto-hide message after 3 sec
       timeoutRef.current = setTimeout(() => {
         setStatus("idle");
       }, 3000);
-  
+
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Failed to send");
@@ -68,19 +66,26 @@ const CallBack = () => {
     <div className="contact-area ssa-home-callback pd-top-90 bg-cover pd-bottom-90">
       <Image className="bg-img-1" src={One} alt="img" />
       <img className="bg-img-2 callback-picture4" src="/images/picture4.png" alt="" />
-      <Image
-        className="bg-img-3 "
-        data-aos="fade-right"
-        data-aos-duration="1500"
-        data-aos-delay="300"
-        src={Five}
-        alt="img"
-      />
+     
       <Image className="bg-img-4 left_image_bounce" src={Three} alt="img" />
       <div className="container">
         <div className="contact-inner">
-          <div className="row">
-            <div className="col-xl-7 col-lg-7 offset-xl-5 offset-lg-5">
+          {/* <div className="row">
+            <div className="col-xl-7 col-lg-7 offset-xl-5 offset-lg-5"> */}
+          <div className="row align-items-center g-4">
+            <div className="col-xl-5 col-lg-5">
+              <div className="callback-left-content">
+                <h6 className="sub-title">// CONTACT US</h6>
+                <h2>Professional communication for audit, tax, and compliance matters</h2>
+                <p>
+                  This communication channel is provided for professional
+                  correspondence relating to audit, taxation, GST, regulatory
+                  filings, and allied matters. You may share relevant details,
+                  and the firm will respond as appropriate.
+                </p>
+              </div>
+            </div>
+            <div className="col-xl-7 col-lg-7">
               <div className="contact-from-inner">
                 <Image
                   className="ci-bg-img-1 top_image_bounce"

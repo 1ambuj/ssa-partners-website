@@ -15,8 +15,9 @@ const AboutTeam = () => {
               <h6 className="sub-title">// Our Team</h6>
               <h2 className="title">Meet the Professionals</h2>
               <p className="content mb-4">
-                Our partners are committed to delivering expert financial guidance with integrity,
-                helping clients achieve compliance, efficiency, and long-term success.
+              The firm's partners are qualified Chartered Accountants registered with the Institute of Chartered
+Accountants of India (ICAI), with professional experience in audit, taxation, advisory, and
+regulatory compliance services.
               </p>
             </div>
           </div>

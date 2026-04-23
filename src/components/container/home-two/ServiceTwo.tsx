@@ -84,7 +84,7 @@ const ServiceTwo = () => {
         </div>
       </div>
 
-      <div className="btn-wrap bg-sky text-center">
+      <div className="btn-wrap  text-center bg-sky">
         <Link
           className="btn btn-base border-radius mt--30 left_image_bounce"
           href="/service"
