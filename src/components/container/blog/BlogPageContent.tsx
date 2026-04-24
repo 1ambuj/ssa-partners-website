@@ -18,7 +18,7 @@ import {
   type BlogPost,
 } from "@/data/blogPost";
 
-const POSTS_PER_PAGE = 12;
+const POSTS_PER_PAGE = 10;
 const images = [One, Two, Three, Four, Five, Three] as const;
 
 const buildQuery = (params: { cat?: string; search?: string; page?: number }) => {

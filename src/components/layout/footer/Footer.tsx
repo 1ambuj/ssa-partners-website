@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "@/data/siteConfig";
 
 const Footer = () => {
@@ -91,7 +90,7 @@ const Footer = () => {
         <div className="footer-top">
           <div className="row">
             <div className="col-lg-6 align-self-center mb-4 mb-lg-0">
-              <h2 className="animate-text-footer">
+              {/* <h2 className="animate-text-footer">
                 <span className="waviy ms-2">
                   <span style={{ "--i": 1 } as React.CSSProperties}>L</span>
                   <span className="ms-1" style={{ "--i": 2 } as React.CSSProperties}>e</span>
@@ -109,65 +108,14 @@ const Footer = () => {
                   <span className="ms-1" style={{ "--i": 14 } as React.CSSProperties}>e</span>
                   <span className="ms-1" style={{ "--i": 15 } as React.CSSProperties}>d</span>
                 </span>
-              </h2>
-
-              <p>
-                {footer.tagline},{" "}
-                <Link href="/contact">Contact us</Link>.
-              </p>
-            </div>
-            <div className="col-lg-6">
-              <form onSubmit={handleSubscribe} className="footer-subscribe">
-                <div className="single-input-inner">
-                  <input
-                    type="email"
-                    placeholder={footer.subscribePlaceholder}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={statusType === "sending"}
-                    aria-label="Email address"
-                  />
-                  <button
-                    type="submit"
-                    className="btn btn-white"
-                    disabled={statusType === "sending"}
-                  >
-                    {footer.subscribeButton}
-                  </button>
-                </div>
-                {statusMessage ? (
-                  <span className={statusType === "success" ? "text-success" : statusType === "error" ? "text-danger" : ""}>
-                    {statusMessage}
-                  </span>
-                ) : (
-                  <span>{footer.subscribeHint}</span>
-                )}
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row footer-main-grid">
-          <div className="col-lg-3 col-md-6 footer-col">
-            <div className="widget widget_about pe-xl-4 footer-brand-widget">
-              <div className="footer-brand-head">
-                <div className="thumb">
-                  <Image
-                    src={siteConfig.logo}
-                    alt={`${siteConfig.shortName} logo`}
-                    width={44}
-                    height={44}
-                    className="footer-brand-logo-image"
-                  />
-                </div>
-                <h4 className="widget-title mb-0">SSA Partners</h4>
-              </div>
-              <div className="details">
-                <p>
-                  Specialized services in Audit &amp; Assurance, Advisory, Taxation and GST. We combine deep expertise with a modern approach to help businesses grow.
-                </p>
-                <ul className="social-media mt-4">
+              </h2> */}
+                <div className="details footer-about-block">
+                  <h3>About</h3>
+                  <p>
+                    Specialized services in Audit &amp; Assurance, Advisory, Taxation and GST. We
+                    combine deep expertise with a modern approach to help businesses grow.
+                  </p>
+                  <ul className="social-media mt-4">
                   <li>
                     <a
                       className="facebook"
@@ -212,10 +160,46 @@ const Footer = () => {
                       <i className="fab fa-whatsapp" />
                     </a>
                   </li>
-                </ul>
-              </div>
+                  </ul>
+                </div>
+              {/* <p>
+                {footer.tagline},{" "}
+                <Link href="/contact">Contact us</Link>.
+              </p> */}
+            </div>
+            <div className="col-lg-6">
+              <form onSubmit={handleSubscribe} className="footer-subscribe">
+                <div className="single-input-inner">
+                  <input
+                    type="email"
+                    placeholder={footer.subscribePlaceholder}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={statusType === "sending"}
+                    aria-label="Email address"
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-white"
+                    disabled={statusType === "sending"}
+                  >
+                    {footer.subscribeButton}
+                  </button>
+                </div>
+                {statusMessage ? (
+                  <span className={statusType === "success" ? "text-success" : statusType === "error" ? "text-danger" : ""}>
+                    {statusMessage}
+                  </span>
+                ) : (
+                  <span>{footer.subscribeHint}</span>
+                )}
+              </form>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="row footer-main-grid">
           <div className="col-lg-3 col-md-6 footer-col">
             <div className="widget widget_nav_menu">
               <h4 className="widget-title">Quick Link</h4>
@@ -240,20 +224,35 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 footer-col">
+          <div className="col-lg-6 col-md-12 footer-col">
             <div className="widget widget_about footer-contact-widget">
               <h4 className="widget-title">Contact Us</h4>
-              <div className="details">
-                <div className="footer-address-item">
-                  <i className="fas fa-map-marker-alt" aria-hidden="true" />
+              <div className="details footer-office-grid">
+                <div className="footer-office-card">
+                  <h6>Gurgaon Office</h6>
+                  <p>E-127, Ground Floor</p>
+                  <p>Sushant Shopping Arcade</p>
+                  <p>Sushant Lok-1, Gurgaon - 122009</p>
+                  <p>Haryana</p>
                   <p>
-                    <strong>{addresses.gurgaon.label}:</strong> {addresses.gurgaon.full}
+                    Tel: <a href="tel:+919560181790">+91-9560181790</a>
+                  </p>
+                  <p>
+                    Email: <a href="mailto:info@sspartners.in">info@sspartners.in</a>
                   </p>
                 </div>
-                <div className="footer-address-item">
-                  <i className="fas fa-map-marker-alt" aria-hidden="true" />
+                <div className="footer-office-card">
+                  <h6>New Delhi Office</h6>
+                  <p>V-8, Green Park Extension</p>
+                  <p>New Delhi - 110016</p>
                   <p>
-                    <strong>{addresses.delhi.label}:</strong> {addresses.delhi.full}
+                    Tel: <a href="tel:+919211551857">+91-9211551857</a>
+                  </p>
+                  <p>
+                    Email: <a href="mailto:info@sspartners.in">info@sspartners.in</a>
+                  </p>
+                  <p>
+                    Web: <a href="https://www.sspartners.in" target="_blank" rel="noopener noreferrer">www.sspartners.in</a>
                   </p>
                 </div>
               </div>
@@ -279,13 +278,13 @@ const Footer = () => {
       </div>
       <div>
         <div className="footer-bottom">
-          <div className="row">
+          <div className="row footer-bottom-row">
             <div className="col-lg-4 align-self-center mb-1 mb-lg-0">
               <p>
                 Copyright © {new Date().getFullYear()} {shortName}. All rights reserved.
               </p>
             </div>
-            <div className="col-lg-5 align-self-center text-lg-center mb-3 mb-lg-0">
+            <div className="col-lg-4 align-self-center text-lg-center mb-3 mb-lg-0">
               <p>
                 {footer.legalLinks.map((link, i) => (
                   <React.Fragment key={link.href}>
@@ -295,7 +294,7 @@ const Footer = () => {
                 ))}
               </p>
             </div>
-            <div className="col-lg-3 text-lg-end">
+            <div className="col-lg-4 text-lg-end">
               <ul className="social-media">
                 <li>
                   <a
