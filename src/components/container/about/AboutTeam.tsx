@@ -14,11 +14,11 @@ const AboutTeam = () => {
             <div className="section-title text-center">
               <h6 className="sub-title">// Our Team</h6>
               <h2 className="title">Meet the Professionals</h2>
-              <p className="content mb-4">
+              {/* <p className="content mb-4">
               The firm's partners are qualified Chartered Accountants registered with the Institute of Chartered
 Accountants of India (ICAI), with professional experience in audit, taxation, advisory, and
 regulatory compliance services.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
