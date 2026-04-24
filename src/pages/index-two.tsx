@@ -36,7 +36,7 @@ const HomeTwo = () => {
       <AboutThree />
      
       {/* <Cta /> */}
-      <AboutCustomerThree />
+      {/* <AboutCustomerThree /> */}
       {/* <CaseStudyTwo /> */}
      
       

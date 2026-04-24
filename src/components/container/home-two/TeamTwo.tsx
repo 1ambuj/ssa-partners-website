@@ -14,11 +14,11 @@ const TeamTwo = () => {
             <div className="section-title text-center">
               <h6 className="sub-title">// Our Team</h6>
               <h2 className="title">Meet the Professionals</h2>
-              <p className="content mb-4">
+              {/* <p className="content mb-4">
               The firm's partners are qualified Chartered Accountants registered with the Institute of Chartered
               Accountants of India (ICAI), with professional experience in audit, taxation, advisory, and
               regulatory compliance services.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -26,6 +26,11 @@ const TeamTwo = () => {
           {members.map((member) => (
             <div key={member.slug} className="col-lg-4 col-md-6">
               <div className="single-team-inner text-center">
+                <Link
+                  href={`/team-details/${member.slug}`}
+                  className="team-card-overlay-link"
+                  aria-label={`View ${member.name} profile`}
+                />
                 <Image className="hover-img" src={twelve} alt="img" />
                 <div className="thumb">
                   {member.img ? (
@@ -48,11 +53,7 @@ const TeamTwo = () => {
                   )}
                 </div>
                 <div className="details">
-                  <h4>
-                    <Link href={`/team-details/${member.slug}`}>
-                      {member.name}
-                    </Link>
-                  </h4>
+                  <h4>{member.name}</h4>
                   <p>{member.role}</p>
                   <div className="social">
                     {member.linkedin ? (

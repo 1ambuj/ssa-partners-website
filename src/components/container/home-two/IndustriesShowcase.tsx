@@ -18,9 +18,9 @@ const IndustriesShowcase = () => {
             <div className="section-title text-center">
               <h6 className="sub-title">// INDUSTRIES</h6>
               <h2 className="title">Industries and sectors served by the firm</h2>
-              <p className="content">
+              {/* <p className="content">
                 Audit, tax, GST, and compliance support across a range of business and institutional sectors.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -40,21 +40,16 @@ const IndustriesShowcase = () => {
           }}
         >
           {industriesList.map((industry) => {
-            const Icon = industry.icon;
             return (
               <SwiperSlide key={industry.slug}>
-                <Link href={`/industries/${industry.slug}`} className="industry-showcase-card">
+                <div className="industry-showcase-item">
+                  <h4 className="industry-showcase-title">{industry.title}</h4>
+                  <Link href={`/industries/${industry.slug}`} className="industry-showcase-card">
                   <div className="industry-showcase-thumb">
                     <img src={industry.image} alt={industry.title} loading="lazy" />
                   </div>
-                  <div className="industry-showcase-body">
-                    <div className="industry-showcase-icon">
-                      <Icon />
-                    </div>
-                    <h4>{industry.title}</h4>
-                    <p>{industry.description}</p>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </SwiperSlide>
             );
           })}

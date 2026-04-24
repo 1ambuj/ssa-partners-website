@@ -29,6 +29,18 @@ export const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/casandeepsingla/",
   },
   {
+    name: "CA. S.K. Gupta",
+    slug: "sk-gupta",
+    role: "Partner – Taxation & Corporate Strategy",
+    img: "/images/team/2.png",
+    bio: "FCA with 40+ years of expertise in taxation, company law, risk management, and organizational strategy.",
+    detailBio: `CA. S.K. Gupta is a Fellow member of The Institute of Chartered Accountants of India (ICAI) with over 40 years of knowledge in the areas of accounting, taxation and company law matters.
+His areas of competence include business and income tax issues, organizational strategy, systems and processes, risk management drafting, and liaising with various government departments. He has also worked with tax officers at various levels on the filing of direct and indirect tax assessments, as well as income tax audits.
+S.K. Gupta has surely taken multiple shapes with his leadership skills, from joining forces to engaging in a project or sharing technical opinions and resources amongst companies. Whatever a company does, he finds the correct agreement that benefits both sides.`,
+    specialization: "Taxation, Corporate Strategy, Risk Management, Company Law",
+    linkedin: "https://www.linkedin.com/",
+  },
+  {
     name: "Shalini Gupta",
     slug: "shalini-gupta",
     role: "Partner – Audit, Taxation & Corporate Advisory",
@@ -49,18 +61,7 @@ export const teamMembers: TeamMember[] = [
 //     specialization: "Tax and Regulatory Direct Taxes, Tax Strategy, International Taxation, Domestic / International Taxation Advisory, Finance and Accounting Outsourcing Services",
 //     linkedin: "https://www.linkedin.com/",
 //   },
-  {
-    name: "CA. S.K. Gupta",
-    slug: "sk-gupta",
-    role: "Partner – Taxation & Corporate Strategy",
-    img: "/images/team/2.png",
-    bio: "FCA with 40+ years of expertise in taxation, company law, risk management, and organizational strategy.",
-    detailBio: `CA. S.K. Gupta is a Fellow member of The Institute of Chartered Accountants of India (ICAI) with over 40 years of knowledge in the areas of accounting, taxation and company law matters.
-His areas of competence include business and income tax issues, organizational strategy, systems and processes, risk management drafting, and liaising with various government departments. He has also worked with tax officers at various levels on the filing of direct and indirect tax assessments, as well as income tax audits.
-S.K. Gupta has surely taken multiple shapes with his leadership skills, from joining forces to engaging in a project or sharing technical opinions and resources amongst companies. Whatever a company does, he finds the correct agreement that benefits both sides.`,
-    specialization: "Taxation, Corporate Strategy, Risk Management, Company Law",
-    linkedin: "https://www.linkedin.com/",
-  },
+
   // {
   //   name: "CA. Monika Makkar",
   //   slug: "monika-makkar",

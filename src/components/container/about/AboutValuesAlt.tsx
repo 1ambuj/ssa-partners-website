@@ -1,41 +1,41 @@
 import React from "react";
 
-const values = [
+const modules = [
   {
-    icon: "fa-user-shield",
-    title: "Client interests first",
+    icon: "fa-search",
+    title: "Scan",
     description:
-      "Services are aligned with clients' regulatory objectives and operational requirements in each engagement.",
+      "We assess business, process, and regulatory context to define compliance and reporting priorities.",
   },
   {
-    icon: "fa-balance-scale",
-    title: "Integrity & transparency",
+    icon: "fa-microscope",
+    title: "Study",
     description:
-      "The firm upholds honesty, fairness, and openness in all professional interactions, in accordance with ICAI's Code of Ethics.",
+      "We analyze records, risks, and control gaps to establish a clear and evidence-based diagnostic view.",
   },
   {
-    icon: "fa-award",
-    title: "Commitment to quality",
+    icon: "fa-lightbulb",
+    title: "Strategize",
     description:
-      "Work is conducted in adherence to professional standards prescribed by ICAI and applicable regulatory frameworks.",
+      "We define practical tax, audit, and compliance strategies aligned with legal and operational requirements.",
   },
   {
-    icon: "fa-tasks",
-    title: "Accountability",
+    icon: "fa-sitemap",
+    title: "Structure",
     description:
-      "Each engagement is managed with defined responsibilities, documented deliverables, and structured review mechanisms.",
+      "We design workflows, responsibilities, and documentation standards for consistent execution and governance.",
   },
   {
-    icon: "fa-lock",
-    title: "Confidentiality",
+    icon: "fa-hands-helping",
+    title: "Support",
     description:
-      "Client information is handled with strict confidentiality, controlled access, and secure systems in compliance with ICAI requirements.",
+      "We assist teams through implementation, reviews, and regulatory interactions across the engagement lifecycle.",
   },
   {
-    icon: "fa-chart-line",
-    title: "Continuous improvement",
+    icon: "fa-sync-alt",
+    title: "Sustain",
     description:
-      "The firm monitors legislative and regulatory updates to ensure services remain current and compliant with evolving requirements.",
+      "We monitor outcomes, update controls, and keep the framework current with evolving statutory requirements.",
   },
 ];
 
@@ -50,29 +50,31 @@ const AboutValuesAlt = () => {
               data-aos="fade-up"
               data-aos-duration="900"
             >
-              <h6 className="sub-title">// PROFESSIONAL VALUES</h6>
-              <h2 className="title">Core Values in Every Engagement</h2>
+              <h6 className="sub-title">// OUR APPROACH</h6>
+              <h2 className="title">The 6S Engagement Model</h2>
             </div>
           </div>
         </div>
 
-        <div className="row g-4">
-          {values.map((item, idx) => (
-            <div
+        <div className="about-approach-circle-wrap">
+          <div className="about-approach-center">
+            <span>6S</span>
+            <small>Framework</small>
+          </div>
+          {modules.map((item, idx) => (
+            <article
               key={item.title}
-              className="col-lg-4 col-md-6"
+              className={`about-values-alt-card about-approach-card about-approach-card-${idx + 1}`}
               data-aos="fade-up"
               data-aos-duration="900"
               data-aos-delay={Math.min(idx * 90, 360)}
             >
-              <article className="about-values-alt-card h-100">
-                <div className="about-values-alt-icon" aria-hidden="true">
-                  <i className={`fas ${item.icon}`}></i>
-                </div>
-                <h4>{item.title}</h4>
-                <p>{item.description}</p>
-              </article>
-            </div>
+              <div className="about-values-alt-icon" aria-hidden="true">
+                <i className={`fas ${item.icon}`}></i>
+              </div>
+              <h4>{item.title}</h4>
+              <p>{item.description}</p>
+            </article>
           ))}
         </div>
       </div>
