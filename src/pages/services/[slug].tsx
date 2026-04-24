@@ -13,6 +13,7 @@ import {
 import BannerShape from "public/images/about/4.png";
 import BannerBg from "public/images/bg/14.png";
 import styles from "./service-detail.module.scss";
+import SsaBrochureMark from "@/components/ui/SsaBrochureMark";
 
 type Props = {
   service: Service;
@@ -26,15 +27,6 @@ const fadeUp: Variants = {
 function firstSentence(text: string) {
   const parts = text.split(".");
   return parts[0] ? `${parts[0]}.` : text;
-}
-
-function resolveImageUrl(image: unknown) {
-  if (typeof image === "string") return image;
-  if (image && typeof image === "object" && "src" in image) {
-    const src = (image as { src?: unknown }).src;
-    return typeof src === "string" ? src : "";
-  }
-  return "";
 }
 
 const ServiceDetailPage = ({ service }: Props) => {
@@ -54,7 +46,7 @@ const ServiceDetailPage = ({ service }: Props) => {
     message: `Hi Team,\nI would like to schedule a consultation for ${service.title}.`,
   });
 
-  const timelineItems = service.approach.map((line, idx) => ({
+  const approachSteps = service.approach.map((line, idx) => ({
     step: `Step ${String(idx + 1).padStart(2, "0")}`,
     title: firstSentence(line),
     description: line,
@@ -84,8 +76,17 @@ const ServiceDetailPage = ({ service }: Props) => {
   ];
 
   const introParagraphs = useMemo(() => service.details.slice(0, 3), [service.details]);
-  const bannerImageUrl = resolveImageUrl(service.mainImg);
-  const industriesImageUrl = resolveImageUrl(service.img2 || service.img1 || service.mainImg);
+  const overviewCards = useMemo(
+    () =>
+      service.benefits.slice(0, 3).map((benefit, idx) => ({
+        code: service.tools[idx] || `Point ${idx + 1}`,
+        title: firstSentence(benefit),
+        description: benefit,
+      })),
+    [service.benefits, service.tools]
+  );
+  const activeSub = service.subservices[activeSubservice] || service.subservices[0];
+  const standards = useMemo(() => service.tools.slice(0, 6), [service.tools]);
 
   const onFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -133,15 +134,22 @@ const ServiceDetailPage = ({ service }: Props) => {
     >
       <main className={styles.page}>
         <section className={styles.topBannerWrap}>
-          <div className={`banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center ${styles.topBanner}`}>
+          <div
+            className={`banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center ${styles.topBanner}`}
+          >
             <Image
               className="left_image_bounce position-bottom-left"
               src={BannerShape}
               alt="img"
             />
             <div className="container">
-              <motion.div initial="hidden" animate="show" variants={fadeUp} className={styles.heroContent}>
-                <div className={styles.breadcrumbs}>
+              <motion.div
+                initial="hidden"
+                animate="show"
+                variants={fadeUp}
+                className={styles.heroContent}
+              >
+                {/* <div className={styles.breadcrumbs}>
                   <Link href="/" className={styles.breadcrumbLink}>
                     Home
                   </Link>
@@ -151,152 +159,124 @@ const ServiceDetailPage = ({ service }: Props) => {
                   </Link>
                   <span>/</span>
                   <span className={styles.breadcrumbCurrent}>{service.title}</span>
+                </div> */}
+                <div>
+                  <SsaBrochureMark size="sm" />
+                   <h4 className={styles.bannerKicker}>Service Detail</h4>
                 </div>
-                <h4 className={styles.bannerKicker}>Service Detail</h4>
                 <h3 className={styles.bannerTitle}>{service.title}</h3>
                 <p className={styles.bannerDesc}>{service.description}</p>
-                <div className={styles.heroActions}>
-                  <button
-                    className={`btn btn-base border-radius ${styles.scheduleBtn}`}
-                    onClick={() => setOpenModal(true)}
-                  >
-                    {scheduleLabel}
-                  </button>
-                  <Link href="/contact" className={`btn btn-base border-radius ${styles.contactBtn}`}>
-                    Contact Page
-                  </Link>
-                </div>
-                <div className="scroll-down top_image_bounce mt-3">
-                  <a href="#service-detail-content" aria-label="Scroll down to content">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      width="40"
-                      height="80"
-                      viewBox="0 0 40 80"
-                    >
-                      <image
-                        id="scroll"
-                        width="40"
-                        height="80"
-                        xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAABQCAYAAABrjzfBAAADwElEQVRoge2bP1LbQBTGP5xQsCoiThD7BIgTxL5BOEGcE0CqlIaSytClg5wA0qUzOQHmBEY3EIW2JfM833oW2bIl78rSJPpmdjwGefent3/13tOeOjjAluoDiAB84mfIIkoAPLM8AXhgWVKq9drWywIKwCmAMwBTq/EpoRLrui5LnzcR8toLgs/lC1AqHwEYArgGcGs3UlACe07YBegmwE6BusViMwAvAHpspCwc+Bu5wQGAGMCE39dqkwXHAD4DOGE3+lSXkPep1t/y6s2zYMgfHwI4rgAOtKjU3Q2UegyUClddlAc4YTcMrYFfhZJU6xNOtruigGNrvOxEqdbSVhwoNc629z7zfcgxd7wrOEuydElXx6nWV+bP9iQxg3aw5SzdSvYyEygVkaGXaj0fWnYXyzr3c5dwWaVaT7nOjsy/jAVrsR5W7CSczTNjRWPBEVf32qxnxK695phcWHBWh/WQsxcHSkmPPqZaH3a4mSdNsJ5RqrWwTAOl+gbwTzPQ3kgW70gAj/LOajVLmOYW7Dapey3JknPUZECZF6HM4leZzXVRrDuwBkq9Fjmw1qoW0FUtoKv+O8CZ5/raLnZWC+iqFtBVLaCrWkBXtYCuagFd9c8BRg5tmeBOKZUFfAQgz9E3JRqL6CCfbXOgLQu4R//1Hhsbbbj+lDcVM9ZS2kGQdaIX0ZTOdok4TXj9xYrfmdBZz8W14jJJpNGBFRmwNbTCXk5+H9dZbCDHVigWtJ4Xj62PZeaZ0YEzfh/6jBb48m6FnKlmZhe23q68W3Yg+8mnv9HnTvKLgPce6/QKaPzcXkO3PgGfM59etM1CnaekCldye9xyVQvoqhbQVR0TcmoaGCPviQH80ACmrOYxxA63pjrSUDZJAOMOg9n9BgIK09RY8KgBQFnN0/g6PIXIo+HHppAxqSJMtX4wy4ykgXytmcuWSZNZpKUskmkqznZb0orEnkWSkWR/GAsmmQefOvVFrMfUlDfJZaGV4FNFQuNGC2ath8xWl9BDcFfHzsKdQ+AuDBxyclivuLPsZNIYCwZKiWEkd/DNMMtLsp3wGaNySAEMlBJvWZRqvbSj5Z1mTiy3WZXdHRKuy7G/pDzAhPtzTPdZacdjAUWs+yXVemAyLrN6t7+/v66q30zwvqElYw/rpNTzHcAPAJep1ufrLi5yYL2l+Xscm2W8q7a63CFmzM/ucUKuVdHnYpO23LUcl2JJ2Y7kNGTefLB9NFLstyWkyJZaardyfV1DipyEzJsP9usaUmTBlxuQz/KvawD4CybGJEiPys7UAAAAAElFTkSuQmCC"
-                      />
-                    </svg>
-                  </a>
-                </div>
               </motion.div>
             </div>
           </div>
           <div className={styles.topBannerImage}>
             <Image src={BannerBg} alt="img" />
-            <div
-              className={styles.bannerServiceImage}
-              style={{ backgroundImage: `url(${bannerImageUrl})` }}
-            />
           </div>
         </section>
 
+        
+
         <section className={styles.section} id="service-detail-content">
           <div className="container">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
-              <div className="section-title mb-0">
-                <h6 className="sub-title">OVERVIEW</h6>
-                <h2 className={styles.sectionTitle}>Introduction</h2>
+            <div className={styles.twoCol}>
+              <div>
+                <div className="section-title mb-0">
+                  <h6 className="sub-title">OVERVIEW</h6>
+                  <h2 className={styles.sectionTitle}>What This Service Covers</h2>
+                </div>
+                <div className={styles.introText}>
+                  {introParagraphs.map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
               </div>
-              <div className={styles.introText}>
-                {introParagraphs.map((line, idx) => (
-                  <p key={idx}>{line}</p>
+              <div className={styles.overviewCards}>
+                {overviewCards.map((item, idx) => (
+                  <article key={`${item.code}-${idx}`} className={styles.overviewCard}>
+                    <p className={styles.overviewCode}>{item.code}</p>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </article>
                 ))}
               </div>
-            </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <section className={`${styles.section} ${styles.altSection}`} id="service-offerings">
+          <div className="container">
+            <div className="section-title mb-0">
+              <h6 className="sub-title">OUR OFFERINGS</h6>
+              <h2 className={styles.sectionTitle}>Service Modules</h2>
+            </div>
+            <div className={styles.offeringsWrap}>
+              <div className={styles.tabsBar}>
+                {service.subservices.map((sub, idx) => (
+                  <button
+                    key={sub.slug}
+                    type="button"
+                    className={activeSubservice === idx ? styles.tabActive : ""}
+                    onClick={() => setActiveSubservice(idx)}
+                  >
+                    {sub.title}
+                  </button>
+                ))}
+              </div>
+              <div className={styles.offeringPanel}>
+                <div>
+                  <h3>{activeSub.title}</h3>
+                  <p className={styles.panelSummary}>{activeSub.summary}</p>
+                  <ul className={styles.panelList}>
+                    {activeSub.items.map((item, idx) => (
+                      <li key={`${item}-${idx}`}>{item}</li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={`/service-detail/${service.slug}/${activeSub.slug}`}
+                    className={styles.subserviceLink}
+                  >
+                    Read detailed page
+                  </Link>
+                </div>
+                <div>
+                  <div className={styles.standardsBox}>
+                    <h4>Applicable Frameworks</h4>
+                    <ul>
+                      {standards.map((tool, idx) => (
+                        <li key={`${tool}-${idx}`}>{tool}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.deliverablesBox}>
+                    <h4>Key Deliverables</h4>
+                    <ul>
+                      {activeSub.items.slice(0, 5).map((item, idx) => (
+                        <li key={`${item}-${idx}`}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section className={styles.section}>
           <div className="container">
-            <div className="row g-5">
-              <div className="col-lg-8">
-                <div className="section-title mb-0">
-                  <h6 className="sub-title">PROCESS</h6>
-                  <h2 className={styles.sectionTitle}>Our Approach</h2>
-                </div>
-                <div className={styles.processCard}>
-                  <ol className={styles.timeline}>
-                    {timelineItems.map((item, idx) => (
-                      <li key={`${item.step}-${idx}`} className={styles.timelineItem}>
-                        <span className={styles.timelineDot} />
-                        <p className={styles.timelineStep}>{item.step}</p>
-                        <h3>{item.title}</h3>
-                        <p>{item.description}</p>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="section-title mb-0">
-                  <h6 className="sub-title">SECTORS</h6>
-                  <h2 className={styles.sectionTitle}>Industries We Serve</h2>
-                </div>
-                <div
-                  className={styles.industriesVisual}
-                  style={{ backgroundImage: `url(${industriesImageUrl})` }}
-                />
-                <div className={styles.chipsWrap}>
-                  {service.industries.map((industry, idx) => (
-                    <span key={idx} className={styles.chip}>
-                      {industry}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className={`${styles.section} ${styles.altSection}`}>
-          <div className="container">
             <div className="section-title mb-0">
-              <h6 className="sub-title">OFFERINGS</h6>
-              <h2 className={styles.sectionTitle}>Subservices</h2>
+              <h6 className="sub-title">SECTORS</h6>
+              <h2 className={styles.sectionTitle}>Industries We Serve</h2>
             </div>
-            <div className={styles.subserviceList}>
-              {service.subservices.map((sub, idx) => {
-                const isOpen = activeSubservice === idx;
-                return (
-                  <div key={sub.slug} className={styles.subserviceItem}>
-                    <button
-                      className={styles.subserviceHeader}
-                      type="button"
-                      onClick={() => setActiveSubservice(isOpen ? -1 : idx)}
-                      aria-expanded={isOpen}
-                    >
-                      <span className={styles.subserviceTitleWrap}>
-                        <span className={styles.subserviceTitle}>{sub.title}</span>
-                      </span>
-                      <span className={`${styles.subserviceToggle} ${isOpen ? styles.open : ""}`}>
-                        <i className="fa fa-angle-down" aria-hidden="true" />
-                      </span>
-                    </button>
-                    {isOpen && (
-                      <div className={styles.subserviceBody}>
-                        <p className={styles.cardSummary}>{sub.summary}</p>
-                        <ul className={styles.cardList}>
-                          {sub.items.slice(0, 3).map((item, itemIdx) => (
-                            <li key={itemIdx}>{item}</li>
-                          ))}
-                        </ul>
-                        <Link
-                          href={`/service-detail/${service.slug}/${sub.slug}`}
-                          className={styles.subserviceLink}
-                        >
-                          Read More
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            <div className={styles.sectorsGrid}>
+              {service.industries.map((industry, idx) => (
+                <article key={`${industry}-${idx}`} className={styles.sectorCard}>
+                  <h3>{industry}</h3>
+                  <p>
+                    Service execution adapted to the operating and compliance context of{" "}
+                    {industry.toLowerCase()} businesses.
+                  </p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

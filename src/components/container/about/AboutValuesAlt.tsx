@@ -56,26 +56,27 @@ const AboutValuesAlt = () => {
           </div>
         </div>
 
-        <div className="about-approach-circle-wrap">
-          <div className="about-approach-center">
-            <span>6S</span>
-            <small>Framework</small>
-          </div>
-          {modules.map((item, idx) => (
-            <article
-              key={item.title}
-              className={`about-values-alt-card about-approach-card about-approach-card-${idx + 1}`}
-              data-aos="fade-up"
-              data-aos-duration="900"
-              data-aos-delay={Math.min(idx * 90, 360)}
-            >
-              <div className="about-values-alt-icon" aria-hidden="true">
-                <i className={`fas ${item.icon}`}></i>
-              </div>
-              <h4>{item.title}</h4>
-              <p>{item.description}</p>
-            </article>
-          ))}
+        <div className="about-approach-premium-shell">
+          <ol className="about-approach-structured-list">
+            {modules.map((item, idx) => (
+              <li
+                key={item.title}
+                className="about-approach-structured-item"
+                data-aos="fade-up"
+                data-aos-duration="900"
+                data-aos-delay={Math.min(idx * 90, 360)}
+              >
+                <div className="about-approach-step-count">{String(idx + 1).padStart(2, "0")}</div>
+                <div className="about-approach-premium-card">
+                  <div className="about-values-alt-icon" aria-hidden="true">
+                    <i className={`fas ${item.icon}`}></i>
+                  </div>
+                  <h4>{item.title}</h4>
+                  <p>{item.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
