@@ -17,7 +17,7 @@ import icon5 from "public/images/service-icon/5.png";
 export type Subservice = {
   slug: string;
   title: string;
-  summary: string;
+  summary: string | string[];
   scope?: string;
   items: string[];
   // extra SEO fields for sub-service page
@@ -48,6 +48,10 @@ export type Service = {
     subtitle: string;
     buttonText: string;
   };
+  faqs?: {
+    q: string;
+    a: string;
+  }[];
   // optional SEO fields for main service page
   metaTitle?: string;
   metaDescription?: string;

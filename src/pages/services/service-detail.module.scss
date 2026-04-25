@@ -459,10 +459,18 @@
 }
 
 .panelSummary {
-  color: #64656d;
-  line-height: 1.78;
   margin-bottom: 18px;
   max-width: 92%;
+
+  p {
+    margin: 0;
+    color: #64656d;
+    line-height: 1.78;
+
+    + p {
+      margin-top: 10px;
+    }
+  }
 }
 
 .panelList {

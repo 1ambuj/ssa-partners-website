@@ -8,7 +8,7 @@ import ServiceClients from "./ServiceClients";
 interface Subservice {
   slug: string;
   title: string;
-  summary: string;
+  summary: string | string[];
   items: string[];
 }
 
@@ -83,7 +83,11 @@ const ServiceDetailsArea = ({ service }: ServiceDetailsAreaProps) => {
                     }`}
                   >
                     <div className="accordion-body">
-                      <p className="mb-2">{sub.summary}</p>
+                      {(Array.isArray(sub.summary) ? sub.summary : [sub.summary]).map((line, summaryIndex) => (
+                        <p className="mb-2" key={summaryIndex}>
+                          {line}
+                        </p>
+                      ))}
                       <ul className="mb-2" style={{ paddingLeft: "18px" }}>
                         {sub.items.map((item, j) => (
                           <li key={j}>{item}</li>

@@ -52,6 +52,10 @@ function moduleTabLabel(slug: string) {
     .join(" ");
 }
 
+function summaryParagraphs(summary: string | string[]) {
+  return Array.isArray(summary) ? summary : [summary];
+}
+
 const ServiceDetailPage = ({ service }: Props) => {
   const isTaxation = service.slug === "taxation";
   const useAccordionModules = service.slug === "taxation" || service.slug === "gst";
@@ -128,7 +132,11 @@ const ServiceDetailPage = ({ service }: Props) => {
       <div>
         <p className={styles.panelEyebrow}>Module Overview</p>
         <h3>{sub.title}</h3>
-        <p className={styles.panelSummary}>{sub.summary}</p>
+        <div className={styles.panelSummary}>
+          {summaryParagraphs(sub.summary).map((line, idx) => (
+            <p key={idx}>{line}</p>
+          ))}
+        </div>
         <ul className={styles.panelList}>
           {sub.items.map((item, idx) => (
             <li key={`${item}-${idx}`}>{item}</li>

@@ -13,7 +13,7 @@ interface SubserviceDetailPageProps {
   subservice: {
     slug: string;
     title: string;
-    summary: string;
+    summary: string | string[];
     items: string[];
   };
 }
@@ -42,7 +42,11 @@ const SubserviceDetailPage = ({
               <span>{subservice.title}</span>
             </nav>
             <h1 className="subservice-detail-title">{subservice.title}</h1>
-            <p className="subservice-detail-summary">{subservice.summary}</p>
+            {(Array.isArray(subservice.summary) ? subservice.summary : [subservice.summary]).map((line, idx) => (
+              <p className="subservice-detail-summary" key={idx}>
+                {line}
+              </p>
+            ))}
           </div>
         </div>
 
