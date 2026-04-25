@@ -18,6 +18,7 @@ export type Subservice = {
   slug: string;
   title: string;
   summary: string;
+  scope?: string;
   items: string[];
   // extra SEO fields for sub-service page
   metaTitle?: string;
@@ -82,9 +83,9 @@ const servicesList: Service[] = [
     ],
 
     details: [
-      "Our Audit & Assurance practice provides an independent and objective opinion on your financial statements and internal controls, in line with Indian corporate laws and ICAI Standards on Auditing.",
-      "We go beyond checklist‑based audits to focus on risk, controls, and business processes, helping management and stakeholders gain confidence in reported numbers and governance frameworks.",
-      "Engagements are executed with strict independence, integrity, and confidentiality, supported by structured documentation and review mechanisms.",
+      "Our Audit & Assurance practice provides an independent and objective opinion on financial statements and internal controls, in line with Indian corporate laws and ICAI Standards on Auditing. We go beyond checklist-based audits to focus on risk, controls, and business processes.",
+      "Every engagement is executed with strict independence, integrity, and confidentiality — underpinned by a structured engagement quality control review process as required by SA 220 and SQC 1.",
+      "We serve companies, LLPs, trusts, NGOs, startups, and regulated entities across multiple sectors, bringing sector-specific knowledge and professional scepticism to every engagement.",
     ],
 
     approach: [
@@ -122,13 +123,21 @@ const servicesList: Service[] = [
       {
         slug: "statutory-audit",
         title: "Statutory Audit",
-        summary:
-          "Company, LLP, and entity‑level audits conducted under the Companies Act, LLP Act, and other applicable statutes.",
+        summary: [
+          "The statutory audit is a legally required independent examination of a company's financial statements under the Companies Act 2013. It applies to all registered companies regardless of size. Our audit goes beyond compliance — it provides management with genuine insight into financial risks, control gaps, and governance quality.",
+          "The audit opinion is issued under SA 700 (Revised) and includes an Internal Financial Controls (IFC) opinion under Section 143(3)(i), CARO 2020 reporting, Key Audit Matters under SA 701 (listed entities), and audit trail compliance reporting under MCA Rule 11(g)."
+        ],
         items: [
-          "Statutory audit of companies, LLPs, and other entities",
-          "Review of financial reporting frameworks and disclosures",
-          "Evaluation of compliance with corporate and sectoral laws",
-          "Issue of audit reports for regulatory and stakeholder use",
+          "Risk identification and assessment per SA 315 — entity, environment, and assertion level",
+          "Materiality determination — planning and performance materiality per SA 320",
+          "Test of controls and substantive procedures per SA 330",
+          "Fraud risk assessment and reporting per SA 240",
+          "Going concern evaluation per SA 570 (Revised)",
+          "Key Audit Matters communication per SA 701 (listed companies)",
+      "CARO 2020 — full 21-clause reporting for applicable companies",
+      "IFC audit opinion under Section 143(3)(i) for all companies",
+      "Audit trail (edit log) reporting per MCA Rule 11(g) — ICAI IG 2024",
+      "Management letter with internal control observations",
         ],
         metaTitle:
           "Statutory Audit Services under Companies Act & LLP Act – Sandeep Singla & Associates",
@@ -145,13 +154,22 @@ const servicesList: Service[] = [
       {
         slug: "tax-audit",
         title: "Tax Audit",
-        summary:
-          "Tax Audits under the Income Tax Act, 1961 including reporting under Section 44AB and related rules.",
+        summary: [
+          "Tax Audit under Section 44AB of the Income Tax Act, 1961 is mandatory for businesses and professionals whose turnover or gross receipts cross the prescribed thresholds. The audit is reported through Form 3CA/3CB (opinion) and Form 3CD — a 44-clause detailed factual report covering every aspect of the taxpayer's accounts.",
+         "ICAI's Guidance Note on Tax Audit u/s 44AB (Revised 2023) governs how this audit is conducted and reported. From FY 2026-27, the tax audit limit is capped at 60 per member per year per revised ICAI norms effective April 2026.",
+          
+        ],
         items: [
-          "Tax audit under Section 44AB for eligible assessees",
-          "Verification of books, depreciation, and disallowances",
-          "Review of TDS, advance tax, and tax reconciliations",
-          "Preparation and e‑filing of tax audit reports",
+          "Applicability assessment — Sec 44AB, 44ADA, 44AE thresholds",
+          "Verification of books of accounts, turnover, and receipts",
+          "Depreciation verification — WDV, additional depreciation, block-wise schedule",
+          "Disallowances review — Sec 40A(3), 40(a)(ia), 43B, 269SS/T",
+          "GST turnover reconciliation with books of accounts",
+          "TDS compliance check — Sec 194C, 194I, 194J, 194Q, etc.",
+          "Advance tax and self-assessment tax reconciliation",
+          "Related party transactions and transfer pricing observation",
+          "Form 3CD — all 44 clauses (comprehensive factual reporting)",
+          "Form 3CEB — Transfer Pricing Report u/s 92E where applicable",
         ],
         metaTitle:
           "Tax Audit under Section 44AB | Income Tax Act 1961 – Sandeep Singla & Associates",
@@ -167,13 +185,21 @@ const servicesList: Service[] = [
       {
         slug: "internal-audit",
         title: "Internal Audit",
-        summary:
-          "Risk‑focused internal audits to assess and improve internal controls, processes, and operational efficiency.",
+        summary:[
+          "Internal Audit is a systematic, independent, and documented process providing assurance on risk management, internal controls, and governance. Under Section 138 of the Companies Act 2013, specified classes of companies must appoint an internal auditor.",
+          "ICAI's Internal Audit Standards Board (IASB — renamed March 2025) governs internal audit through the SIA series: SIA 100 (Concepts), SIA 200 (Execution), and SIA 300 (Reporting). These principle-based standards are mandatory for CA firms conducting internal audits.",
+        ],
         items: [
-          "Assessment of internal controls and risk management",
-          "Review of financial, operational, and compliance processes",
-          "Fraud risk assessment and control gap analysis",
-          "Actionable recommendations for process improvement",
+          "Risk-based internal audit plan aligned with entity risk register",
+          "Process-level controls assessment — design and operating effectiveness",
+          "Procurement, AP and AR process audits",
+          "Payroll, HR, and expense process reviews",
+          "IT general controls and application controls review",
+          "Revenue assurance and billing cycle audits",
+          "Compliance audits — GST, TDS, labour laws, FEMA",
+          "Fraud risk assessments and red flag identification",
+          "Internal Audit Report per SIA 300 series",
+          "Audit Committee presentations — quarterly or half-yearly",
         ],
         metaTitle:
           "Internal Audit Services | Process & Control Review – Sandeep Singla & Associates",
@@ -187,15 +213,21 @@ const servicesList: Service[] = [
         ],
       },
       {
-        slug: "special-purpose-audit",
-        title: "Special Purpose Audits",
-        summary:
-          "Bespoke audits including management, operational, stock, and fixed asset verification.",
+        slug: "special-purpose",
+        title: "Special Purpose Audits & Certifications",
+        summary:[
+          "Special purpose audit engagements are commissioned for a specific user or purpose — lender certifications, regulatory submissions, grant utilisation, IPO-related work, and project audits. ICAI issued Revised SA 800, SA 805, and SA 810 effective from FY 2024-25 onwards.",
+          "These audits require the auditor to clearly understand the special purpose framework, the intended users, and the restrictions on distribution of the report as required under the revised standards.",
+        ],
         items: [
-          "Management and operational audits",
-          "Stock and inventory audits",
-          "Fixed asset verification and tagging",
-          "Special attestation and agreed‑upon procedures",
+          "Net worth certificates for banks and financial institutions",
+          "Stock audit / inventory verification for bank borrowers",
+          "Utilisation certificates for grants, CSR funds, and government schemes",
+          "Turnover and profitability certificates for tenders",
+          "Forensic audit support and fraud investigation reports",
+          "Financial and tax due diligence reports",
+          "Limited review of quarterly financial results (listed entities)",
+          "Branch audits and component audits under SA 600",
         ],
         metaTitle:
           "Special Purpose Audits | Management, Stock & Fixed Asset Audit",
@@ -209,15 +241,23 @@ const servicesList: Service[] = [
         ],
       },
       {
-        slug: "ngo-society-audit",
+        slug: "NGO/Trust",
         title: "Societies, Trusts & NGO Audit",
-        summary:
-          "Audit and certification for societies, trusts, NGOs, and not‑for‑profit entities.",
+        summary:[
+          "Charitable institutions, societies, and trusts are subject to a distinct audit framework combining the Income Tax Act 1961 (Sec 12A, 12AB, 10(23C)), the Societies Registration Act, and FCRA 2010 for foreign contributions. ICAI's Technical Guide on Audit of Charitable Institutions (2022) covers these requirements comprehensively.",
+          "The new re-registration regime under Sec 12AB and revised Form 10B/10BB formats (applicable from AY 2024-25) have added significant compliance obligations for trusts and institutions.",
+        ],
         items: [
-          "Audit of NGOs, societies, and charitable trusts",
-          "Verification of grants, donations, and utilisation",
-          "Compliance with governing laws and reporting formats",
-          "Certification for regulatory and donor requirements",
+          "Audit of charitable and religious trusts registered u/s 12A/12AB",
+          "Form 10B / Form 10BB certification (AY 2024-25 revised formats)",
+          "Application of income verification — 85% application rule",
+          "Accumulation of income — Form 10 filing u/s 11(2)",
+          "Corpus donations receipt and utilisation verification",
+          "FCRA audit — foreign contribution receipt and utilisation",
+          "80G / 35AC trust audit and certification",
+          "CSR fund utilisation audit — Sec 135, Companies Act 2013",
+          "Educational institution audit u/s 10(23C)",
+          "Annual statement of accounts for registered societies",
         ],
         metaTitle:
           "NGO, Trust & Society Audit Services – Sandeep Singla & Associates",
@@ -226,15 +266,23 @@ const servicesList: Service[] = [
         keywords: ["ngo audit", "trust audit", "society audit", "charity audit"],
       },
       {
-        slug: "regulatory-certifications",
+        slug: "Reg. certifications",
         title: "Regulatory Certifications & Compliance",
-        summary:
-          "Regulatory certifications under FEMA, RBI, GST, export regulations, and other statutory frameworks.",
+        summary:[
+          "Regulatory bodies in India — SEBI, RBI, MCA, IRDAI, and state governments — require periodic certifications and compliance reports from independent Chartered Accountants. These engagements demand precise knowledge of the applicable regulatory framework and structured reporting that withstands regulatory scrutiny.",
+          "Our team is experienced in XBRL financial filings, NBFC compliance certificates, bank regulatory returns, and capital adequacy certifications.",
+        ],
         items: [
-          "Certificates for foreign remittances and exports",
-          "Certifications under FEMA and RBI regulations",
-          "GST and indirect tax related certifications",
-          "Other statutory and banking certifications",
+          "XBRL financial statement certification (ICAI GN on XBRL Certification)",   
+          "SEBI LODR compliance certificate for listed companies",
+          "RBI regulatory returns certification for NBFCs and banks",
+          "Capital adequacy and net-owned funds certificates (NBFC)",
+          "IRDAI compliance and solvency margin certificates",
+          "MCA annual return certifications — Form MGT-8 for large companies",
+          "State government grant and scheme fund certifications",
+          "GST annual reconciliation — GSTR-9C certified by CA",
+          "FEMA / RBI certification for foreign investment compliance",
+          "Secretarial audit support and compliance review",
         ],
         metaTitle:
           "Regulatory Certifications under FEMA, RBI, GST & Export Laws",
@@ -246,6 +294,33 @@ const servicesList: Service[] = [
           "export remittance certification",
           "CA certification",
         ],
+      },
+    ],
+
+    faqs: [
+      {
+        q: "Who is mandatorily required to get a statutory audit done?",
+        a: "All companies registered under the Companies Act 2013 — private limited, public limited, OPC — must get their accounts audited by a Chartered Accountant, regardless of turnover or size. LLPs are required under Section 34(2) of the LLP Act 2008 if their turnover exceeds ₹40 lakh or capital contribution exceeds ₹25 lakh. The audit must be conducted under ICAI's Standards on Auditing.\n\nLaw: Sec 139-148, Companies Act 2013 · Standard: SA 200, SA 700 (Revised)",
+      },
+      {
+        q: "What is the audit trail requirement under MCA Rule 11(g)?",
+        a: "From FY 2023-24 onwards, every company using accounting software must ensure the software features an audit trail (edit log) that records every transaction and any change, with date and time stamp. The auditor must specifically report on whether the audit trail was enabled throughout the year, whether it was tampered with, and whether records were preserved. ICAI issued an Implementation Guide on Audit Trail (Revised 2024 Edition) under Rule 11(g).\n\nLaw: MCA Rule 11(g), Companies (Audit & Auditors) Rules 2014 · ICAI: Implementation Guide on Audit Trail (2024)",
+      },
+      {
+        q: "What is the difference between an IFC audit and a statutory audit?",
+        a: "A statutory audit provides an opinion on whether financial statements present a true and fair view. An IFC audit, required under Section 143(3)(i) of the Companies Act 2013, provides a separate opinion on whether the company has adequate Internal Financial Controls in place and whether they were operating effectively. Both opinions are typically issued as part of the consolidated auditor's report.\n\nLaw: Sec 143(3)(i), Companies Act 2013 · ICAI: GN on Audit of IFC over Financial Reporting",
+      },
+      {
+        q: "When is a tax audit mandatory and what changed in 2026?",
+        a: "Tax Audit u/s 44AB is mandatory when business turnover exceeds ₹1 crore (₹10 crore if 95%+ transactions are digital) or professional receipts exceed ₹50 lakh. It is also mandatory when income is declared lower than the presumptive income under Sec 44AD/44ADA/44AE. Effective from 1 April 2026, ICAI confirmed the audit limit stays at 60 per member per year. The limit cannot be distributed among partners, and revised tax audit reports are excluded from the count.\n\nLaw: Sec 44AB, ITA 1961 · ICAI: GN on Tax Audit u/s 44AB (Revised 2023) · ICAI Circular, July 2025",
+      },
+      {
+        q: "What changed in NGO/trust audit for AY 2024-25?",
+        a: "Significant changes apply from AY 2024-25: Form 10B (for trusts with income above ₹5 crore, or foreign contribution, or corpus application) was substantially revised with detailed disclosure requirements. Form 10BB applies to other educational and medical institutions. The audit report must now be filed separately before the return of income. ICAI issued a Guidance Note on Reports of Audit u/s 12A/10(23C) (July 2024) covering the revised requirements. Trusts must also have completed re-registration under the Sec 12AB regime.\n\nLaw: Sec 12A/12AB/10(23C), ITA 1961 · ICAI: GN on Reports of Audit u/s 12A/10(23C) (July 2024)",
+      },
+      {
+        q: "How do the revised SA 800, 805, and 810 affect our engagement?",
+        a: "ICAI issued revised SA 800, 805, and 810 effective from FY 2024-25 (1 April 2024 onwards). SA 800 (Revised) covers audits under special purpose frameworks, requiring the auditor to clearly evaluate the appropriateness of the framework and restrict distribution of the report to intended users. SA 805 (Revised) addresses single financial statements. SA 810 (Revised) governs reporting on summary financial statements, emphasising that summary statements must adequately convey the information in the full audited statements.\n\nICAI: SA 800, SA 805, SA 810 (All Revised) — applicable from FY 2024-25 (Notified 7 Feb 2024)",
       },
     ],
 
@@ -460,7 +535,7 @@ const servicesList: Service[] = [
 
   {
     slug: "taxation",
-    title: "Direct Taxation & Income Tax",
+    title: "Direct Taxation ",
     href: "/services/taxation",
     icon: icon3 as unknown as string,
     img1: seven as unknown as string,
@@ -468,11 +543,10 @@ const servicesList: Service[] = [
     mainImg: seven as unknown as string,
     animImg1: two as unknown as string,
     animImg2: three as unknown as string,
-    description:
-      "Comprehensive direct tax advisory, compliance, and representation for individuals, corporates, NGOs, and trusts.",
+    description:"End-to-end direct tax advisory, compliance, and representation for corporates, LLPs, professionals, NGOs, and individuals — executed with structured documentation, correct legal interpretation, and strong representation suppor    description:t.",
 
     metaTitle:
-      "Direct Taxation & Income Tax Services | Planning, Filing & Representation",
+      "Direct Taxation | Planning, Filing & Representation",
     metaDescription:
       "Direct taxation services under the Income Tax Act, 1961 – covering tax planning, ITR filing, assessments, litigation support, registrations, and due diligence.",
     keywords: [
@@ -484,9 +558,9 @@ const servicesList: Service[] = [
     ],
 
     details: [
-      "We provide end‑to‑end direct tax services under the Income Tax Act, 1961 for companies, LLPs, professionals, NGOs, and individuals.",
-      "Our team combines structured documentation, correct legal interpretation, and strong representation support to minimise tax risk while remaining fully compliant.",
-      "Engagements are executed with reference to CBDT notifications, judicial precedents, and evolving legislative changes.",
+      "We provide end-to-end direct tax services under the Income Tax Act, 1961 — and now under the new Income Tax Act 2025 (effective AY 2026-27) — for companies, LLPs, professionals, NGOs, and individuals.",
+      "Our team combines structured documentation, correct legal interpretation, and strong representation support to minimise tax risk while remaining fully compliant. Engagements are executed with reference to CBDT notifications, judicial precedents, and evolving legislative changes.",
+      "We believe tax advisory must be proactive, not reactive. Every engagement is anchored to your business model, income profile, and long-term financial objectives — not a generic compliance checklist",
     ],
 
     approach: [
@@ -519,108 +593,116 @@ const servicesList: Service[] = [
 
     subservices: [
       {
-        slug: "tax-planning-compliance",
-        title: "Tax Planning & Compliance",
+        slug: "tax-planning-advisory",
+        title: "Tax Planning & Advisory",
         summary:
-          "Holistic income tax and corporate tax planning aligned with your operations and objectives.",
+          "Holistic income tax and corporate tax planning aligned with business objectives",
+        scope:
+          "Strategic tax planning covering corporate tax, capital gains, deductions, and entity structuring within legal framework.",
         items: [
-          "Design of tax‑efficient structures and remuneration",
-          "Advisory on capital gains, deductions, MAT/AMT",
-          "Tax planning for NGOs, trusts, and special entities",
-          "Ongoing advisory on complex or one‑time transactions",
-        ],
-        metaTitle:
-          "Income Tax Planning & Compliance – Individuals, Corporates, NGOs",
-        metaDescription:
-          "Strategic direct tax planning and advisory for corporates, individuals, NGOs, and trusts, aligned with the Income Tax Act.",
-        keywords: [
-          "income tax planning",
-          "corporate tax planning",
-          "capital gains planning",
+          "Corporate tax planning — domestic and cross-border",
+          "MAT/AMT computation and planning",
+          "Capital gains planning — short and long term",
+          "Deductions advisory — Sec 80C, 80D, 80G",
+          "Entity structuring — company, LLP, trust",
+          "New vs old tax regime optimisation",
+          "NGO and trust tax compliance",
+          "Year-end tax review before filing",
         ],
       },
       {
         slug: "return-filing",
         title: "Return Preparation & Filing",
         summary:
-          "Accurate, timely preparation and electronic filing of income tax returns for all categories of assessees.",
+          "Comprehensive ITR preparation and filing with AIS/TIS reconciliation",
+        scope:
+          "Comprehensive return preparation across all ITR forms with pre-filing AIS/TIS reconciliation to avoid mismatches. Every return is supported by documented workings for income, deductions, TDS credit, and advance tax",
         items: [
-          "Preparation and e‑filing of ITRs for all assessee types",
-          "Advance tax computation and payment support",
-          "Reconciliation with Form 26AS, AIS, and TDS statements",
-          "Review of disclosures and schedules for accuracy",
-        ],
-        metaTitle:
-          "Income Tax Return Filing Services | ITR for Individuals & Corporates",
-        metaDescription:
-          "End‑to‑end ITR preparation and filing services, including advance tax, reconciliations, and accurate disclosures.",
-        keywords: [
-          "income tax filing service",
-          "ITR filing CA",
-          "advance tax computation",
+         " ITR-1/2/3/4/5/6/7 — all forms for all taxpayer categories",
+        "AIS/TIS reconciliation before filing — transaction matching",
+        "Form 26AS verification — TDS credit and advance tax",
+        "Corporate return — Ind AS/AS to tax reconciliation",
+        "LP return — partner remuneration and interest verification",
+        "Trust return — ITR-7, Form 10B/10BB, application of income",
+        "Non-resident return — ITR-2/3, DTAA positions, FEMA compliance",
+        "Revised return and updated return u/s 139(8A)",
+        "Advane tax computation and self-assessment tax reconciliation",
+        "Form 10-IC / 10-ID — new tax regime option filings",
+        ],  },
+      {
+        slug: "tax-audit",
+        title: "Tax Audit — Setion 44AB",
+        summary:
+          "Independent audit of books of accounts under Income Tax Act",
+        scope:
+          "Tax Audit u/s 44AB is mandatory for businesses whose turnover exceeds ₹1 crore (₹10 crore for 95%+ digital transactions) and professionals above ₹50 lakh gross receipts. The audit is governed by ICAI's Guidance Note on Tax Audit u/s 44AB (Revised 2023). Effective 1 April 2026, the limit remains 60 tax audits per member per year per ICAI Council.",
+        items: [
+          "Applicability assessment — Sec 44AB, 44ADA, 44AE thresholds",
+          "Form 3CA (statutory audit entity) or 3CB (other) — audit report",
+          "Form 3CD — all 44 reporting clauses with full factual support",
+          "Depreciation schedule verification — WDV, block-wise, additional",
+          "Disallowances — Sec 40A(3), 40(a)(ia), 43B, 269SS/T",
+          "GST turnover reconciliation with books of accounts",
+          "TDS compliance gap review — Sec 194C/194I/194J/194Q",
+          "Related party transactions and transfer pricing observation",
+          "Form 3CEB — Transfer Pricing report u/s 92E (where applicable)",
+          "MSME payments — Sec 43B(h) verification from FY 2023-24"
+
         ],
       },
       {
         slug: "representation-litigation",
         title: "Representation & Litigation Support",
         summary:
-          "Professional representation before tax authorities, from scrutiny to appeals.",
+          "Assessment, appeals, and litigation support before tax authorities",
+        scope:
+          "Faceless Assessments, CIT(A) appeals, ITAT appearances, and High Court support — backed by documented legal positions, judicial precedents, and well-structured submissions. We specialise in preparing strong factual and legal grounds at the first stage to minimise prolonged litigation.",
         items: [
-          "Representation before Assessing Officers and CIT(A)",
-          "Support in drafting responses to notices and assessments",
-          "Assistance in refunds and rectification applications",
-          "Support for matters before ITAT through legal partners",
-        ],
-        metaTitle:
-          "Income Tax Representation & Litigation Support – Scrutiny & Appeals",
-        metaDescription:
-          "Representation before income tax authorities for scrutiny, assessments, appeals, refunds, and dispute resolution.",
-        keywords: [
-          "income tax scrutiny",
-          "tax litigation support",
-          "CIT appeal support",
+          "Faceless Assessment — response to notices u/s 143(2), 148, 131",
+          "Scrutiny assessment submissions with documentation",
+          "CIT(A) appeals — grounds of appeal and written submissions",
+          "ITAT representation and briefing support",
+          "Rectification applications u/s 154 — computational errors",
+          "Stay of demand applications before assessing authority",
+          "Penalty proceedings defence — Sec 270A, 271A, 271B",
+          "TDS default notices — Sec 201 representations",
+          "Compounding of offences applications — CBDT guidelines",
+          "Response to AIS/TIS mismatch notices from CPC"
         ],
       },
       {
-        slug: "tax-registrations-approvals",
+        slug: "Tax Registrations &amp; Approvals",
         title: "Tax Registrations & Approvals",
         summary:
-          "Support for Section 80G, employee benefit schemes, and trust registrations.",
+          "End-to-end support for tax registrations and statutory approvals",
+        scope:
+          "Obtaining and maintaining statutory registrations, exemption approvals, and certifications required under the Income Tax Act. We manage the full application lifecycle — from documentation to approval and compliance post-registration.",
         items: [
-          "Registrations and approvals under Section 80G",
-          "Support for recognised provident funds and gratuity funds",
-          "Trust registration and exemption‑related liaison",
-          "Advisory on tax treatment of employee benefit schemes",
-        ],
-        metaTitle:
-          "Tax Registrations & Approvals | 80G, Trusts & Benefit Schemes",
-        metaDescription:
-          "Assistance with Section 80G registration, employee benefit approvals, and trust‑related tax registrations.",
-        keywords: [
-          "80G registration",
-          "trust registration",
-          "employee benefit fund approval",
+          "PAN and TAN application and corrections",
+          "Trust / NGO registration — Sec 12AB (new re-registration regime)",
+          "80G approval for donation receipts — Form 10AC/10BD",
+          "80G donor certificates — Form 10BE",
+          "Sec 10(23C) approval for educational / medical institutions",
+          "35AC / 35(1)(ii) scientific research approvals",
+          "Tax Residency Certificates (TRC) for DTAA benefits",
+          "Lower deduction / nil deduction certificates — Sec 197",
+          ""
         ],
       },
       {
         slug: "tax-due-diligence",
         title: "Tax Due Diligence",
         summary:
-          "Independent review of historical tax compliance and exposures for deals and restructuring.",
+          "Comprehensive tax risk review for transactions and restructuring",
+        scope:
+          "Identification of tax risks, compliance gaps, and exposures for business decisions.",
         items: [
-          "Review of historical tax filings and assessments",
-          "Identification of tax risks and exposures",
-          "Evaluation of TDS, withholding, and procedural gaps",
-          "Due diligence reports for transactions and investors",
-        ],
-        metaTitle:
-          "Tax Due Diligence Services | Risk Review for Deals & Restructuring",
-        metaDescription:
-          "Tax due diligence services to assess historical tax risks and exposures for mergers, investments, and restructurings.",
-        keywords: [
-          "tax due diligence",
-          "tax risk review",
-          "CA due diligence report",
+          "Review of past tax filings",
+          "Assessment and demand analysis",
+          "TDS compliance review",
+          "Transfer pricing exposure check",
+          "Loss carry forward analysis",
+          "Transaction risk evaluation",
         ],
       },
     ],

@@ -1,6 +1,5 @@
 import React, { FormEvent, useMemo, useState } from "react";
 import type { GetStaticPaths, GetStaticProps } from "next";
-import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
@@ -29,7 +28,33 @@ function firstSentence(text: string) {
   return parts[0] ? `${parts[0]}.` : text;
 }
 
+function moduleTabLabel(slug: string) {
+  const shortLabels: Record<string, string> = {
+    "special-purpose": "Special Purpose",
+    "special-purpose-audit": "Special Purpose",
+    "ngo-trust": "NGO / Trust",
+    "ngo-society-audit": "NGO Audit",
+    "regulatory-certifications": "Regulatory",
+    "regulatory-compliance-advisory": "Regulatory",
+    "corporate-structuring": "Structuring",
+    "performance-improvement": "Performance",
+    "finance-accounts-outsourcing": "FAO",
+    "legal-process-outsourcing": "LPO",
+    "payroll-outsourcing": "Payroll",
+  };
+
+  if (shortLabels[slug]) return shortLabels[slug];
+
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
 const ServiceDetailPage = ({ service }: Props) => {
+  const isTaxation = service.slug === "taxation";
+  const useAccordionModules = service.slug === "taxation" || service.slug === "gst";
   const scheduleLabel = "Schedule a Call";
   const [openModal, setOpenModal] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
@@ -37,6 +62,7 @@ const ServiceDetailPage = ({ service }: Props) => {
   );
   const [error, setError] = useState("");
   const [activeSubservice, setActiveSubservice] = useState<number>(0);
+  const [openSubservices, setOpenSubservices] = useState<number[]>([0]);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [form, setForm] = useState({
     name: "",
@@ -52,7 +78,7 @@ const ServiceDetailPage = ({ service }: Props) => {
     description: line,
   }));
 
-  const faqs = [
+  const defaultFaqs = [
     {
       q: "What is statutory audit?",
       a: "A statutory audit is an independent review of financial statements required under applicable laws to ensure true and fair presentation.",
@@ -74,19 +100,67 @@ const ServiceDetailPage = ({ service }: Props) => {
       a: "Yes. A good audit identifies control gaps, process inefficiencies, and practical improvements for compliance and governance.",
     },
   ];
+  const faqs = service.faqs && service.faqs.length > 0 ? service.faqs : defaultFaqs;
 
   const introParagraphs = useMemo(() => service.details.slice(0, 3), [service.details]);
   const overviewCards = useMemo(
     () =>
       service.benefits.slice(0, 3).map((benefit, idx) => ({
-        code: service.tools[idx] || `Point ${idx + 1}`,
-        title: firstSentence(benefit),
+        code: `Point ${String(idx + 1).padStart(2, "0")}`,
+        title: service.tools[idx] || firstSentence(benefit),
         description: benefit,
       })),
     [service.benefits, service.tools]
   );
   const activeSub = service.subservices[activeSubservice] || service.subservices[0];
   const standards = useMemo(() => service.tools.slice(0, 6), [service.tools]);
+
+  const toggleSubservice = (idx: number) => {
+    setOpenSubservices((current) =>
+      current.includes(idx)
+        ? current.filter((item) => item !== idx)
+        : [...current, idx]
+    );
+  };
+
+  const renderModulePanel = (sub: Service["subservices"][number]) => (
+    <div className={styles.offeringPanel}>
+      <div>
+        <p className={styles.panelEyebrow}>Module Overview</p>
+        <h3>{sub.title}</h3>
+        <p className={styles.panelSummary}>{sub.summary}</p>
+        <ul className={styles.panelList}>
+          {sub.items.map((item, idx) => (
+            <li key={`${item}-${idx}`}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.panelSide}>
+        <div className={styles.standardsBox}>
+          <h4>Service Scope & Frameworks</h4>
+          {sub.scope ? (
+            <div className={styles.blueScope}>
+              <p className={styles.blueScopeLabel}>Scope</p>
+              <p className={styles.blueScopeText}>{sub.scope}</p>
+            </div>
+          ) : null}
+          <ul className={styles.frameworkList}>
+            {standards.map((tool, idx) => (
+              <li key={`${tool}-${idx}`}>{tool}</li>
+            ))}
+          </ul>
+          <div className={styles.blueKeyWrap}>
+            <p className={styles.blueKeyLabel}>Key Points</p>
+            <div className={styles.blueKeyList}>
+              {sub.items.slice(0, 4).map((item, idx) => (
+                <span key={`${item}-${idx}`}>{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   const onFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -176,13 +250,14 @@ const ServiceDetailPage = ({ service }: Props) => {
 
         
 
-        <section className={styles.section} id="service-detail-content">
+        <section className={`${styles.section} ${styles.surfaceSection}`} id="service-detail-content">
           <div className="container">
             <div className={styles.twoCol}>
               <div>
                 <div className="section-title mb-0">
                   <h6 className="sub-title">OVERVIEW</h6>
                   <h2 className={styles.sectionTitle}>What This Service Covers</h2>
+                  <span className={styles.sectionMiniRule} aria-hidden="true" />
                 </div>
                 <div className={styles.introText}>
                   {introParagraphs.map((line, idx) => (
@@ -203,79 +278,92 @@ const ServiceDetailPage = ({ service }: Props) => {
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.altSection}`} id="service-offerings">
+        <section
+          className={`${styles.section} ${styles.altSection} ${isTaxation ? styles.taxationOfferings : ""}`}
+          id="service-offerings"
+        >
           <div className="container">
             <div className="section-title mb-0">
               <h6 className="sub-title">OUR OFFERINGS</h6>
               <h2 className={styles.sectionTitle}>Service Modules</h2>
+              <span className={styles.sectionMiniRule} aria-hidden="true" />
             </div>
             <div className={styles.offeringsWrap}>
-              <div className={styles.tabsBar}>
-                {service.subservices.map((sub, idx) => (
-                  <button
-                    key={sub.slug}
-                    type="button"
-                    className={activeSubservice === idx ? styles.tabActive : ""}
-                    onClick={() => setActiveSubservice(idx)}
-                  >
-                    {sub.title}
-                  </button>
-                ))}
-              </div>
-              <div className={styles.offeringPanel}>
-                <div>
-                  <h3>{activeSub.title}</h3>
-                  <p className={styles.panelSummary}>{activeSub.summary}</p>
-                  <ul className={styles.panelList}>
-                    {activeSub.items.map((item, idx) => (
-                      <li key={`${item}-${idx}`}>{item}</li>
+              {useAccordionModules ? (
+                <div className={styles.moduleAccordion}>
+                  {service.subservices.map((sub, idx) => {
+                    const isOpen = openSubservices.includes(idx);
+
+                    return (
+                      <article key={sub.slug} className={styles.moduleAccordionItem}>
+                        <button
+                          type="button"
+                          className={`${styles.moduleAccordionHeader} ${
+                            isOpen ? styles.moduleAccordionHeaderOpen : ""
+                          }`}
+                          onClick={() => toggleSubservice(idx)}
+                          aria-expanded={isOpen}
+                        >
+                          <span>
+                            <span className={styles.moduleAccordionKicker}>
+                              Module {String(idx + 1).padStart(2, "0")}
+                            </span>
+                            <span className={styles.moduleAccordionTitle}>{sub.title}</span>
+                          </span>
+                          <span className={styles.moduleAccordionIcon}>
+                            {isOpen ? "-" : "+"}
+                          </span>
+                        </button>
+                        {isOpen ? (
+                          <div className={styles.moduleAccordionBody}>
+                            {renderModulePanel(sub)}
+                          </div>
+                        ) : null}
+                      </article>
+                    );
+                  })}
+                </div>
+              ) : (
+                <>
+                  <div className={styles.tabsBar}>
+                    {service.subservices.map((sub, idx) => (
+                      <button
+                        key={sub.slug}
+                        type="button"
+                        className={activeSubservice === idx ? styles.tabActive : ""}
+                        onClick={() => setActiveSubservice(idx)}
+                      >
+                        {moduleTabLabel(sub.slug)}
+                      </button>
                     ))}
-                  </ul>
-                  <Link
-                    href={`/service-detail/${service.slug}/${activeSub.slug}`}
-                    className={styles.subserviceLink}
-                  >
-                    Read detailed page
-                  </Link>
-                </div>
-                <div>
-                  <div className={styles.standardsBox}>
-                    <h4>Applicable Frameworks</h4>
-                    <ul>
-                      {standards.map((tool, idx) => (
-                        <li key={`${tool}-${idx}`}>{tool}</li>
-                      ))}
-                    </ul>
                   </div>
-                  <div className={styles.deliverablesBox}>
-                    <h4>Key Deliverables</h4>
-                    <ul>
-                      {activeSub.items.slice(0, 5).map((item, idx) => (
-                        <li key={`${item}-${idx}`}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
+                  {renderModulePanel(activeSub)}
+                </>
+              )}
             </div>
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.faqSection}`}>
           <div className="container">
             <div className="section-title mb-0">
-              <h6 className="sub-title">SECTORS</h6>
-              <h2 className={styles.sectionTitle}>Industries We Serve</h2>
+              <h6 className="sub-title">SUPPORT</h6>
+              <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+              <span className={styles.sectionMiniRule} aria-hidden="true" />
             </div>
-            <div className={styles.sectorsGrid}>
-              {service.industries.map((industry, idx) => (
-                <article key={`${industry}-${idx}`} className={styles.sectorCard}>
-                  <h3>{industry}</h3>
-                  <p>
-                    Service execution adapted to the operating and compliance context of{" "}
-                    {industry.toLowerCase()} businesses.
-                  </p>
-                </article>
+            <div className={`${styles.faqWrap} ${isTaxation ? styles.taxationFaqWrap : ""}`}>
+              {faqs.map((faq, idx) => (
+                <details
+                  key={idx}
+                  className={styles.faqItem}
+                  open={activeFaq === idx}
+                  onToggle={(e) =>
+                    setActiveFaq((e.currentTarget as HTMLDetailsElement).open ? idx : null)
+                  }
+                >
+                  <summary>{faq.q}</summary>
+                  <div>{faq.a}</div>
+                </details>
               ))}
             </div>
           </div>
@@ -296,36 +384,15 @@ const ServiceDetailPage = ({ service }: Props) => {
           </div>
         </section>
 
-        <section className={styles.section}>
-          <div className="container">
-            <div className="section-title mb-0">
-              <h6 className="sub-title">SUPPORT</h6>
-              <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
-            </div>
-            <div className={styles.faqWrap}>
-              {faqs.map((faq, idx) => (
-                <details
-                  key={idx}
-                  className={styles.faqItem}
-                  open={activeFaq === idx}
-                  onToggle={(e) =>
-                    setActiveFaq((e.currentTarget as HTMLDetailsElement).open ? idx : null)
-                  }
-                >
-                  <summary>{faq.q}</summary>
-                  <div>{faq.a}</div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <Blog
-          serviceSlug={service.slug}
-          serviceTitle={service.title}
-          showViewAll
-          bottomPadding={false}
-        />
+        <div className={styles.blogSectionWrap}>
+          <Blog
+            serviceSlug={service.slug}
+            title="Latest Articles"
+            subTitle="News & Blog"
+            showViewAll
+            bottomPadding={false}
+          />
+        </div>
 
         {openModal && (
           <div className={styles.modalBackdrop} onClick={() => setOpenModal(false)}>
