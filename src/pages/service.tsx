@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import ServiceBanner from "@/components/container/service/ServiceBanner";
 import ServiceArea from "@/components/container/service/ServiceArea";
 import ProcessTwo from "@/components/container/service/Process";
-import IndustriesServed from "@/components/container/service/IndustriesServed";
+import IndustriesShowcase from "@/components/container/home-two/IndustriesShowcase";
 
 const Service = () => {
   return (
@@ -18,7 +18,7 @@ const Service = () => {
         <ServiceBanner />
         <ServiceArea />
         <ProcessTwo />
-        <IndustriesServed />
+        <IndustriesShowcase />
       </div>
       {/* <ContactClient />
       <ContactInstagram /> */}

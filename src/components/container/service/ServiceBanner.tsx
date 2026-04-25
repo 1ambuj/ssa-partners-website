@@ -9,17 +9,18 @@ const ServiceBanner = () => {
   return (
     <>
       <div className="banner-area bg-relative pd-bottom-120 banner-small-inner bg-light bg-relative bg-cover text-center">
-        <SsaBrochureMark
+        {/* <SsaBrochureMark
           className="left_image_bounce position-bottom-left"
           size="lg"
           tone="blue"
-        />
+        /> */}
         {/* <div className="d-inline-flex align-items-center gap-3 flex-wrap about-banner-kicker">
           
           <h4>More About Us</h4>
         </div> */}
-        <SsaBrochureMark size="sm" />
+       
         <div className="container">
+        <SsaBrochureMark size="sm" />
           <h4
             className=""
             data-aos="fade-up"

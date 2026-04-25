@@ -4361,38 +4361,94 @@ html {
   --ssa-services-blue-start: #1e293b;
   --ssa-services-blue-mid: #334155;
   --ssa-services-blue-end: #1e293b;
+  background: #f6f4ef;
+
+  .banner-area.bg-light {
+    background: linear-gradient(180deg, #fbfaf7 0%, #f3f1eb 100%) !important;
+  }
+
+  .service-banner-desc {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #62636c;
+    line-height: 1.75;
+  }
 
   #service-area {
-    background: #f5f3ef;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(250, 100, 0, 0.06) 0, transparent 32%),
+      linear-gradient(180deg, #f8f6f1 0%, #f1eee7 100%);
+    padding-bottom: 74px;
+    border-top: 1px solid #ebe4d8;
+    border-bottom: 1px solid #e3dbce;
+  }
+
+  #service-area .section-title {
+    margin-bottom: 42px;
+  }
+
+  #service-area .section-title .sub-title {
+    color: var(--main-color);
+    letter-spacing: 0.14em;
+  }
+
+  #service-area .section-title .content {
+    color: #63636b;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.75;
   }
 
   #service-area .row > [class*="col-"] {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 
   #service-area .single-service-inner {
-    background: #fff;
-    border: 1px solid #efefef;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 34px 24px 24px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid #e8e0d3;
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(30, 41, 59, 0.08);
+    padding: 30px 24px 24px;
     height: 100%;
-    transition: border-color 0.25s ease, background 0.25s ease;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  #service-area .single-service-inner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--main-color), rgba(250, 100, 0, 0.18));
+    opacity: 0.9;
   }
 
   #service-area .single-service-inner:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: #e2e2e2;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 42px rgba(30, 41, 59, 0.12);
+    border-color: rgba(250, 100, 0, 0.28);
     background: #fff;
   }
 
   #service-area .single-service-inner .thumb {
     margin-bottom: 20px;
+    width: 68px;
+    height: 68px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: #fff7f0;
+    border: 1px solid #f4ddca;
   }
 
   #service-area .single-service-inner .thumb img {
-    max-height: 64px;
+    max-height: 42px;
     width: auto;
   }
 
@@ -4409,9 +4465,10 @@ html {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 118px;
-    height: 1px;
-    background: #6f6f6f;
+    width: 46px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--main-color);
   }
 
   #service-area .single-service-inner .details h4 a {
@@ -4419,22 +4476,22 @@ html {
   }
 
   #service-area .single-service-inner .details p {
-    font-size: 0.98rem;
-    line-height: 1.82;
+    font-size: 0.94rem;
+    line-height: 1.72;
     color: #66645f;
     margin-bottom: 24px;
-    min-height: 110px;
+    min-height: 104px;
   }
 
   #service-area .single-service-inner .details .service-plus-btn {
-    width: 42px !important;
-    min-width: 42px;
+    width: 48px !important;
+    min-width: 48px;
     height: 42px;
-    border-radius: 0;
+    border-radius: 999px;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    background: #0f0f14;
+    background: linear-gradient(to right, #1e293b 0%, #334155 50%, #1e293b 100%);
     color: #fff !important;
     padding: 0 !important;
     line-height: 1;
@@ -4461,8 +4518,8 @@ html {
   }
 
   #service-area .single-service-inner:hover .details .service-plus-btn {
-    width: 140px !important;
-    padding: 0 14px !important;
+    width: 148px !important;
+    padding: 0 16px !important;
     justify-content: space-between;
     background: var(--main-color);
   }
@@ -4544,21 +4601,21 @@ html {
   }
 
   #service-area {
-    padding-bottom: 34px;
+    padding-bottom: 74px;
   }
 
   .work-process {
-    margin-top: 26px;
-    margin-bottom: 34px;
+    margin-top: 0;
+    margin-bottom: 0;
     border-radius: 0;
-    overflow: visible;
+    overflow: hidden;
     background: linear-gradient(
       to right,
       var(--ssa-services-blue-start) 0%,
       var(--ssa-services-blue-mid) 50%,
       var(--ssa-services-blue-end) 100%
     );
-    border: 1px solid rgba(116, 146, 182, 0.24);
+    border: 0;
   }
 
   .work-process .row {
@@ -4614,9 +4671,14 @@ html {
     margin-top: 0 !important;
     padding: 0;
     border: 1px solid rgba(190, 211, 235, 0.2);
-    border-radius: 0;
+    border-radius: 12px;
     background: rgba(8, 27, 45, 0.32);
     align-items: stretch;
+  }
+
+  .industries-area {
+    background: linear-gradient(180deg, #f8f6f1 0%, #f2efe8 100%) !important;
+    border-top: 1px solid #e7dfd2;
   }
 
   .work-process .process-step-card .media-left {
