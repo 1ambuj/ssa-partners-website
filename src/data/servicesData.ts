@@ -730,7 +730,7 @@ const servicesList: Service[] = [
     animImg1: two as unknown as string,
     animImg2: three as unknown as string,
     description:
-      "End‑to‑end GST and indirect tax support – registration, filings, advisory, representation, and legacy matters.",
+      "End-to-end GST and indirect tax support — registration, compliance, advisory, departmental representation, and legacy VAT/Service Tax/Excise matters — executed through our structured 6× Delivery Model.",
 
     metaTitle:
       "GST & Indirect Tax Services | Registration, Filing & Advisory – India",
@@ -745,9 +745,9 @@ const servicesList: Service[] = [
     ],
 
     details: [
-      "We help businesses manage GST and other indirect tax laws across registration, routine compliance, reconciliations, and litigation support.",
-      "Our team works closely with your finance and operations teams to align tax positions with supply chains, contracts, and commercial terms.",
-      "We also assist with legacy VAT, Service Tax, and Excise matters, including transitional credits and pending assessments.",
+      "GST, introduced on 1 July 2017, subsumed more than 17 central and state levies into a unified framework. Yet it remains one of the most amendment-intensive statutes in Indian taxation — with over 1,000 CBIC circulars, notifications, and clarifications issued since inception.",
+      "Our team works closely with your finance and operations functions to align GST positions with actual supply chains, commercial contracts, and business models — not standard interpretations detached from commercial reality.",
+      "We also assist with legacy VAT, Service Tax, and Central Excise matters, including transitional credit disputes, pending assessments, and pre-GST litigation carried into the current era.",
     ],
 
     approach: [
@@ -759,10 +759,10 @@ const servicesList: Service[] = [
     ],
 
     benefits: [
-      "Accurate GST compliance and lower interest/penalty risk",
-      "Optimised input tax credit and cash‑flow management",
-      "Better control over reconciliations and notices",
-      "Reduced effort through structured retainership models",
+      "Taxpayers with aggregate turnover exceeding ₹2 crore in a financial year are required to get accounts audited under GST. The GSTR-9C reconciliation statement, where applicable, must be certified by a Chartered Accountant or Cost Accountant. SSA issues GSTR-9C in accordance with the ICAI Guidance Note on GST Audit.",
+      "The Finance Act, 2024 merged Section 73 (non-fraud) and Section 74 (fraud) demand provisions into a single Section 73, effective FY 2024-25 onwards. The penalty structure and limitation periods have changed significantly. Clients with pending notices must reassess their response strategy immediately.",
+      "CBIC Circular 210 clarified the place of supply for services received by SEZ units / developers. This has significant ITC implications for exporters and SEZ-based clients. SSA's advisory team assists in restructuring invoicing to align with this circular.",
+      "ITC eligibility is now linked to GSTR-2B auto-populated data. Vendor non-compliance directly impacts your ITC claims. SSA's GST health-check process includes periodic vendor reconciliation protocols to safeguard your ITC position and avoid exposure to demand notices.",
     ],
 
     industries: [
@@ -774,9 +774,10 @@ const servicesList: Service[] = [
     ],
 
     tools: [
-      "GST Portal & E‑way Bill",
-      "E‑invoicing systems",
-      "Customs and indirect tax rules",
+      "GST Audit — Who Must Comply",
+      "Demand, Penalty & Limitation Changes",
+      "Place of Supply — Services to SEZ",
+      "ITC Matching — The New Reality"
     ],
 
     subservices: [
@@ -785,11 +786,17 @@ const servicesList: Service[] = [
         title: "GST Registration & Return Filing",
         summary:
           "From new registration to periodic GSTR filings and reconciliations.",
+        scope:
+        "From new GST registration to periodic GSTR filings, ITC reconciliation, and GSTR-9/9C, we manage the full compliance lifecycle so your team can focus on business operations without the risk of penalties, interest, or blocked ITC.",
         items: [
-          "GST registration for regular and composition taxpayers",
-          "Preparation and filing of GSTR‑1, GSTR‑3B, GSTR‑9, GSTR‑9C",
-          "Reconciliation with GSTR‑2B and vendor data",
-          "Cash/credit ledger management and due date tracking",
+          " GST registration for regular and composition taxpayers",
+          "Preparation and filing of GSTR-1 (outward supplies), GSTR-3B (summary return), GSTR-2B reconciliation",
+          "GSTR-9 (Annual Return) and GSTR-9C (Reconciliation Statement / GST Audit) under Sec 35",
+          "E-invoice compliance and IRN generation — mandatory for notified turnover thresholds",
+          "E-way bill compliance framework and documentation protocols",
+          "Periodic ITC health-check and vendor reconciliation to protect ITC under Sec 16(2)(aa)",
+          "GST refund filing — exports (IGST paid / LUT), inverted duty structure (Sec 54), and UN/embassy refunds",
+          "Composition scheme applicability assessment, filing of GSTR-4",
         ],
         metaTitle:
           "GST Registration & GSTR Filing Services – Regular & Composition",
@@ -807,11 +814,17 @@ const servicesList: Service[] = [
         title: "GST Advisory & Opinions",
         summary:
           "Industry‑specific GST advisory on classification, ITC, place of supply, and complex transactions.",
+        scope:
+        "GST advisory at SSA is delivered in writing, with full statutory references, a clear conclusion, and an explanation of risk. We do not provide verbal opinions on disputed GST positions. Every advisory engagement results in a documented memo that can be retained as a bona fide defence under Sec 270A(9)(b) equivalent provisions and penalty mitigation arguments.",
         items: [
-          "Advisory on GST impact for sectors like real estate, exports, and e‑commerce",
-          "Classification and rate determination",
-          "ITC eligibility and structuring of contracts",
-          "Written opinions and notes for critical positions",
+          "HSN / SAC classification opinions — including composite and mixed supplies under Sec 8",
+          "Place of supply determination (Sec 10–13 IGST Act) — especially for software, online, and cross-border services",
+          "ITC eligibility review — blocked credits (Sec 17(5)), business use vs personal use, employee benefits",
+          "GST implications of M&A transactions — slump sales, demergers, stock transfers, licence agreements",
+          "Time of supply analysis for deferred payment structures, advances, and milestone billing",
+          "Contract structuring to optimise GST outflow — back-to-back arrangements, pure agent provisions",
+          "Applicability of reverse charge mechanism (RCM) — Sec 9(3) and 9(4) analysis",
+          "GST on real estate transactions — Sec 7, Schedule II, and residential vs commercial distinctions",
         ],
         metaTitle:
           "GST Advisory & Opinions | ITC, Classification & Place of Supply",
@@ -829,11 +842,17 @@ const servicesList: Service[] = [
         title: "GST Retainership & Health Check",
         summary:
           "Ongoing GST compliance management under a structured retainership model.",
+        scope:
+        "Our retainership and GST health-check service provides clients with continuous support and a structured periodic review — catching issues before they crystallise into demands. Engagements are scoped to client size, filing frequency, and risk profile.",
+
         items: [
-          "End‑to‑end GST compliance under monthly/annual retainership",
-          "Monitoring GST portal notices and drafting responses",
-          "Periodic internal GST health checks and reconciliations",
-          "Support in departmental audits and enquiries",
+          "Monthly / quarterly GST health check — GSTR-1 vs GSTR-3B variance analysis",
+          "Vendor compliance monitoring — identifying non-filers in your supplier base whose non-compliance creates ITC exposure",
+          "ITC lapsing review — time-barred credits under Sec 16(4) and remediation opportunities",
+          "GST liability reconciliation — books vs GST returns — to identify under-declared or over-declared liabilities",
+          "E-invoice and e-way bill exceptions report and remediation",
+          "Retainership advisory — 24-hour turnaround on written queries within agreed scope",
+          "Pre-audit assessment — readiness review before departmental scrutiny or GSTR-9C certification",
         ],
         metaTitle:
           "GST Retainership Services | Ongoing Compliance & Health Checks",
@@ -847,14 +866,21 @@ const servicesList: Service[] = [
       },
       {
         slug: "legacy-indirect-tax",
-        title: "Legacy Indirect Tax Matters",
+        title: "GST Litigation  Departmental Representation",
         summary:
           "Advisory and support on pre‑GST VAT, Service Tax, and Excise issues.",
+        scope:
+        "GST litigation requires an intersection of legal analysis, factual investigation, and procedural rigour. Our team handles the full spectrum — from drafting replies to show-cause notices to managing High Court writ petitions challenging illegal demands and jurisdictional overreach.",
+
         items: [
-          "Advisory on transitional credits and legacy disputes",
-          "Support in VAT, Service Tax, and Excise assessments",
-          "Assistance in refunds and rectifications",
-          "Coordination with counsel for complex litigation",
+          "Reply to show-cause notices (SCN) under Sec 73 (non-fraud) and Sec 74 (fraud / wilful misstatement) — merging into unified Sec 73 from FY 2024-25",
+          "Personal hearing representation before Adjudicating Authority (proper officer)",
+          "GST Appeal — Form APL-01 before Appellate Authority (Commissioner Appeals)",
+          "GSTAT (GST Appellate Tribunal) — now operational; handling first batch of tribunal matters",
+          "High Court writ petitions — challenging Section 83 (provisional attachment), blocking of ITC under Rule 86A, jurisdictional excess",
+          "Advance Ruling applications before State/Central AAR and AAAR for certainty on positions",
+          "Anti-profiteering proceedings — representation before National Anti-Profiteering Authority (NAPA)",
+          "DRC-03 voluntary payment strategy to mitigate interest and penalty exposure",
         ],
         metaTitle:
           "Legacy VAT, Service Tax & Excise Support – Transitional & Litigation",
@@ -865,6 +891,33 @@ const servicesList: Service[] = [
           "Service Tax issues",
           "Excise transitional credit",
         ],
+      },
+    ],
+
+    faqs: [
+      {
+        q: "What is GST Audit under Section 35 of the CGST Act?",
+        a: "Under Section 35(5) of the CGST Act (now Section 35 read with Section 44), taxpayers with aggregate annual turnover exceeding ₹2 crore are required to get their accounts audited by a Chartered Accountant or Cost Accountant and furnish a copy of the audited annual accounts along with a reconciliation statement in Form GSTR-9C. SSA conducts GST Audits in accordance with the ICAI Guidance Note on GST Audit, which applies SA principles mutatis mutandis. The GSTR-9C certification is an attestation function governed by ICAI ethics — we do not certify without adequate audit evidence.\n\nCGST Sec 35 · CGST Sec 44 · ICAI Guidance Note on GST Audit",
+      },
+      {
+        q: "How has the Finance Act, 2024 changed GST demand and penalty provisions?",
+        a: "The Finance Act, 2024 made two significant structural changes effective FY 2024-25 onwards: (1) Sections 73 (non-fraud) and 74 (fraud) have been merged into a single Section 73 with a revised penalty structure — the distinction between fraud and non-fraud demands is now reflected in the penalty rate rather than separate sections; (2) A new Section 74A has been introduced for specific circumstances. Additionally, Section 16(5) and 16(6) were inserted retrospectively, allowing ITC that was previously time-barred in certain situations to be availed. Taxpayers should review their past positions against these amendments urgently.\n\nCGST Sec 73 (amended) · CGST Sec 16(5) & 16(6) · Finance Act, 2024",
+      },
+      {
+        q: "What is the ITC matching requirement under Section 16(2)(aa)?",
+        a: "Section 16(2)(aa) of the CGST Act, inserted by the Finance Act 2021, requires that ITC can only be availed if the details of the invoice appear in the auto-populated GSTR-2B statement. This means if your supplier has not filed GSTR-1 or GSTR-3B, the corresponding ITC will not appear in GSTR-2B and cannot be legally claimed by you — even if you hold a valid tax invoice and have paid the supplier. SSA's GST health-check includes quarterly vendor compliance monitoring to identify at-risk suppliers before the ITC is lost.\n\nCGST Sec 16(2)(aa) · CBIC Circular 183/15/2022",
+      },
+      {
+        q: "Is the GST Appellate Tribunal (GSTAT) now operational?",
+        a: "Yes. The GST Appellate Tribunal (GSTAT) became operationally functional in 2024, approximately seven years after GST implementation. GSTAT operates under Section 109 of the CGST Act. Taxpayers who had High Court matters pending solely because no alternative appellate forum was available may need to evaluate whether those matters should now proceed before GSTAT instead. The Tribunal provides a specialist forum for GST disputes, and its constitution reduces the burden on High Courts for purely factual or valuation disputes. SSA is advising clients on GSTAT strategy for pending matters.\n\nCGST Sec 109 · CGST Sec 110 · CGST Sec 112",
+      },
+      {
+        q: "How are transitional credits under TRAN-1 / TRAN-2 treated after the Supreme Court ruling?",
+        a: "The Supreme Court, in Union of India v. Filco Trade Centre Pvt. Ltd. (2022), directed that the GST portal be reopened for filing and revision of TRAN-1 and TRAN-2 forms, rejecting the Government's position that the time limit for transitional credit was final. Taxpayers who could not avail their pre-GST CENVAT / VAT credits due to technical glitches or administrative issues were given a window to file / revise. SSA assists clients in reviewing eligibility, preparing and filing TRAN-1/2, and handling any departmental scrutiny of transitional credit claims.\n\nCGST Sec 140 · SC: Filco Trade Centre (2022) · CBIC Order dt. 22 Sept 2022",
+      },
+      {
+        q: "What documents must be retained for a GST scrutiny or audit?",
+        a: "Under Section 36 of the CGST Act, every registered person must maintain books of account at the principal place of business for a period of 72 months (6 years) from the due date of filing the annual return for the year to which they relate. Records must include: tax invoices, debit and credit notes, import / export records, stock register, ITC register, GSTR-2B workings, e-way bill logs, and e-invoice data. Where a departmental audit is initiated under Section 65 or a special audit under Section 66 is ordered, all supporting documentation must be produced within 15 working days of notice.\n\nCGST Sec 35 · CGST Sec 36 · CGST Sec 65 · CGST Sec 66",
       },
     ],
 

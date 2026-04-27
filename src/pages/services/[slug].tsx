@@ -264,7 +264,11 @@ const ServiceDetailPage = ({ service }: Props) => {
               <div>
                 <div className="section-title mb-0">
                   <h6 className="sub-title">OVERVIEW</h6>
-                  <h2 className={styles.sectionTitle}>What This Service Covers</h2>
+                  <h2 className={styles.sectionTitle}>
+                    {service.slug === "gst"
+                      ? "India's Most Dynamic Indirect Tax Regime — Managed Expertly"
+                      : "What This Service Covers"}
+                  </h2>
                   <span className={styles.sectionMiniRule} aria-hidden="true" />
                 </div>
                 <div className={styles.introText}>
