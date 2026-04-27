@@ -492,7 +492,7 @@ const ServiceDetailPage = ({ service }: Props) => {
 
         {isNri ? (
           <>
-            <section className={`${styles.section} ${styles.altSection}`}>
+            <section className={`${styles.section} ${styles.altSection} ${styles.nriRegSection}`}>
               <div className="container">
                 <div className="section-title mb-0">
                   <h6 className="sub-title">Regulatory Framework</h6>
@@ -506,9 +506,6 @@ const ServiceDetailPage = ({ service }: Props) => {
                 <div className={styles.nriRegGrid}>
                   {nriRegulatoryCards.map((card) => (
                     <article key={card.title} className={styles.nriRegCard}>
-                      <span className={styles.nriRegIcon} aria-hidden="true">
-                        <i className={`fa-solid ${card.icon}`}></i>
-                      </span>
                       <p className={styles.nriRegLaw}>{card.law}</p>
                       <h3>{card.title}</h3>
                       <p>{card.body}</p>
