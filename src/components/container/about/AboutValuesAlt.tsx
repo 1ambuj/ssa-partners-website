@@ -2,16 +2,16 @@ import React from "react";
 
 const modules = [
   {
-    icon: "fa-search",
-    title: "Scan",
-    description:
-      "We assess business, process, and regulatory context to define compliance and reporting priorities.",
-  },
-  {
     icon: "fa-microscope",
     title: "Study",
     description:
-      "We analyze records, risks, and control gaps to establish a clear and evidence-based diagnostic view.",
+      "We analyse records, transactions, and control design to establish a clear, evidence-based baseline.",
+  },
+  {
+    icon: "fa-search",
+    title: "Scan",
+    description:
+      "We map business processes, statutory exposure, and risk hotspots to define the engagement focus.",
   },
   {
     icon: "fa-lightbulb",
@@ -50,8 +50,12 @@ const AboutValuesAlt = () => {
               data-aos="fade-up"
               data-aos-duration="900"
             >
-              <h6 className="sub-title">// OUR APPROACH</h6>
-              <h2 className="title">The 6S Engagement Model</h2>
+            <h6 className="sub-title">// OUR APPROACH</h6>
+            <h2 className="title">The 6S Engagement Model</h2>
+            <p className="content mt-3">
+              A structured step-by-step execution model used across all assignments to ensure
+              consistency, compliance, and measurable outcomes.
+            </p>
             </div>
           </div>
         </div>

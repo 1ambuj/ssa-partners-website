@@ -11,7 +11,9 @@ const BlogPage: React.FC = () => {
       footer={true}
       bodyClass={true}
     >
-      <BlogList />
+      <div className="ssa-blog-page">
+        <BlogList />
+      </div>
     </Layout>
   );
 };

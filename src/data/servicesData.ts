@@ -37,6 +37,7 @@ export type Service = {
   animImg1: string;
   animImg2: string;
   description: string;
+  overviewTitle?: string;
   details: string[];
   approach: string[];
   benefits: string[];
@@ -731,6 +732,7 @@ const servicesList: Service[] = [
     animImg2: three as unknown as string,
     description:
       "End-to-end GST and indirect tax support — registration, compliance, advisory, departmental representation, and legacy VAT/Service Tax/Excise matters — executed through our structured 6× Delivery Model.",
+    overviewTitle: "India's Most Dynamic Indirect Tax Regime — Managed Expertly",
 
     metaTitle:
       "GST & Indirect Tax Services | Registration, Filing & Advisory – India",
@@ -940,65 +942,77 @@ const servicesList: Service[] = [
     animImg1: two as unknown as string,
     animImg2: three as unknown as string,
     description:
-      "Specialised advisory and compliance services for NRIs, foreign nationals, and overseas entities doing business in India.",
+      "A structured, documentation-driven practice for NRIs, foreign nationals, and overseas entities operating in India — covering FEMA, DTAA, inbound investments, RBI compliance, and tax representation.",
+    overviewTitle: "One Partner for Every India-Related Cross-Border Matter",
 
     metaTitle:
-      "NRI & International Services | FEMA, RBI, International Tax & Business Setup",
+      "Non-Resident & International Services | FEMA, DTAA, RBI & Cross-Border Advisory",
     metaDescription:
-      "End‑to‑end support for NRIs and foreign companies including business setup in India, FEMA & RBI compliance, international taxation, remittance, and regulatory consulting.",
+      "End-to-end advisory for NRIs, foreign nationals, and overseas entities doing business in India — FEMA, DTAA, RBI compliance, cross-border taxation, remittance structuring, and representation.",
     keywords: [
+      "non-resident international services",
       "NRI taxation India",
-      "business setup India for foreign company",
       "FEMA RBI compliance",
-      "international tax advisory India",
+      "DTAA advisory India",
+      "cross-border tax structuring India",
     ],
 
     details: [
-      "We help NRIs, foreign nationals, and overseas businesses navigate India’s tax, FEMA, RBI, and corporate law frameworks with clarity and confidence.",
-      "From setting up subsidiaries, liaison or project offices to managing ongoing tax filings, remittances, and property transactions, we provide a single point of contact in India.",
-      "Our services are designed to ensure cross‑border compliance while optimising tax efficiency and ease of doing business.",
+      "India's cross-border regulatory framework is layered across FEMA, the Income Tax Act, the Companies Act, and RBI Master Directions that frequently intersect. A remittance decision is also a tax event. A property acquisition triggers FEMA reporting. An office setup carries PE risk.",
+      "We help NRIs, foreign nationals, and overseas businesses navigate this intersection with clarity through technical depth, structured documentation, and proactive regulatory tracking — so compliance gaps are identified before they become disputes.",
+      "Whether you are repatriating sale proceeds, setting up a wholly-owned subsidiary, or managing capital gains exposure on Indian assets, our 6-step model ensures every position is assessed, structured, documented, and defensible.",
+      "The Income Tax Act 2025 (effective AY 2026-27) restructures provisions governing NRI taxation, RNOR status, residency determination, and Section 195 TDS obligations. All NRI advisory and return filing is mapped to this revised framework.",
     ],
 
     approach: [
-      "Understanding residency status, income profile, and business plans",
-      "Mapping applicable Indian regulations: FEMA, RBI, Income Tax, Companies Act",
-      "Designing compliant structures for investment and operations",
-      "Executing registrations, filings, and documentation with authorities",
-      "Providing ongoing support for tax, regulatory, and banking matters",
+      "Intake assessment: residency determination, transaction history, and FEMA exposure mapping",
+      "Transaction structuring: FEMA route, DTAA position, Indian tax treatment, and documentation checklist",
+      "Documentation preparation: Form 15CA/CB, TRC/Form 10F, bank undertakings, and complete working papers",
+      "Filing execution: ITR, RBI reporting, and MCA filings with full disclosure and timeline control",
+      "Regulatory monitoring: proactive impact alerts on FEMA, DTAA, RBI, and Income Tax changes",
+      "Representation and defence: notice handling, scrutiny replies, appeals, and FEMA compounding support",
     ],
 
     benefits: [
-      "Lower regulatory and tax risk for cross‑border activities",
-      "Smoother business and investment execution in India",
-      "Clear documentation trail for banking and regulatory checks",
-      "Single CA partner for tax, FEMA, and compliance needs",
+      "Every cross-border transaction — remittance, investment, loan, property sale — must be structured within FEMA 1999 and RBI Master Directions. We map the transaction, identify the applicable route, prepare the required documentation, and coordinate with authorised dealer banks.",
+      "India's tax treaties with 90+ countries provide relief from double taxation — but treaty benefits require proactive claim, proper certification (TRC, Form 10F), and alignment with both domestic law and the treaty text. Unclaimed benefits are permanently lost.",
+      "RBI and income tax scrutiny of NRI transactions is increasing. Every repatriation, remittance, and property transaction must be backed by a clear, structured documentation trail — one that can withstand banking review, income tax scrutiny, and FEMA inquiry simultaneously.",
+      "NRI, RNOR, and resident status determines tax incidence, FEMA applicability, and banking permissions. The determination requires careful analysis of physical presence across multiple years — a single error can result in unexpected tax exposure on global income.",
     ],
 
     industries: [
-      "NRIs & Returning NRIs",
-      "Foreign Investors & HNIs",
-      "Overseas Corporates",
-      "Cross‑border Joint Ventures",
+      "NRIs & Persons of Indian Origin (PIOs)",
+      "Foreign Nationals & Expatriates in India",
+      "Foreign Companies & Multinationals Entering India",
+      "NRI Entrepreneurs & HNIs with India Assets",
     ],
 
     tools: [
-      "FEMA & RBI regulations",
-      "Double Taxation Avoidance Agreements (DTAA)",
-      "Income Tax Act & Rules",
-      "MCA & corporate law frameworks",
+      "FEMA & RBI Compliance — Non-Negotiable",
+      "Sec 90/90A treaty framework and DTAA network",
+      "Documentation is the First Line of Defence",
+      "Residency Status Changes Everything",
     ],
 
     subservices: [
       {
         slug: "business-setup-india",
-        title: "Business Setup in India",
-        summary:
-          "Incorporation and setup of subsidiaries, branch, liaison, and project offices for foreign entities.",
+        title: "Business Setup & Entry Structuring",
+        summary: [
+          "Entry into India involves a multi-step regulatory process spanning FEMA, Companies Act, and RBI approvals that must be sequenced correctly.",
+          "We evaluate the right entry vehicle, execute incorporation and registration, and manage the first-year compliance calendar end-to-end.",
+        ],
+        scope:
+          "Incorporation, RBI/FEMA approvals, MCA compliance, and governance support for foreign entities entering India.",
         items: [
-          "Evaluation of suitable entry and entity options",
-          "Incorporation of subsidiaries, branch, liaison, and project offices",
-          "Approvals and filings with MCA, RBI, and other authorities",
-          "Ongoing compliance calendar and governance support",
+          "Entry vehicle evaluation — subsidiary, branch, liaison office, project office, LLP",
+          "FDI route analysis — automatic route vs government approval and sectoral caps",
+          "MCA incorporation filings and RBI approvals where applicable",
+          "FC-GPR and FC-TRS filings for issuance and transfer of equity instruments",
+          "Director identification, governance setup, and registered office compliance",
+          "Annual compliance calendar — MCA filings, FEMA annual returns (FLA), AGM obligations",
+          "PE risk review for liaison and project office activity scope",
+          "ICAI-aligned certification support under FEMA reporting requirements",
         ],
         metaTitle:
           "Business Setup in India for Foreign Companies & NRIs – Subsidiary, Branch, LO, PO",
@@ -1013,13 +1027,20 @@ const servicesList: Service[] = [
       {
         slug: "international-tax",
         title: "International Taxation & Return Filing",
-        summary:
-          "International tax advisory, DTAA interpretation, and ITR filing for NRIs and foreign entities.",
+        summary: [
+          "NRI taxation requires parallel interpretation of Indian domestic law and the applicable DTAA.",
+          "We begin with residency determination and income characterisation, then compute tax and execute filings with complete disclosure.",
+        ],
+        scope:
+          "DTAA analysis, capital gains structuring, NRI return filing, and Section 195 withholding advisory.",
         items: [
-          "Advisory on capital gains, royalty, interest, and fee for technical services",
-          "DTAA analysis and treaty benefit evaluation",
-          "ITR filing for NRIs, foreign companies, and LLPs with Indian income",
-          "Representation before Indian tax authorities as required",
+          "Residency determination — NRI, RNOR, or Resident — under Sec 6 ITA and ITA 2025",
+          "DTAA analysis — treaty entitlement, TRC verification, Form 10F filing",
+          "Capital gains computation on Indian property, equity, and mutual funds with correct cost-basis and indexation",
+          "Advisory on royalty, interest, FTS (Fee for Technical Services), and dividend income under DTAA",
+          "Sec 195 TDS advisory — determining applicable rate, preparing Form 15CA/CB, coordinating with deductor",
+          "ITR filing — ITR-2, ITR-3, or ITR-5 as applicable — with Schedule FA (foreign assets) and Schedule FSI",
+          "Representation in case of notices from Income Tax Department, AIS/TIS reconciliation",
         ],
         metaTitle:
           "International Tax & NRI Return Filing | DTAA & Cross‑Border Taxation",
@@ -1033,14 +1054,21 @@ const servicesList: Service[] = [
       },
       {
         slug: "remittance-repatriation",
-        title: "Remittance & Repatriation Support",
-        summary:
-          "Guidance on remitting funds to and from India in line with RBI and FEMA rules.",
+        title: "Remittance & Repatriation Advisory",
+        summary: [
+          "Repatriation requires accurate classification of repatriable funds, RBI limits, and tax clearance requirements.",
+          "We structure the transaction, prepare complete documentation packs, and liaise with AD banks through closure.",
+        ],
+        scope:
+          "Structuring, documentation, and bank coordination for remittances from NRO accounts, inherited assets, and property proceeds.",
         items: [
-          "Advisory on repatriation of income and sale proceeds",
-          "Support for foreign remittances under LRS",
-          "Structuring and documentation for NRO/NRE account transactions",
-          "Liaison with banks for documentation and certificates",
+          "NRO to NRE transfer structuring — income vs capital receipts, USD 1 million per year limit", 
+          "Repatriation of property sale proceeds — FEMA compliance, 15CA/CB, income tax clearance",
+          "Repatriation of inherited assets — Section 6(5) FEMA, succession documentation",
+          "Remittance under LRS (Liberalised Remittance Scheme) for resident individuals — structuring and TCS management",
+          "NRO/NRE account structuring at account opening stage — avoiding future repatriation restrictions",
+          "Coordination with authorised dealer (AD) banks on documentation requirements",
+          "RBI compounding of FEMA violations — guidance and representation where prior non-compliance exists",
         ],
         metaTitle:
           "Remittance & Repatriation Support for NRIs | NRO/NRE, LRS, RBI",
@@ -1054,14 +1082,22 @@ const servicesList: Service[] = [
       },
       {
         slug: "nri-legal-regulatory",
-        title: "Legal & Regulatory Consulting for NRIs",
-        summary:
-          "Support for property, rental income, contracts, and regulatory representations in India.",
+        title: "NRI Legal, Property & Regulatory Advisory",
+        summary: [
+          "NRIs with Indian real estate, business interests, or inherited assets face overlapping tax, FEMA, and succession obligations.",
+          "We integrate tax, FEMA, and documentation dimensions into one advisory stream for complete visibility of India obligations.",
+        ],
+        scope:
+          "Property tax compliance, agreement review, inherited asset support, and representation before ITD, RBI, and MCA.",
         items: [
-          "Review and drafting of service, investment, and lease agreements",
-          "Tax and compliance management for Indian immovable property",
-          "Support in sale of inherited or gifted assets",
-          "Representation before regulators such as ITD, RBI, and MCA",
+         " Tax compliance on rental income from Indian property — ITR filing, advance tax, TDS reconciliation",
+          "Capital gains planning on property sale — pre-sale structuring, Section 54/54F reinvestment, DTAA applicability",
+          "FEMA permissions for acquisition and sale of Indian property by NRIs and PIOs",
+          "Review and advisory on sale deeds, lease agreements, and joint development arrangements",
+          "Inherited and gifted asset compliance — FEMA permissions, succession certificate assistance, tax computation",
+          "Power of Attorney structuring for NRI property management",
+          "Representation before Income Tax Department — notices, scrutiny assessment, appeal management",
+          "Representation before RBI/Enforcement Directorate in FEMA matters",
         ],
         metaTitle:
           "Legal & Regulatory Consulting for NRIs | Property, Contracts & Compliance",
@@ -1075,11 +1111,38 @@ const servicesList: Service[] = [
       },
     ],
 
+    faqs: [
+      {
+        q: "Am I an NRI? How is NRI status determined under Indian tax law?",
+        a: "Under Section 6 of the Income Tax Act, an individual is a non-resident in a tax year if they do not satisfy the prescribed physical presence tests. A separate category — RNOR (Resident but Not Ordinarily Resident) — applies where historical presence thresholds are met, often offering partial non-resident style treatment for foreign income. ITA 2025 revises these conditions from AY 2026-27, so status should be evaluated annually. NRI determination under FEMA uses a different definition, which can create planning conflicts that require transaction-level structuring.\n\nLaw: Sec 6, ITA 1961 / ITA 2025 · FEMA 1999 Sec 2(w)",
+      },
+      {
+        q: "What is Form 15CA and Form 15CB? Who is responsible for filing them?",
+        a: "Form 15CA is an online declaration by the remitter before payment to a non-resident. Form 15CB is a Chartered Accountant certificate confirming remittance nature, applicable tax rate (domestic or treaty), and withholding position. The CA is responsible for a proper examination of underlying documents, taxability, and DTAA applicability; it is not a routine issuance. Some remittances may be exempt from 15CB, but the correct 15CA part classification must still be established.\n\nLaw: Rule 37BB, Income Tax Rules · Sec 195, ITA · ICAI GN on Form 15CB",
+      },
+      {
+        q: "Can an NRI buy and sell property in India? What FEMA rules apply?",
+        a: "NRIs and PIOs can generally purchase residential and commercial property in India under FEMA rules, while agricultural land, plantation property, and farmhouses remain restricted except in permitted circumstances. On sale, repatriation depends on source of acquisition funds, FEMA conditions, and documentary compliance. NRO-linked repatriation is typically subject to annual limits and requires Form 15CA/15CB with tax clearance. Inherited property and gifted assets involve additional FEMA and succession considerations.\n\nLaw: FEMA Notification 5(R)/2016 · RBI Master Directions · Sec 195, ITA",
+      },
+      {
+        q: "How does a DTAA reduce tax on Indian income, and what documents are needed?",
+        a: "A DTAA can reduce withholding and final tax incidence on specified incomes, including interest, dividends, royalties, technical services, and certain capital gains, where treaty provisions are more beneficial than domestic law. Claiming treaty relief requires a valid Tax Residency Certificate (TRC), Form 10F compliance, and treaty-article level analysis. With MLI and PPT standards now embedded in many treaties, substance and purpose analysis is often necessary before claiming reduced rates.\n\nLaw: Sec 90/90A, ITA · TRC/Form 10F framework · MLI/PPT standards",
+      },
+      {
+        q: "Is it mandatory for NRIs to file an income tax return in India?",
+        a: "If taxable Indian-source income exceeds the applicable threshold, return filing is generally mandatory. In many cases, filing is advisable even below threshold to claim TDS refunds or document treaty positions. Typical income heads include rental income, capital gains, NRO interest, dividends, and business-linked Indian income. Non-filing can trigger interest, penalties, and prolonged compliance exposure during banking or regulatory review.\n\nLaw: Sec 139(1), ITA · Penalty and prosecution provisions as applicable",
+      },
+      {
+        q: "What is the FLA return and who is required to file it?",
+        a: "The Annual Return on Foreign Liabilities and Assets (FLA) is filed with RBI by eligible Indian entities with foreign liabilities and/or foreign assets. It captures annual stock positions and is distinct from transactional filings like FC-GPR or FC-TRS. Filing is generally due by July 15 each year and non-compliance can attract FEMA consequences. Businesses with prior foreign investment exposure should review FLA applicability every year, including transitional years.",
+      },
+    ],
+
     cta: {
       title: "Manage Your India Interests with Confidence",
       subtitle:
-        "A single CA partner for your tax, FEMA, banking, and regulatory needs in India.",
-      buttonText: "Consult for NRI Services",
+        "A single CA partner for your tax, FEMA, banking, and regulatory needs in India — structured, documented, and defensible at every step.",
+      buttonText: "Schedule an NRI Advisory Call",
     },
   },
 
